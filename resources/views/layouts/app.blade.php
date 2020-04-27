@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="h-full text-gray-900" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,67 +14,77 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="flex flex-col h-full">
+    <header class="py-4 bg-gray-100 border-b border-gray-200">
+        <div class="container md:flex md:justify-between md:items-center">
+            <a class="flex justify-center items-center mb-2 text-xl leading-none md:justify-start md:mb-0" href="{{ url('/') }}">
+                <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" height="40" width="40"><span>{{ config('app.name', 'Laravel') }}</span>
+            </a>
+            <nav>
+                <ul class="flex justify-center md:justify-around">
+                    <li class="mr-8">
+                        <a class="hover:text-green-600 hover:underline focus:text-green-600 focus:underline"
+                           href="">
+                            {{ __('Create Poll') }}
+                        </a>
+                    </li>
+                    <li class="mr-8">
+                        <a class="hover:text-green-600 hover:underline focus:text-green-600 focus:underline"
+                           href="">
+                            {{ __('View Polls') }}
+                        </a>
+                    </li>
+                    @guest
+                        <li class="mr-8">
+                            <a class="hover:text-green-600 hover:underline focus:text-green-600 focus:underline"
+                               href="{{ route('login') }}">
+                                {{ __('Login') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:text-green-600 hover:underline focus:text-green-600 focus:underline"
+                               href="{{ route('register') }}">
+                                {{ __('Signup') }}
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a class="hover:text-green-600 hover:underline focus:text-green-600 focus:underline"
+                               href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+    <main class="flex-grow flex-shrink-0 my-12">
+        @yield('content')
+    </main>
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <footer class="flex-shrink-0 py-4 text-sm bg-green-100 border-t border-green-200">
+        <div class="container md:flex md:justify-between md:items-center">
+            <ul class="flex justify-center mb-2 md:justify-around md:mb-0">
+                <li class="mr-8">
+                    <a class="hover:underline focus:underline" href="{{ url('/terms-of-use') }}">{{ __('Terms of Use') }}</a>
+                </li>
+                <li>
+                    <a class="hover:underline focus:underline" href="{{ url('/privacy-policy') }}">{{ __('Privacy Policy') }}</a>
+                </li>
+            </ul>
+            <small class="block text-center text-sm md:text-left">&copy; {{ __('Copyright') }} {{ now()->year }} {{ config('app.name', 'Laravel') }}</small>
+        </div>
+    </footer>
 </body>
 </html>
