@@ -451,7 +451,7 @@ html {
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
-  border-color: hsl(0, 0%, 81%); /* 2 */
+  border-color: hsl(0, 0%, 69%); /* 2 */
 }
 
 /*
@@ -1163,20 +1163,24 @@ video {
   border-color: #fff;
 }
 
-.divide-gray-100 > :not(template) ~ :not(template) {
+.divide-gray-50 > :not(template) ~ :not(template) {
   border-color: hsl(0, 0%, 97%);
 }
 
-.divide-gray-200 > :not(template) ~ :not(template) {
+.divide-gray-100 > :not(template) ~ :not(template) {
   border-color: hsl(0, 0%, 88%);
 }
 
-.divide-gray-300 > :not(template) ~ :not(template) {
+.divide-gray-200 > :not(template) ~ :not(template) {
   border-color: hsl(0, 0%, 81%);
 }
 
-.divide-gray-400 > :not(template) ~ :not(template) {
+.divide-gray-300 > :not(template) ~ :not(template) {
   border-color: hsl(0, 0%, 69%);
+}
+
+.divide-gray-400 > :not(template) ~ :not(template) {
+  border-color: hsl(0, 0%, 62%);
 }
 
 .divide-gray-500 > :not(template) ~ :not(template) {
@@ -1307,16 +1311,20 @@ video {
   border-color: #744210;
 }
 
-.divide-green-100 > :not(template) ~ :not(template) {
+.divide-green-50 > :not(template) ~ :not(template) {
   border-color: hsl(125, 65%, 93%);
 }
 
-.divide-green-200 > :not(template) ~ :not(template) {
+.divide-green-100 > :not(template) ~ :not(template) {
   border-color: hsl(126, 49%, 84%);
 }
 
-.divide-green-300 > :not(template) ~ :not(template) {
+.divide-green-200 > :not(template) ~ :not(template) {
   border-color: hsl(122, 42%, 75%);
+}
+
+.divide-green-300 > :not(template) ~ :not(template) {
+  border-color: hsl(123, 38%, 63%);
 }
 
 .divide-green-400 > :not(template) ~ :not(template) {
@@ -1603,20 +1611,24 @@ video {
   background-color: #fff;
 }
 
-.bg-gray-100 {
+.bg-gray-50 {
   background-color: hsl(0, 0%, 97%);
 }
 
-.bg-gray-200 {
+.bg-gray-100 {
   background-color: hsl(0, 0%, 88%);
 }
 
-.bg-gray-300 {
+.bg-gray-200 {
   background-color: hsl(0, 0%, 81%);
 }
 
-.bg-gray-400 {
+.bg-gray-300 {
   background-color: hsl(0, 0%, 69%);
+}
+
+.bg-gray-400 {
+  background-color: hsl(0, 0%, 62%);
 }
 
 .bg-gray-500 {
@@ -1747,16 +1759,20 @@ video {
   background-color: #744210;
 }
 
-.bg-green-100 {
+.bg-green-50 {
   background-color: hsl(125, 65%, 93%);
 }
 
-.bg-green-200 {
+.bg-green-100 {
   background-color: hsl(126, 49%, 84%);
 }
 
-.bg-green-300 {
+.bg-green-200 {
   background-color: hsl(122, 42%, 75%);
+}
+
+.bg-green-300 {
+  background-color: hsl(123, 38%, 63%);
 }
 
 .bg-green-400 {
@@ -1979,20 +1995,24 @@ video {
   background-color: #fff;
 }
 
-.hover\:bg-gray-100:hover {
+.hover\:bg-gray-50:hover {
   background-color: hsl(0, 0%, 97%);
 }
 
-.hover\:bg-gray-200:hover {
+.hover\:bg-gray-100:hover {
   background-color: hsl(0, 0%, 88%);
 }
 
-.hover\:bg-gray-300:hover {
+.hover\:bg-gray-200:hover {
   background-color: hsl(0, 0%, 81%);
 }
 
-.hover\:bg-gray-400:hover {
+.hover\:bg-gray-300:hover {
   background-color: hsl(0, 0%, 69%);
+}
+
+.hover\:bg-gray-400:hover {
+  background-color: hsl(0, 0%, 62%);
 }
 
 .hover\:bg-gray-500:hover {
@@ -2123,16 +2143,20 @@ video {
   background-color: #744210;
 }
 
-.hover\:bg-green-100:hover {
+.hover\:bg-green-50:hover {
   background-color: hsl(125, 65%, 93%);
 }
 
-.hover\:bg-green-200:hover {
+.hover\:bg-green-100:hover {
   background-color: hsl(126, 49%, 84%);
 }
 
-.hover\:bg-green-300:hover {
+.hover\:bg-green-200:hover {
   background-color: hsl(122, 42%, 75%);
+}
+
+.hover\:bg-green-300:hover {
+  background-color: hsl(123, 38%, 63%);
 }
 
 .hover\:bg-green-400:hover {
@@ -2355,20 +2379,24 @@ video {
   background-color: #fff;
 }
 
-.focus\:bg-gray-100:focus {
+.focus\:bg-gray-50:focus {
   background-color: hsl(0, 0%, 97%);
 }
 
-.focus\:bg-gray-200:focus {
+.focus\:bg-gray-100:focus {
   background-color: hsl(0, 0%, 88%);
 }
 
-.focus\:bg-gray-300:focus {
+.focus\:bg-gray-200:focus {
   background-color: hsl(0, 0%, 81%);
 }
 
-.focus\:bg-gray-400:focus {
+.focus\:bg-gray-300:focus {
   background-color: hsl(0, 0%, 69%);
+}
+
+.focus\:bg-gray-400:focus {
+  background-color: hsl(0, 0%, 62%);
 }
 
 .focus\:bg-gray-500:focus {
@@ -2499,16 +2527,20 @@ video {
   background-color: #744210;
 }
 
-.focus\:bg-green-100:focus {
+.focus\:bg-green-50:focus {
   background-color: hsl(125, 65%, 93%);
 }
 
-.focus\:bg-green-200:focus {
+.focus\:bg-green-100:focus {
   background-color: hsl(126, 49%, 84%);
 }
 
-.focus\:bg-green-300:focus {
+.focus\:bg-green-200:focus {
   background-color: hsl(122, 42%, 75%);
+}
+
+.focus\:bg-green-300:focus {
+  background-color: hsl(123, 38%, 63%);
 }
 
 .focus\:bg-green-400:focus {
@@ -2811,20 +2843,24 @@ video {
   border-color: #fff;
 }
 
-.border-gray-100 {
+.border-gray-50 {
   border-color: hsl(0, 0%, 97%);
 }
 
-.border-gray-200 {
+.border-gray-100 {
   border-color: hsl(0, 0%, 88%);
 }
 
-.border-gray-300 {
+.border-gray-200 {
   border-color: hsl(0, 0%, 81%);
 }
 
-.border-gray-400 {
+.border-gray-300 {
   border-color: hsl(0, 0%, 69%);
+}
+
+.border-gray-400 {
+  border-color: hsl(0, 0%, 62%);
 }
 
 .border-gray-500 {
@@ -2955,16 +2991,20 @@ video {
   border-color: #744210;
 }
 
-.border-green-100 {
+.border-green-50 {
   border-color: hsl(125, 65%, 93%);
 }
 
-.border-green-200 {
+.border-green-100 {
   border-color: hsl(126, 49%, 84%);
 }
 
-.border-green-300 {
+.border-green-200 {
   border-color: hsl(122, 42%, 75%);
+}
+
+.border-green-300 {
+  border-color: hsl(123, 38%, 63%);
 }
 
 .border-green-400 {
@@ -3187,20 +3227,24 @@ video {
   border-color: #fff;
 }
 
-.hover\:border-gray-100:hover {
+.hover\:border-gray-50:hover {
   border-color: hsl(0, 0%, 97%);
 }
 
-.hover\:border-gray-200:hover {
+.hover\:border-gray-100:hover {
   border-color: hsl(0, 0%, 88%);
 }
 
-.hover\:border-gray-300:hover {
+.hover\:border-gray-200:hover {
   border-color: hsl(0, 0%, 81%);
 }
 
-.hover\:border-gray-400:hover {
+.hover\:border-gray-300:hover {
   border-color: hsl(0, 0%, 69%);
+}
+
+.hover\:border-gray-400:hover {
+  border-color: hsl(0, 0%, 62%);
 }
 
 .hover\:border-gray-500:hover {
@@ -3331,16 +3375,20 @@ video {
   border-color: #744210;
 }
 
-.hover\:border-green-100:hover {
+.hover\:border-green-50:hover {
   border-color: hsl(125, 65%, 93%);
 }
 
-.hover\:border-green-200:hover {
+.hover\:border-green-100:hover {
   border-color: hsl(126, 49%, 84%);
 }
 
-.hover\:border-green-300:hover {
+.hover\:border-green-200:hover {
   border-color: hsl(122, 42%, 75%);
+}
+
+.hover\:border-green-300:hover {
+  border-color: hsl(123, 38%, 63%);
 }
 
 .hover\:border-green-400:hover {
@@ -3563,20 +3611,24 @@ video {
   border-color: #fff;
 }
 
-.focus\:border-gray-100:focus {
+.focus\:border-gray-50:focus {
   border-color: hsl(0, 0%, 97%);
 }
 
-.focus\:border-gray-200:focus {
+.focus\:border-gray-100:focus {
   border-color: hsl(0, 0%, 88%);
 }
 
-.focus\:border-gray-300:focus {
+.focus\:border-gray-200:focus {
   border-color: hsl(0, 0%, 81%);
 }
 
-.focus\:border-gray-400:focus {
+.focus\:border-gray-300:focus {
   border-color: hsl(0, 0%, 69%);
+}
+
+.focus\:border-gray-400:focus {
+  border-color: hsl(0, 0%, 62%);
 }
 
 .focus\:border-gray-500:focus {
@@ -3707,16 +3759,20 @@ video {
   border-color: #744210;
 }
 
-.focus\:border-green-100:focus {
+.focus\:border-green-50:focus {
   border-color: hsl(125, 65%, 93%);
 }
 
-.focus\:border-green-200:focus {
+.focus\:border-green-100:focus {
   border-color: hsl(126, 49%, 84%);
 }
 
-.focus\:border-green-300:focus {
+.focus\:border-green-200:focus {
   border-color: hsl(122, 42%, 75%);
+}
+
+.focus\:border-green-300:focus {
+  border-color: hsl(123, 38%, 63%);
 }
 
 .focus\:border-green-400:focus {
@@ -7021,84 +7077,104 @@ video {
   color: #fff;
 }
 
-.placeholder-gray-100::-webkit-input-placeholder {
+.placeholder-gray-50::-webkit-input-placeholder {
   color: hsl(0, 0%, 97%);
+}
+
+.placeholder-gray-50::-moz-placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.placeholder-gray-50:-ms-input-placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.placeholder-gray-50::-ms-input-placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.placeholder-gray-50::placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.placeholder-gray-100::-webkit-input-placeholder {
+  color: hsl(0, 0%, 88%);
 }
 
 .placeholder-gray-100::-moz-placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .placeholder-gray-100:-ms-input-placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .placeholder-gray-100::-ms-input-placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .placeholder-gray-100::placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .placeholder-gray-200::-webkit-input-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .placeholder-gray-200::-moz-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .placeholder-gray-200:-ms-input-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .placeholder-gray-200::-ms-input-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .placeholder-gray-200::placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .placeholder-gray-300::-webkit-input-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .placeholder-gray-300::-moz-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .placeholder-gray-300:-ms-input-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .placeholder-gray-300::-ms-input-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .placeholder-gray-300::placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .placeholder-gray-400::-webkit-input-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .placeholder-gray-400::-moz-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .placeholder-gray-400:-ms-input-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .placeholder-gray-400::-ms-input-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .placeholder-gray-400::placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .placeholder-gray-500::-webkit-input-placeholder {
@@ -7741,64 +7817,84 @@ video {
   color: #744210;
 }
 
-.placeholder-green-100::-webkit-input-placeholder {
+.placeholder-green-50::-webkit-input-placeholder {
   color: hsl(125, 65%, 93%);
+}
+
+.placeholder-green-50::-moz-placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.placeholder-green-50:-ms-input-placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.placeholder-green-50::-ms-input-placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.placeholder-green-50::placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.placeholder-green-100::-webkit-input-placeholder {
+  color: hsl(126, 49%, 84%);
 }
 
 .placeholder-green-100::-moz-placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .placeholder-green-100:-ms-input-placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .placeholder-green-100::-ms-input-placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .placeholder-green-100::placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .placeholder-green-200::-webkit-input-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .placeholder-green-200::-moz-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .placeholder-green-200:-ms-input-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .placeholder-green-200::-ms-input-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .placeholder-green-200::placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .placeholder-green-300::-webkit-input-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .placeholder-green-300::-moz-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .placeholder-green-300:-ms-input-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .placeholder-green-300::-ms-input-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .placeholder-green-300::placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .placeholder-green-400::-webkit-input-placeholder {
@@ -8901,84 +8997,104 @@ video {
   color: #fff;
 }
 
-.focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+.focus\:placeholder-gray-50:focus::-webkit-input-placeholder {
   color: hsl(0, 0%, 97%);
+}
+
+.focus\:placeholder-gray-50:focus::-moz-placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.focus\:placeholder-gray-50:focus:-ms-input-placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.focus\:placeholder-gray-50:focus::-ms-input-placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.focus\:placeholder-gray-50:focus::placeholder {
+  color: hsl(0, 0%, 97%);
+}
+
+.focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+  color: hsl(0, 0%, 88%);
 }
 
 .focus\:placeholder-gray-100:focus::-moz-placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .focus\:placeholder-gray-100:focus:-ms-input-placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .focus\:placeholder-gray-100:focus::-ms-input-placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .focus\:placeholder-gray-100:focus::placeholder {
-  color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 88%);
 }
 
 .focus\:placeholder-gray-200:focus::-webkit-input-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .focus\:placeholder-gray-200:focus::-moz-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .focus\:placeholder-gray-200:focus:-ms-input-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .focus\:placeholder-gray-200:focus::-ms-input-placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .focus\:placeholder-gray-200:focus::placeholder {
-  color: hsl(0, 0%, 88%);
+  color: hsl(0, 0%, 81%);
 }
 
 .focus\:placeholder-gray-300:focus::-webkit-input-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .focus\:placeholder-gray-300:focus::-moz-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .focus\:placeholder-gray-300:focus:-ms-input-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .focus\:placeholder-gray-300:focus::-ms-input-placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .focus\:placeholder-gray-300:focus::placeholder {
-  color: hsl(0, 0%, 81%);
+  color: hsl(0, 0%, 69%);
 }
 
 .focus\:placeholder-gray-400:focus::-webkit-input-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .focus\:placeholder-gray-400:focus::-moz-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .focus\:placeholder-gray-400:focus:-ms-input-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .focus\:placeholder-gray-400:focus::-ms-input-placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .focus\:placeholder-gray-400:focus::placeholder {
-  color: hsl(0, 0%, 69%);
+  color: hsl(0, 0%, 62%);
 }
 
 .focus\:placeholder-gray-500:focus::-webkit-input-placeholder {
@@ -9621,64 +9737,84 @@ video {
   color: #744210;
 }
 
-.focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+.focus\:placeholder-green-50:focus::-webkit-input-placeholder {
   color: hsl(125, 65%, 93%);
+}
+
+.focus\:placeholder-green-50:focus::-moz-placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.focus\:placeholder-green-50:focus:-ms-input-placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.focus\:placeholder-green-50:focus::-ms-input-placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.focus\:placeholder-green-50:focus::placeholder {
+  color: hsl(125, 65%, 93%);
+}
+
+.focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+  color: hsl(126, 49%, 84%);
 }
 
 .focus\:placeholder-green-100:focus::-moz-placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .focus\:placeholder-green-100:focus:-ms-input-placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .focus\:placeholder-green-100:focus::-ms-input-placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .focus\:placeholder-green-100:focus::placeholder {
-  color: hsl(125, 65%, 93%);
+  color: hsl(126, 49%, 84%);
 }
 
 .focus\:placeholder-green-200:focus::-webkit-input-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .focus\:placeholder-green-200:focus::-moz-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .focus\:placeholder-green-200:focus:-ms-input-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .focus\:placeholder-green-200:focus::-ms-input-placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .focus\:placeholder-green-200:focus::placeholder {
-  color: hsl(126, 49%, 84%);
+  color: hsl(122, 42%, 75%);
 }
 
 .focus\:placeholder-green-300:focus::-webkit-input-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .focus\:placeholder-green-300:focus::-moz-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .focus\:placeholder-green-300:focus:-ms-input-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .focus\:placeholder-green-300:focus::-ms-input-placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .focus\:placeholder-green-300:focus::placeholder {
-  color: hsl(122, 42%, 75%);
+  color: hsl(123, 38%, 63%);
 }
 
 .focus\:placeholder-green-400:focus::-webkit-input-placeholder {
@@ -10992,20 +11128,24 @@ video {
   color: #fff;
 }
 
-.text-gray-100 {
+.text-gray-50 {
   color: hsl(0, 0%, 97%);
 }
 
-.text-gray-200 {
+.text-gray-100 {
   color: hsl(0, 0%, 88%);
 }
 
-.text-gray-300 {
+.text-gray-200 {
   color: hsl(0, 0%, 81%);
 }
 
-.text-gray-400 {
+.text-gray-300 {
   color: hsl(0, 0%, 69%);
+}
+
+.text-gray-400 {
+  color: hsl(0, 0%, 62%);
 }
 
 .text-gray-500 {
@@ -11136,16 +11276,20 @@ video {
   color: #744210;
 }
 
-.text-green-100 {
+.text-green-50 {
   color: hsl(125, 65%, 93%);
 }
 
-.text-green-200 {
+.text-green-100 {
   color: hsl(126, 49%, 84%);
 }
 
-.text-green-300 {
+.text-green-200 {
   color: hsl(122, 42%, 75%);
+}
+
+.text-green-300 {
+  color: hsl(123, 38%, 63%);
 }
 
 .text-green-400 {
@@ -11368,20 +11512,24 @@ video {
   color: #fff;
 }
 
-.hover\:text-gray-100:hover {
+.hover\:text-gray-50:hover {
   color: hsl(0, 0%, 97%);
 }
 
-.hover\:text-gray-200:hover {
+.hover\:text-gray-100:hover {
   color: hsl(0, 0%, 88%);
 }
 
-.hover\:text-gray-300:hover {
+.hover\:text-gray-200:hover {
   color: hsl(0, 0%, 81%);
 }
 
-.hover\:text-gray-400:hover {
+.hover\:text-gray-300:hover {
   color: hsl(0, 0%, 69%);
+}
+
+.hover\:text-gray-400:hover {
+  color: hsl(0, 0%, 62%);
 }
 
 .hover\:text-gray-500:hover {
@@ -11512,16 +11660,20 @@ video {
   color: #744210;
 }
 
-.hover\:text-green-100:hover {
+.hover\:text-green-50:hover {
   color: hsl(125, 65%, 93%);
 }
 
-.hover\:text-green-200:hover {
+.hover\:text-green-100:hover {
   color: hsl(126, 49%, 84%);
 }
 
-.hover\:text-green-300:hover {
+.hover\:text-green-200:hover {
   color: hsl(122, 42%, 75%);
+}
+
+.hover\:text-green-300:hover {
+  color: hsl(123, 38%, 63%);
 }
 
 .hover\:text-green-400:hover {
@@ -11744,20 +11896,24 @@ video {
   color: #fff;
 }
 
-.focus\:text-gray-100:focus {
+.focus\:text-gray-50:focus {
   color: hsl(0, 0%, 97%);
 }
 
-.focus\:text-gray-200:focus {
+.focus\:text-gray-100:focus {
   color: hsl(0, 0%, 88%);
 }
 
-.focus\:text-gray-300:focus {
+.focus\:text-gray-200:focus {
   color: hsl(0, 0%, 81%);
 }
 
-.focus\:text-gray-400:focus {
+.focus\:text-gray-300:focus {
   color: hsl(0, 0%, 69%);
+}
+
+.focus\:text-gray-400:focus {
+  color: hsl(0, 0%, 62%);
 }
 
 .focus\:text-gray-500:focus {
@@ -11888,16 +12044,20 @@ video {
   color: #744210;
 }
 
-.focus\:text-green-100:focus {
+.focus\:text-green-50:focus {
   color: hsl(125, 65%, 93%);
 }
 
-.focus\:text-green-200:focus {
+.focus\:text-green-100:focus {
   color: hsl(126, 49%, 84%);
 }
 
-.focus\:text-green-300:focus {
+.focus\:text-green-200:focus {
   color: hsl(122, 42%, 75%);
+}
+
+.focus\:text-green-300:focus {
+  color: hsl(123, 38%, 63%);
 }
 
 .focus\:text-green-400:focus {
@@ -15495,20 +15655,24 @@ video {
     border-color: #fff;
   }
 
-  .sm\:divide-gray-100 > :not(template) ~ :not(template) {
+  .sm\:divide-gray-50 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:divide-gray-200 > :not(template) ~ :not(template) {
+  .sm\:divide-gray-100 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:divide-gray-300 > :not(template) ~ :not(template) {
+  .sm\:divide-gray-200 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:divide-gray-400 > :not(template) ~ :not(template) {
+  .sm\:divide-gray-300 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:divide-gray-400 > :not(template) ~ :not(template) {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .sm\:divide-gray-500 > :not(template) ~ :not(template) {
@@ -15639,16 +15803,20 @@ video {
     border-color: #744210;
   }
 
-  .sm\:divide-green-100 > :not(template) ~ :not(template) {
+  .sm\:divide-green-50 > :not(template) ~ :not(template) {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:divide-green-200 > :not(template) ~ :not(template) {
+  .sm\:divide-green-100 > :not(template) ~ :not(template) {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:divide-green-300 > :not(template) ~ :not(template) {
+  .sm\:divide-green-200 > :not(template) ~ :not(template) {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:divide-green-300 > :not(template) ~ :not(template) {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .sm\:divide-green-400 > :not(template) ~ :not(template) {
@@ -15935,20 +16103,24 @@ video {
     background-color: #fff;
   }
 
-  .sm\:bg-gray-100 {
+  .sm\:bg-gray-50 {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:bg-gray-200 {
+  .sm\:bg-gray-100 {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:bg-gray-300 {
+  .sm\:bg-gray-200 {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:bg-gray-400 {
+  .sm\:bg-gray-300 {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:bg-gray-400 {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .sm\:bg-gray-500 {
@@ -16079,16 +16251,20 @@ video {
     background-color: #744210;
   }
 
-  .sm\:bg-green-100 {
+  .sm\:bg-green-50 {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:bg-green-200 {
+  .sm\:bg-green-100 {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:bg-green-300 {
+  .sm\:bg-green-200 {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:bg-green-300 {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .sm\:bg-green-400 {
@@ -16311,20 +16487,24 @@ video {
     background-color: #fff;
   }
 
-  .sm\:hover\:bg-gray-100:hover {
+  .sm\:hover\:bg-gray-50:hover {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:hover\:bg-gray-200:hover {
+  .sm\:hover\:bg-gray-100:hover {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:hover\:bg-gray-300:hover {
+  .sm\:hover\:bg-gray-200:hover {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:hover\:bg-gray-400:hover {
+  .sm\:hover\:bg-gray-300:hover {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:hover\:bg-gray-400:hover {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .sm\:hover\:bg-gray-500:hover {
@@ -16455,16 +16635,20 @@ video {
     background-color: #744210;
   }
 
-  .sm\:hover\:bg-green-100:hover {
+  .sm\:hover\:bg-green-50:hover {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:hover\:bg-green-200:hover {
+  .sm\:hover\:bg-green-100:hover {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:hover\:bg-green-300:hover {
+  .sm\:hover\:bg-green-200:hover {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:hover\:bg-green-300:hover {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .sm\:hover\:bg-green-400:hover {
@@ -16687,20 +16871,24 @@ video {
     background-color: #fff;
   }
 
-  .sm\:focus\:bg-gray-100:focus {
+  .sm\:focus\:bg-gray-50:focus {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:focus\:bg-gray-200:focus {
+  .sm\:focus\:bg-gray-100:focus {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:focus\:bg-gray-300:focus {
+  .sm\:focus\:bg-gray-200:focus {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:focus\:bg-gray-400:focus {
+  .sm\:focus\:bg-gray-300:focus {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:focus\:bg-gray-400:focus {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:bg-gray-500:focus {
@@ -16831,16 +17019,20 @@ video {
     background-color: #744210;
   }
 
-  .sm\:focus\:bg-green-100:focus {
+  .sm\:focus\:bg-green-50:focus {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:focus\:bg-green-200:focus {
+  .sm\:focus\:bg-green-100:focus {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:focus\:bg-green-300:focus {
+  .sm\:focus\:bg-green-200:focus {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:focus\:bg-green-300:focus {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:bg-green-400:focus {
@@ -17143,20 +17335,24 @@ video {
     border-color: #fff;
   }
 
-  .sm\:border-gray-100 {
+  .sm\:border-gray-50 {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:border-gray-200 {
+  .sm\:border-gray-100 {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:border-gray-300 {
+  .sm\:border-gray-200 {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:border-gray-400 {
+  .sm\:border-gray-300 {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:border-gray-400 {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .sm\:border-gray-500 {
@@ -17287,16 +17483,20 @@ video {
     border-color: #744210;
   }
 
-  .sm\:border-green-100 {
+  .sm\:border-green-50 {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:border-green-200 {
+  .sm\:border-green-100 {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:border-green-300 {
+  .sm\:border-green-200 {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:border-green-300 {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .sm\:border-green-400 {
@@ -17519,20 +17719,24 @@ video {
     border-color: #fff;
   }
 
-  .sm\:hover\:border-gray-100:hover {
+  .sm\:hover\:border-gray-50:hover {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:hover\:border-gray-200:hover {
+  .sm\:hover\:border-gray-100:hover {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:hover\:border-gray-300:hover {
+  .sm\:hover\:border-gray-200:hover {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:hover\:border-gray-400:hover {
+  .sm\:hover\:border-gray-300:hover {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:hover\:border-gray-400:hover {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .sm\:hover\:border-gray-500:hover {
@@ -17663,16 +17867,20 @@ video {
     border-color: #744210;
   }
 
-  .sm\:hover\:border-green-100:hover {
+  .sm\:hover\:border-green-50:hover {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:hover\:border-green-200:hover {
+  .sm\:hover\:border-green-100:hover {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:hover\:border-green-300:hover {
+  .sm\:hover\:border-green-200:hover {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:hover\:border-green-300:hover {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .sm\:hover\:border-green-400:hover {
@@ -17895,20 +18103,24 @@ video {
     border-color: #fff;
   }
 
-  .sm\:focus\:border-gray-100:focus {
+  .sm\:focus\:border-gray-50:focus {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .sm\:focus\:border-gray-200:focus {
+  .sm\:focus\:border-gray-100:focus {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .sm\:focus\:border-gray-300:focus {
+  .sm\:focus\:border-gray-200:focus {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .sm\:focus\:border-gray-400:focus {
+  .sm\:focus\:border-gray-300:focus {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:focus\:border-gray-400:focus {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:border-gray-500:focus {
@@ -18039,16 +18251,20 @@ video {
     border-color: #744210;
   }
 
-  .sm\:focus\:border-green-100:focus {
+  .sm\:focus\:border-green-50:focus {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .sm\:focus\:border-green-200:focus {
+  .sm\:focus\:border-green-100:focus {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .sm\:focus\:border-green-300:focus {
+  .sm\:focus\:border-green-200:focus {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:focus\:border-green-300:focus {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:border-green-400:focus {
@@ -21353,84 +21569,104 @@ video {
     color: #fff;
   }
 
-  .sm\:placeholder-gray-100::-webkit-input-placeholder {
+  .sm\:placeholder-gray-50::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:placeholder-gray-50::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:placeholder-gray-50:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:placeholder-gray-50::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:placeholder-gray-50::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:placeholder-gray-100::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:placeholder-gray-100::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:placeholder-gray-100:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:placeholder-gray-100::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:placeholder-gray-100::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:placeholder-gray-200::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:placeholder-gray-200::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:placeholder-gray-200:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:placeholder-gray-200::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:placeholder-gray-200::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:placeholder-gray-300::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:placeholder-gray-300::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:placeholder-gray-300:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:placeholder-gray-300::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:placeholder-gray-300::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:placeholder-gray-400::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:placeholder-gray-400::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:placeholder-gray-400:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:placeholder-gray-400::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:placeholder-gray-400::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:placeholder-gray-500::-webkit-input-placeholder {
@@ -22073,64 +22309,84 @@ video {
     color: #744210;
   }
 
-  .sm\:placeholder-green-100::-webkit-input-placeholder {
+  .sm\:placeholder-green-50::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:placeholder-green-50::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:placeholder-green-50:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:placeholder-green-50::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:placeholder-green-50::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:placeholder-green-100::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:placeholder-green-100::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:placeholder-green-100:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:placeholder-green-100::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:placeholder-green-100::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:placeholder-green-200::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:placeholder-green-200::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:placeholder-green-200:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:placeholder-green-200::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:placeholder-green-200::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:placeholder-green-300::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:placeholder-green-300::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:placeholder-green-300:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:placeholder-green-300::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:placeholder-green-300::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:placeholder-green-400::-webkit-input-placeholder {
@@ -23233,84 +23489,104 @@ video {
     color: #fff;
   }
 
-  .sm\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+  .sm\:focus\:placeholder-gray-50:focus::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:focus\:placeholder-gray-50:focus::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:focus\:placeholder-gray-50:focus:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:focus\:placeholder-gray-50:focus::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:focus\:placeholder-gray-50:focus::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .sm\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:focus\:placeholder-gray-100:focus::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:focus\:placeholder-gray-100:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:focus\:placeholder-gray-100:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:focus\:placeholder-gray-100:focus::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .sm\:focus\:placeholder-gray-200:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:focus\:placeholder-gray-200:focus::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:focus\:placeholder-gray-200:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:focus\:placeholder-gray-200:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:focus\:placeholder-gray-200:focus::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .sm\:focus\:placeholder-gray-300:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:focus\:placeholder-gray-300:focus::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:focus\:placeholder-gray-300:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:focus\:placeholder-gray-300:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:focus\:placeholder-gray-300:focus::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .sm\:focus\:placeholder-gray-400:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:placeholder-gray-400:focus::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:placeholder-gray-400:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:placeholder-gray-400:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:placeholder-gray-400:focus::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:placeholder-gray-500:focus::-webkit-input-placeholder {
@@ -23953,64 +24229,84 @@ video {
     color: #744210;
   }
 
-  .sm\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+  .sm\:focus\:placeholder-green-50:focus::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:focus\:placeholder-green-50:focus::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:focus\:placeholder-green-50:focus:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:focus\:placeholder-green-50:focus::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:focus\:placeholder-green-50:focus::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .sm\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:focus\:placeholder-green-100:focus::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:focus\:placeholder-green-100:focus:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:focus\:placeholder-green-100:focus::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:focus\:placeholder-green-100:focus::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .sm\:focus\:placeholder-green-200:focus::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:focus\:placeholder-green-200:focus::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:focus\:placeholder-green-200:focus:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:focus\:placeholder-green-200:focus::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:focus\:placeholder-green-200:focus::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .sm\:focus\:placeholder-green-300:focus::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:placeholder-green-300:focus::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:placeholder-green-300:focus:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:placeholder-green-300:focus::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:placeholder-green-300:focus::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:placeholder-green-400:focus::-webkit-input-placeholder {
@@ -25324,20 +25620,24 @@ video {
     color: #fff;
   }
 
-  .sm\:text-gray-100 {
+  .sm\:text-gray-50 {
     color: hsl(0, 0%, 97%);
   }
 
-  .sm\:text-gray-200 {
+  .sm\:text-gray-100 {
     color: hsl(0, 0%, 88%);
   }
 
-  .sm\:text-gray-300 {
+  .sm\:text-gray-200 {
     color: hsl(0, 0%, 81%);
   }
 
-  .sm\:text-gray-400 {
+  .sm\:text-gray-300 {
     color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:text-gray-400 {
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:text-gray-500 {
@@ -25468,16 +25768,20 @@ video {
     color: #744210;
   }
 
-  .sm\:text-green-100 {
+  .sm\:text-green-50 {
     color: hsl(125, 65%, 93%);
   }
 
-  .sm\:text-green-200 {
+  .sm\:text-green-100 {
     color: hsl(126, 49%, 84%);
   }
 
-  .sm\:text-green-300 {
+  .sm\:text-green-200 {
     color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:text-green-300 {
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:text-green-400 {
@@ -25700,20 +26004,24 @@ video {
     color: #fff;
   }
 
-  .sm\:hover\:text-gray-100:hover {
+  .sm\:hover\:text-gray-50:hover {
     color: hsl(0, 0%, 97%);
   }
 
-  .sm\:hover\:text-gray-200:hover {
+  .sm\:hover\:text-gray-100:hover {
     color: hsl(0, 0%, 88%);
   }
 
-  .sm\:hover\:text-gray-300:hover {
+  .sm\:hover\:text-gray-200:hover {
     color: hsl(0, 0%, 81%);
   }
 
-  .sm\:hover\:text-gray-400:hover {
+  .sm\:hover\:text-gray-300:hover {
     color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:hover\:text-gray-400:hover {
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:hover\:text-gray-500:hover {
@@ -25844,16 +26152,20 @@ video {
     color: #744210;
   }
 
-  .sm\:hover\:text-green-100:hover {
+  .sm\:hover\:text-green-50:hover {
     color: hsl(125, 65%, 93%);
   }
 
-  .sm\:hover\:text-green-200:hover {
+  .sm\:hover\:text-green-100:hover {
     color: hsl(126, 49%, 84%);
   }
 
-  .sm\:hover\:text-green-300:hover {
+  .sm\:hover\:text-green-200:hover {
     color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:hover\:text-green-300:hover {
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:hover\:text-green-400:hover {
@@ -26076,20 +26388,24 @@ video {
     color: #fff;
   }
 
-  .sm\:focus\:text-gray-100:focus {
+  .sm\:focus\:text-gray-50:focus {
     color: hsl(0, 0%, 97%);
   }
 
-  .sm\:focus\:text-gray-200:focus {
+  .sm\:focus\:text-gray-100:focus {
     color: hsl(0, 0%, 88%);
   }
 
-  .sm\:focus\:text-gray-300:focus {
+  .sm\:focus\:text-gray-200:focus {
     color: hsl(0, 0%, 81%);
   }
 
-  .sm\:focus\:text-gray-400:focus {
+  .sm\:focus\:text-gray-300:focus {
     color: hsl(0, 0%, 69%);
+  }
+
+  .sm\:focus\:text-gray-400:focus {
+    color: hsl(0, 0%, 62%);
   }
 
   .sm\:focus\:text-gray-500:focus {
@@ -26220,16 +26536,20 @@ video {
     color: #744210;
   }
 
-  .sm\:focus\:text-green-100:focus {
+  .sm\:focus\:text-green-50:focus {
     color: hsl(125, 65%, 93%);
   }
 
-  .sm\:focus\:text-green-200:focus {
+  .sm\:focus\:text-green-100:focus {
     color: hsl(126, 49%, 84%);
   }
 
-  .sm\:focus\:text-green-300:focus {
+  .sm\:focus\:text-green-200:focus {
     color: hsl(122, 42%, 75%);
+  }
+
+  .sm\:focus\:text-green-300:focus {
+    color: hsl(123, 38%, 63%);
   }
 
   .sm\:focus\:text-green-400:focus {
@@ -29828,20 +30148,24 @@ video {
     border-color: #fff;
   }
 
-  .md\:divide-gray-100 > :not(template) ~ :not(template) {
+  .md\:divide-gray-50 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .md\:divide-gray-200 > :not(template) ~ :not(template) {
+  .md\:divide-gray-100 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .md\:divide-gray-300 > :not(template) ~ :not(template) {
+  .md\:divide-gray-200 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .md\:divide-gray-400 > :not(template) ~ :not(template) {
+  .md\:divide-gray-300 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:divide-gray-400 > :not(template) ~ :not(template) {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .md\:divide-gray-500 > :not(template) ~ :not(template) {
@@ -29972,16 +30296,20 @@ video {
     border-color: #744210;
   }
 
-  .md\:divide-green-100 > :not(template) ~ :not(template) {
+  .md\:divide-green-50 > :not(template) ~ :not(template) {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .md\:divide-green-200 > :not(template) ~ :not(template) {
+  .md\:divide-green-100 > :not(template) ~ :not(template) {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .md\:divide-green-300 > :not(template) ~ :not(template) {
+  .md\:divide-green-200 > :not(template) ~ :not(template) {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:divide-green-300 > :not(template) ~ :not(template) {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .md\:divide-green-400 > :not(template) ~ :not(template) {
@@ -30268,20 +30596,24 @@ video {
     background-color: #fff;
   }
 
-  .md\:bg-gray-100 {
+  .md\:bg-gray-50 {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .md\:bg-gray-200 {
+  .md\:bg-gray-100 {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .md\:bg-gray-300 {
+  .md\:bg-gray-200 {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .md\:bg-gray-400 {
+  .md\:bg-gray-300 {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:bg-gray-400 {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .md\:bg-gray-500 {
@@ -30412,16 +30744,20 @@ video {
     background-color: #744210;
   }
 
-  .md\:bg-green-100 {
+  .md\:bg-green-50 {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .md\:bg-green-200 {
+  .md\:bg-green-100 {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .md\:bg-green-300 {
+  .md\:bg-green-200 {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:bg-green-300 {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .md\:bg-green-400 {
@@ -30644,20 +30980,24 @@ video {
     background-color: #fff;
   }
 
-  .md\:hover\:bg-gray-100:hover {
+  .md\:hover\:bg-gray-50:hover {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .md\:hover\:bg-gray-200:hover {
+  .md\:hover\:bg-gray-100:hover {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .md\:hover\:bg-gray-300:hover {
+  .md\:hover\:bg-gray-200:hover {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .md\:hover\:bg-gray-400:hover {
+  .md\:hover\:bg-gray-300:hover {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:hover\:bg-gray-400:hover {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .md\:hover\:bg-gray-500:hover {
@@ -30788,16 +31128,20 @@ video {
     background-color: #744210;
   }
 
-  .md\:hover\:bg-green-100:hover {
+  .md\:hover\:bg-green-50:hover {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .md\:hover\:bg-green-200:hover {
+  .md\:hover\:bg-green-100:hover {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .md\:hover\:bg-green-300:hover {
+  .md\:hover\:bg-green-200:hover {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:hover\:bg-green-300:hover {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .md\:hover\:bg-green-400:hover {
@@ -31020,20 +31364,24 @@ video {
     background-color: #fff;
   }
 
-  .md\:focus\:bg-gray-100:focus {
+  .md\:focus\:bg-gray-50:focus {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .md\:focus\:bg-gray-200:focus {
+  .md\:focus\:bg-gray-100:focus {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .md\:focus\:bg-gray-300:focus {
+  .md\:focus\:bg-gray-200:focus {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .md\:focus\:bg-gray-400:focus {
+  .md\:focus\:bg-gray-300:focus {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:focus\:bg-gray-400:focus {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:bg-gray-500:focus {
@@ -31164,16 +31512,20 @@ video {
     background-color: #744210;
   }
 
-  .md\:focus\:bg-green-100:focus {
+  .md\:focus\:bg-green-50:focus {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .md\:focus\:bg-green-200:focus {
+  .md\:focus\:bg-green-100:focus {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .md\:focus\:bg-green-300:focus {
+  .md\:focus\:bg-green-200:focus {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:focus\:bg-green-300:focus {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:bg-green-400:focus {
@@ -31476,20 +31828,24 @@ video {
     border-color: #fff;
   }
 
-  .md\:border-gray-100 {
+  .md\:border-gray-50 {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .md\:border-gray-200 {
+  .md\:border-gray-100 {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .md\:border-gray-300 {
+  .md\:border-gray-200 {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .md\:border-gray-400 {
+  .md\:border-gray-300 {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:border-gray-400 {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .md\:border-gray-500 {
@@ -31620,16 +31976,20 @@ video {
     border-color: #744210;
   }
 
-  .md\:border-green-100 {
+  .md\:border-green-50 {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .md\:border-green-200 {
+  .md\:border-green-100 {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .md\:border-green-300 {
+  .md\:border-green-200 {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:border-green-300 {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .md\:border-green-400 {
@@ -31852,20 +32212,24 @@ video {
     border-color: #fff;
   }
 
-  .md\:hover\:border-gray-100:hover {
+  .md\:hover\:border-gray-50:hover {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .md\:hover\:border-gray-200:hover {
+  .md\:hover\:border-gray-100:hover {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .md\:hover\:border-gray-300:hover {
+  .md\:hover\:border-gray-200:hover {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .md\:hover\:border-gray-400:hover {
+  .md\:hover\:border-gray-300:hover {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:hover\:border-gray-400:hover {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .md\:hover\:border-gray-500:hover {
@@ -31996,16 +32360,20 @@ video {
     border-color: #744210;
   }
 
-  .md\:hover\:border-green-100:hover {
+  .md\:hover\:border-green-50:hover {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .md\:hover\:border-green-200:hover {
+  .md\:hover\:border-green-100:hover {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .md\:hover\:border-green-300:hover {
+  .md\:hover\:border-green-200:hover {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:hover\:border-green-300:hover {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .md\:hover\:border-green-400:hover {
@@ -32228,20 +32596,24 @@ video {
     border-color: #fff;
   }
 
-  .md\:focus\:border-gray-100:focus {
+  .md\:focus\:border-gray-50:focus {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .md\:focus\:border-gray-200:focus {
+  .md\:focus\:border-gray-100:focus {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .md\:focus\:border-gray-300:focus {
+  .md\:focus\:border-gray-200:focus {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .md\:focus\:border-gray-400:focus {
+  .md\:focus\:border-gray-300:focus {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .md\:focus\:border-gray-400:focus {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:border-gray-500:focus {
@@ -32372,16 +32744,20 @@ video {
     border-color: #744210;
   }
 
-  .md\:focus\:border-green-100:focus {
+  .md\:focus\:border-green-50:focus {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .md\:focus\:border-green-200:focus {
+  .md\:focus\:border-green-100:focus {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .md\:focus\:border-green-300:focus {
+  .md\:focus\:border-green-200:focus {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .md\:focus\:border-green-300:focus {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:border-green-400:focus {
@@ -35686,84 +36062,104 @@ video {
     color: #fff;
   }
 
-  .md\:placeholder-gray-100::-webkit-input-placeholder {
+  .md\:placeholder-gray-50::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .md\:placeholder-gray-50::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:placeholder-gray-50:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:placeholder-gray-50::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:placeholder-gray-50::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:placeholder-gray-100::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:placeholder-gray-100::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:placeholder-gray-100:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:placeholder-gray-100::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:placeholder-gray-100::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:placeholder-gray-200::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:placeholder-gray-200::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:placeholder-gray-200:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:placeholder-gray-200::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:placeholder-gray-200::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:placeholder-gray-300::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:placeholder-gray-300::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:placeholder-gray-300:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:placeholder-gray-300::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:placeholder-gray-300::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:placeholder-gray-400::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:placeholder-gray-400::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:placeholder-gray-400:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:placeholder-gray-400::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:placeholder-gray-400::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:placeholder-gray-500::-webkit-input-placeholder {
@@ -36406,64 +36802,84 @@ video {
     color: #744210;
   }
 
-  .md\:placeholder-green-100::-webkit-input-placeholder {
+  .md\:placeholder-green-50::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .md\:placeholder-green-50::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:placeholder-green-50:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:placeholder-green-50::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:placeholder-green-50::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:placeholder-green-100::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:placeholder-green-100::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:placeholder-green-100:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:placeholder-green-100::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:placeholder-green-100::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:placeholder-green-200::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:placeholder-green-200::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:placeholder-green-200:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:placeholder-green-200::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:placeholder-green-200::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:placeholder-green-300::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:placeholder-green-300::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:placeholder-green-300:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:placeholder-green-300::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:placeholder-green-300::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:placeholder-green-400::-webkit-input-placeholder {
@@ -37566,84 +37982,104 @@ video {
     color: #fff;
   }
 
-  .md\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+  .md\:focus\:placeholder-gray-50:focus::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .md\:focus\:placeholder-gray-50:focus::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:focus\:placeholder-gray-50:focus:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:focus\:placeholder-gray-50:focus::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:focus\:placeholder-gray-50:focus::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .md\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:focus\:placeholder-gray-100:focus::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:focus\:placeholder-gray-100:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:focus\:placeholder-gray-100:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:focus\:placeholder-gray-100:focus::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .md\:focus\:placeholder-gray-200:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:focus\:placeholder-gray-200:focus::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:focus\:placeholder-gray-200:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:focus\:placeholder-gray-200:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:focus\:placeholder-gray-200:focus::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .md\:focus\:placeholder-gray-300:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:focus\:placeholder-gray-300:focus::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:focus\:placeholder-gray-300:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:focus\:placeholder-gray-300:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:focus\:placeholder-gray-300:focus::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .md\:focus\:placeholder-gray-400:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:placeholder-gray-400:focus::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:placeholder-gray-400:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:placeholder-gray-400:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:placeholder-gray-400:focus::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:placeholder-gray-500:focus::-webkit-input-placeholder {
@@ -38286,64 +38722,84 @@ video {
     color: #744210;
   }
 
-  .md\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+  .md\:focus\:placeholder-green-50:focus::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .md\:focus\:placeholder-green-50:focus::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:focus\:placeholder-green-50:focus:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:focus\:placeholder-green-50:focus::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:focus\:placeholder-green-50:focus::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .md\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:focus\:placeholder-green-100:focus::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:focus\:placeholder-green-100:focus:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:focus\:placeholder-green-100:focus::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:focus\:placeholder-green-100:focus::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .md\:focus\:placeholder-green-200:focus::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:focus\:placeholder-green-200:focus::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:focus\:placeholder-green-200:focus:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:focus\:placeholder-green-200:focus::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:focus\:placeholder-green-200:focus::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .md\:focus\:placeholder-green-300:focus::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:placeholder-green-300:focus::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:placeholder-green-300:focus:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:placeholder-green-300:focus::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:placeholder-green-300:focus::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:placeholder-green-400:focus::-webkit-input-placeholder {
@@ -39657,20 +40113,24 @@ video {
     color: #fff;
   }
 
-  .md\:text-gray-100 {
+  .md\:text-gray-50 {
     color: hsl(0, 0%, 97%);
   }
 
-  .md\:text-gray-200 {
+  .md\:text-gray-100 {
     color: hsl(0, 0%, 88%);
   }
 
-  .md\:text-gray-300 {
+  .md\:text-gray-200 {
     color: hsl(0, 0%, 81%);
   }
 
-  .md\:text-gray-400 {
+  .md\:text-gray-300 {
     color: hsl(0, 0%, 69%);
+  }
+
+  .md\:text-gray-400 {
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:text-gray-500 {
@@ -39801,16 +40261,20 @@ video {
     color: #744210;
   }
 
-  .md\:text-green-100 {
+  .md\:text-green-50 {
     color: hsl(125, 65%, 93%);
   }
 
-  .md\:text-green-200 {
+  .md\:text-green-100 {
     color: hsl(126, 49%, 84%);
   }
 
-  .md\:text-green-300 {
+  .md\:text-green-200 {
     color: hsl(122, 42%, 75%);
+  }
+
+  .md\:text-green-300 {
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:text-green-400 {
@@ -40033,20 +40497,24 @@ video {
     color: #fff;
   }
 
-  .md\:hover\:text-gray-100:hover {
+  .md\:hover\:text-gray-50:hover {
     color: hsl(0, 0%, 97%);
   }
 
-  .md\:hover\:text-gray-200:hover {
+  .md\:hover\:text-gray-100:hover {
     color: hsl(0, 0%, 88%);
   }
 
-  .md\:hover\:text-gray-300:hover {
+  .md\:hover\:text-gray-200:hover {
     color: hsl(0, 0%, 81%);
   }
 
-  .md\:hover\:text-gray-400:hover {
+  .md\:hover\:text-gray-300:hover {
     color: hsl(0, 0%, 69%);
+  }
+
+  .md\:hover\:text-gray-400:hover {
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:hover\:text-gray-500:hover {
@@ -40177,16 +40645,20 @@ video {
     color: #744210;
   }
 
-  .md\:hover\:text-green-100:hover {
+  .md\:hover\:text-green-50:hover {
     color: hsl(125, 65%, 93%);
   }
 
-  .md\:hover\:text-green-200:hover {
+  .md\:hover\:text-green-100:hover {
     color: hsl(126, 49%, 84%);
   }
 
-  .md\:hover\:text-green-300:hover {
+  .md\:hover\:text-green-200:hover {
     color: hsl(122, 42%, 75%);
+  }
+
+  .md\:hover\:text-green-300:hover {
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:hover\:text-green-400:hover {
@@ -40409,20 +40881,24 @@ video {
     color: #fff;
   }
 
-  .md\:focus\:text-gray-100:focus {
+  .md\:focus\:text-gray-50:focus {
     color: hsl(0, 0%, 97%);
   }
 
-  .md\:focus\:text-gray-200:focus {
+  .md\:focus\:text-gray-100:focus {
     color: hsl(0, 0%, 88%);
   }
 
-  .md\:focus\:text-gray-300:focus {
+  .md\:focus\:text-gray-200:focus {
     color: hsl(0, 0%, 81%);
   }
 
-  .md\:focus\:text-gray-400:focus {
+  .md\:focus\:text-gray-300:focus {
     color: hsl(0, 0%, 69%);
+  }
+
+  .md\:focus\:text-gray-400:focus {
+    color: hsl(0, 0%, 62%);
   }
 
   .md\:focus\:text-gray-500:focus {
@@ -40553,16 +41029,20 @@ video {
     color: #744210;
   }
 
-  .md\:focus\:text-green-100:focus {
+  .md\:focus\:text-green-50:focus {
     color: hsl(125, 65%, 93%);
   }
 
-  .md\:focus\:text-green-200:focus {
+  .md\:focus\:text-green-100:focus {
     color: hsl(126, 49%, 84%);
   }
 
-  .md\:focus\:text-green-300:focus {
+  .md\:focus\:text-green-200:focus {
     color: hsl(122, 42%, 75%);
+  }
+
+  .md\:focus\:text-green-300:focus {
+    color: hsl(123, 38%, 63%);
   }
 
   .md\:focus\:text-green-400:focus {
@@ -44161,20 +44641,24 @@ video {
     border-color: #fff;
   }
 
-  .lg\:divide-gray-100 > :not(template) ~ :not(template) {
+  .lg\:divide-gray-50 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:divide-gray-200 > :not(template) ~ :not(template) {
+  .lg\:divide-gray-100 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:divide-gray-300 > :not(template) ~ :not(template) {
+  .lg\:divide-gray-200 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:divide-gray-400 > :not(template) ~ :not(template) {
+  .lg\:divide-gray-300 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:divide-gray-400 > :not(template) ~ :not(template) {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .lg\:divide-gray-500 > :not(template) ~ :not(template) {
@@ -44305,16 +44789,20 @@ video {
     border-color: #744210;
   }
 
-  .lg\:divide-green-100 > :not(template) ~ :not(template) {
+  .lg\:divide-green-50 > :not(template) ~ :not(template) {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:divide-green-200 > :not(template) ~ :not(template) {
+  .lg\:divide-green-100 > :not(template) ~ :not(template) {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:divide-green-300 > :not(template) ~ :not(template) {
+  .lg\:divide-green-200 > :not(template) ~ :not(template) {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:divide-green-300 > :not(template) ~ :not(template) {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .lg\:divide-green-400 > :not(template) ~ :not(template) {
@@ -44601,20 +45089,24 @@ video {
     background-color: #fff;
   }
 
-  .lg\:bg-gray-100 {
+  .lg\:bg-gray-50 {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:bg-gray-200 {
+  .lg\:bg-gray-100 {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:bg-gray-300 {
+  .lg\:bg-gray-200 {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:bg-gray-400 {
+  .lg\:bg-gray-300 {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:bg-gray-400 {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .lg\:bg-gray-500 {
@@ -44745,16 +45237,20 @@ video {
     background-color: #744210;
   }
 
-  .lg\:bg-green-100 {
+  .lg\:bg-green-50 {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:bg-green-200 {
+  .lg\:bg-green-100 {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:bg-green-300 {
+  .lg\:bg-green-200 {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:bg-green-300 {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .lg\:bg-green-400 {
@@ -44977,20 +45473,24 @@ video {
     background-color: #fff;
   }
 
-  .lg\:hover\:bg-gray-100:hover {
+  .lg\:hover\:bg-gray-50:hover {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:hover\:bg-gray-200:hover {
+  .lg\:hover\:bg-gray-100:hover {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:hover\:bg-gray-300:hover {
+  .lg\:hover\:bg-gray-200:hover {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:hover\:bg-gray-400:hover {
+  .lg\:hover\:bg-gray-300:hover {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:hover\:bg-gray-400:hover {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .lg\:hover\:bg-gray-500:hover {
@@ -45121,16 +45621,20 @@ video {
     background-color: #744210;
   }
 
-  .lg\:hover\:bg-green-100:hover {
+  .lg\:hover\:bg-green-50:hover {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:hover\:bg-green-200:hover {
+  .lg\:hover\:bg-green-100:hover {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:hover\:bg-green-300:hover {
+  .lg\:hover\:bg-green-200:hover {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:hover\:bg-green-300:hover {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .lg\:hover\:bg-green-400:hover {
@@ -45353,20 +45857,24 @@ video {
     background-color: #fff;
   }
 
-  .lg\:focus\:bg-gray-100:focus {
+  .lg\:focus\:bg-gray-50:focus {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:focus\:bg-gray-200:focus {
+  .lg\:focus\:bg-gray-100:focus {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:focus\:bg-gray-300:focus {
+  .lg\:focus\:bg-gray-200:focus {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:focus\:bg-gray-400:focus {
+  .lg\:focus\:bg-gray-300:focus {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:focus\:bg-gray-400:focus {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:bg-gray-500:focus {
@@ -45497,16 +46005,20 @@ video {
     background-color: #744210;
   }
 
-  .lg\:focus\:bg-green-100:focus {
+  .lg\:focus\:bg-green-50:focus {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:focus\:bg-green-200:focus {
+  .lg\:focus\:bg-green-100:focus {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:focus\:bg-green-300:focus {
+  .lg\:focus\:bg-green-200:focus {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:focus\:bg-green-300:focus {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:bg-green-400:focus {
@@ -45809,20 +46321,24 @@ video {
     border-color: #fff;
   }
 
-  .lg\:border-gray-100 {
+  .lg\:border-gray-50 {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:border-gray-200 {
+  .lg\:border-gray-100 {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:border-gray-300 {
+  .lg\:border-gray-200 {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:border-gray-400 {
+  .lg\:border-gray-300 {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:border-gray-400 {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .lg\:border-gray-500 {
@@ -45953,16 +46469,20 @@ video {
     border-color: #744210;
   }
 
-  .lg\:border-green-100 {
+  .lg\:border-green-50 {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:border-green-200 {
+  .lg\:border-green-100 {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:border-green-300 {
+  .lg\:border-green-200 {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:border-green-300 {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .lg\:border-green-400 {
@@ -46185,20 +46705,24 @@ video {
     border-color: #fff;
   }
 
-  .lg\:hover\:border-gray-100:hover {
+  .lg\:hover\:border-gray-50:hover {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:hover\:border-gray-200:hover {
+  .lg\:hover\:border-gray-100:hover {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:hover\:border-gray-300:hover {
+  .lg\:hover\:border-gray-200:hover {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:hover\:border-gray-400:hover {
+  .lg\:hover\:border-gray-300:hover {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:hover\:border-gray-400:hover {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .lg\:hover\:border-gray-500:hover {
@@ -46329,16 +46853,20 @@ video {
     border-color: #744210;
   }
 
-  .lg\:hover\:border-green-100:hover {
+  .lg\:hover\:border-green-50:hover {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:hover\:border-green-200:hover {
+  .lg\:hover\:border-green-100:hover {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:hover\:border-green-300:hover {
+  .lg\:hover\:border-green-200:hover {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:hover\:border-green-300:hover {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .lg\:hover\:border-green-400:hover {
@@ -46561,20 +47089,24 @@ video {
     border-color: #fff;
   }
 
-  .lg\:focus\:border-gray-100:focus {
+  .lg\:focus\:border-gray-50:focus {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .lg\:focus\:border-gray-200:focus {
+  .lg\:focus\:border-gray-100:focus {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .lg\:focus\:border-gray-300:focus {
+  .lg\:focus\:border-gray-200:focus {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .lg\:focus\:border-gray-400:focus {
+  .lg\:focus\:border-gray-300:focus {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:focus\:border-gray-400:focus {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:border-gray-500:focus {
@@ -46705,16 +47237,20 @@ video {
     border-color: #744210;
   }
 
-  .lg\:focus\:border-green-100:focus {
+  .lg\:focus\:border-green-50:focus {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .lg\:focus\:border-green-200:focus {
+  .lg\:focus\:border-green-100:focus {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .lg\:focus\:border-green-300:focus {
+  .lg\:focus\:border-green-200:focus {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:focus\:border-green-300:focus {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:border-green-400:focus {
@@ -50019,84 +50555,104 @@ video {
     color: #fff;
   }
 
-  .lg\:placeholder-gray-100::-webkit-input-placeholder {
+  .lg\:placeholder-gray-50::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:placeholder-gray-50::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:placeholder-gray-50:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:placeholder-gray-50::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:placeholder-gray-50::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:placeholder-gray-100::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:placeholder-gray-100::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:placeholder-gray-100:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:placeholder-gray-100::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:placeholder-gray-100::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:placeholder-gray-200::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:placeholder-gray-200::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:placeholder-gray-200:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:placeholder-gray-200::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:placeholder-gray-200::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:placeholder-gray-300::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:placeholder-gray-300::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:placeholder-gray-300:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:placeholder-gray-300::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:placeholder-gray-300::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:placeholder-gray-400::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:placeholder-gray-400::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:placeholder-gray-400:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:placeholder-gray-400::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:placeholder-gray-400::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:placeholder-gray-500::-webkit-input-placeholder {
@@ -50739,64 +51295,84 @@ video {
     color: #744210;
   }
 
-  .lg\:placeholder-green-100::-webkit-input-placeholder {
+  .lg\:placeholder-green-50::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:placeholder-green-50::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:placeholder-green-50:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:placeholder-green-50::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:placeholder-green-50::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:placeholder-green-100::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:placeholder-green-100::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:placeholder-green-100:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:placeholder-green-100::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:placeholder-green-100::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:placeholder-green-200::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:placeholder-green-200::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:placeholder-green-200:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:placeholder-green-200::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:placeholder-green-200::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:placeholder-green-300::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:placeholder-green-300::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:placeholder-green-300:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:placeholder-green-300::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:placeholder-green-300::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:placeholder-green-400::-webkit-input-placeholder {
@@ -51899,84 +52475,104 @@ video {
     color: #fff;
   }
 
-  .lg\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+  .lg\:focus\:placeholder-gray-50:focus::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:focus\:placeholder-gray-50:focus::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:focus\:placeholder-gray-50:focus:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:focus\:placeholder-gray-50:focus::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:focus\:placeholder-gray-50:focus::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .lg\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:focus\:placeholder-gray-100:focus::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:focus\:placeholder-gray-100:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:focus\:placeholder-gray-100:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:focus\:placeholder-gray-100:focus::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .lg\:focus\:placeholder-gray-200:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:focus\:placeholder-gray-200:focus::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:focus\:placeholder-gray-200:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:focus\:placeholder-gray-200:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:focus\:placeholder-gray-200:focus::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .lg\:focus\:placeholder-gray-300:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:focus\:placeholder-gray-300:focus::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:focus\:placeholder-gray-300:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:focus\:placeholder-gray-300:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:focus\:placeholder-gray-300:focus::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .lg\:focus\:placeholder-gray-400:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:placeholder-gray-400:focus::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:placeholder-gray-400:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:placeholder-gray-400:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:placeholder-gray-400:focus::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:placeholder-gray-500:focus::-webkit-input-placeholder {
@@ -52619,64 +53215,84 @@ video {
     color: #744210;
   }
 
-  .lg\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+  .lg\:focus\:placeholder-green-50:focus::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:focus\:placeholder-green-50:focus::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:focus\:placeholder-green-50:focus:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:focus\:placeholder-green-50:focus::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:focus\:placeholder-green-50:focus::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .lg\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:focus\:placeholder-green-100:focus::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:focus\:placeholder-green-100:focus:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:focus\:placeholder-green-100:focus::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:focus\:placeholder-green-100:focus::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .lg\:focus\:placeholder-green-200:focus::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:focus\:placeholder-green-200:focus::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:focus\:placeholder-green-200:focus:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:focus\:placeholder-green-200:focus::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:focus\:placeholder-green-200:focus::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .lg\:focus\:placeholder-green-300:focus::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:placeholder-green-300:focus::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:placeholder-green-300:focus:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:placeholder-green-300:focus::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:placeholder-green-300:focus::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:placeholder-green-400:focus::-webkit-input-placeholder {
@@ -53990,20 +54606,24 @@ video {
     color: #fff;
   }
 
-  .lg\:text-gray-100 {
+  .lg\:text-gray-50 {
     color: hsl(0, 0%, 97%);
   }
 
-  .lg\:text-gray-200 {
+  .lg\:text-gray-100 {
     color: hsl(0, 0%, 88%);
   }
 
-  .lg\:text-gray-300 {
+  .lg\:text-gray-200 {
     color: hsl(0, 0%, 81%);
   }
 
-  .lg\:text-gray-400 {
+  .lg\:text-gray-300 {
     color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:text-gray-400 {
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:text-gray-500 {
@@ -54134,16 +54754,20 @@ video {
     color: #744210;
   }
 
-  .lg\:text-green-100 {
+  .lg\:text-green-50 {
     color: hsl(125, 65%, 93%);
   }
 
-  .lg\:text-green-200 {
+  .lg\:text-green-100 {
     color: hsl(126, 49%, 84%);
   }
 
-  .lg\:text-green-300 {
+  .lg\:text-green-200 {
     color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:text-green-300 {
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:text-green-400 {
@@ -54366,20 +54990,24 @@ video {
     color: #fff;
   }
 
-  .lg\:hover\:text-gray-100:hover {
+  .lg\:hover\:text-gray-50:hover {
     color: hsl(0, 0%, 97%);
   }
 
-  .lg\:hover\:text-gray-200:hover {
+  .lg\:hover\:text-gray-100:hover {
     color: hsl(0, 0%, 88%);
   }
 
-  .lg\:hover\:text-gray-300:hover {
+  .lg\:hover\:text-gray-200:hover {
     color: hsl(0, 0%, 81%);
   }
 
-  .lg\:hover\:text-gray-400:hover {
+  .lg\:hover\:text-gray-300:hover {
     color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:hover\:text-gray-400:hover {
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:hover\:text-gray-500:hover {
@@ -54510,16 +55138,20 @@ video {
     color: #744210;
   }
 
-  .lg\:hover\:text-green-100:hover {
+  .lg\:hover\:text-green-50:hover {
     color: hsl(125, 65%, 93%);
   }
 
-  .lg\:hover\:text-green-200:hover {
+  .lg\:hover\:text-green-100:hover {
     color: hsl(126, 49%, 84%);
   }
 
-  .lg\:hover\:text-green-300:hover {
+  .lg\:hover\:text-green-200:hover {
     color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:hover\:text-green-300:hover {
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:hover\:text-green-400:hover {
@@ -54742,20 +55374,24 @@ video {
     color: #fff;
   }
 
-  .lg\:focus\:text-gray-100:focus {
+  .lg\:focus\:text-gray-50:focus {
     color: hsl(0, 0%, 97%);
   }
 
-  .lg\:focus\:text-gray-200:focus {
+  .lg\:focus\:text-gray-100:focus {
     color: hsl(0, 0%, 88%);
   }
 
-  .lg\:focus\:text-gray-300:focus {
+  .lg\:focus\:text-gray-200:focus {
     color: hsl(0, 0%, 81%);
   }
 
-  .lg\:focus\:text-gray-400:focus {
+  .lg\:focus\:text-gray-300:focus {
     color: hsl(0, 0%, 69%);
+  }
+
+  .lg\:focus\:text-gray-400:focus {
+    color: hsl(0, 0%, 62%);
   }
 
   .lg\:focus\:text-gray-500:focus {
@@ -54886,16 +55522,20 @@ video {
     color: #744210;
   }
 
-  .lg\:focus\:text-green-100:focus {
+  .lg\:focus\:text-green-50:focus {
     color: hsl(125, 65%, 93%);
   }
 
-  .lg\:focus\:text-green-200:focus {
+  .lg\:focus\:text-green-100:focus {
     color: hsl(126, 49%, 84%);
   }
 
-  .lg\:focus\:text-green-300:focus {
+  .lg\:focus\:text-green-200:focus {
     color: hsl(122, 42%, 75%);
+  }
+
+  .lg\:focus\:text-green-300:focus {
+    color: hsl(123, 38%, 63%);
   }
 
   .lg\:focus\:text-green-400:focus {
@@ -58494,20 +59134,24 @@ video {
     border-color: #fff;
   }
 
-  .xl\:divide-gray-100 > :not(template) ~ :not(template) {
+  .xl\:divide-gray-50 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:divide-gray-200 > :not(template) ~ :not(template) {
+  .xl\:divide-gray-100 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:divide-gray-300 > :not(template) ~ :not(template) {
+  .xl\:divide-gray-200 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:divide-gray-400 > :not(template) ~ :not(template) {
+  .xl\:divide-gray-300 > :not(template) ~ :not(template) {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:divide-gray-400 > :not(template) ~ :not(template) {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .xl\:divide-gray-500 > :not(template) ~ :not(template) {
@@ -58638,16 +59282,20 @@ video {
     border-color: #744210;
   }
 
-  .xl\:divide-green-100 > :not(template) ~ :not(template) {
+  .xl\:divide-green-50 > :not(template) ~ :not(template) {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:divide-green-200 > :not(template) ~ :not(template) {
+  .xl\:divide-green-100 > :not(template) ~ :not(template) {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:divide-green-300 > :not(template) ~ :not(template) {
+  .xl\:divide-green-200 > :not(template) ~ :not(template) {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:divide-green-300 > :not(template) ~ :not(template) {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .xl\:divide-green-400 > :not(template) ~ :not(template) {
@@ -58934,20 +59582,24 @@ video {
     background-color: #fff;
   }
 
-  .xl\:bg-gray-100 {
+  .xl\:bg-gray-50 {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:bg-gray-200 {
+  .xl\:bg-gray-100 {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:bg-gray-300 {
+  .xl\:bg-gray-200 {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:bg-gray-400 {
+  .xl\:bg-gray-300 {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:bg-gray-400 {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .xl\:bg-gray-500 {
@@ -59078,16 +59730,20 @@ video {
     background-color: #744210;
   }
 
-  .xl\:bg-green-100 {
+  .xl\:bg-green-50 {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:bg-green-200 {
+  .xl\:bg-green-100 {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:bg-green-300 {
+  .xl\:bg-green-200 {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:bg-green-300 {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .xl\:bg-green-400 {
@@ -59310,20 +59966,24 @@ video {
     background-color: #fff;
   }
 
-  .xl\:hover\:bg-gray-100:hover {
+  .xl\:hover\:bg-gray-50:hover {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:hover\:bg-gray-200:hover {
+  .xl\:hover\:bg-gray-100:hover {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:hover\:bg-gray-300:hover {
+  .xl\:hover\:bg-gray-200:hover {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:hover\:bg-gray-400:hover {
+  .xl\:hover\:bg-gray-300:hover {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:hover\:bg-gray-400:hover {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .xl\:hover\:bg-gray-500:hover {
@@ -59454,16 +60114,20 @@ video {
     background-color: #744210;
   }
 
-  .xl\:hover\:bg-green-100:hover {
+  .xl\:hover\:bg-green-50:hover {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:hover\:bg-green-200:hover {
+  .xl\:hover\:bg-green-100:hover {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:hover\:bg-green-300:hover {
+  .xl\:hover\:bg-green-200:hover {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:hover\:bg-green-300:hover {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .xl\:hover\:bg-green-400:hover {
@@ -59686,20 +60350,24 @@ video {
     background-color: #fff;
   }
 
-  .xl\:focus\:bg-gray-100:focus {
+  .xl\:focus\:bg-gray-50:focus {
     background-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:focus\:bg-gray-200:focus {
+  .xl\:focus\:bg-gray-100:focus {
     background-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:focus\:bg-gray-300:focus {
+  .xl\:focus\:bg-gray-200:focus {
     background-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:focus\:bg-gray-400:focus {
+  .xl\:focus\:bg-gray-300:focus {
     background-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:focus\:bg-gray-400:focus {
+    background-color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:bg-gray-500:focus {
@@ -59830,16 +60498,20 @@ video {
     background-color: #744210;
   }
 
-  .xl\:focus\:bg-green-100:focus {
+  .xl\:focus\:bg-green-50:focus {
     background-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:focus\:bg-green-200:focus {
+  .xl\:focus\:bg-green-100:focus {
     background-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:focus\:bg-green-300:focus {
+  .xl\:focus\:bg-green-200:focus {
     background-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:focus\:bg-green-300:focus {
+    background-color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:bg-green-400:focus {
@@ -60142,20 +60814,24 @@ video {
     border-color: #fff;
   }
 
-  .xl\:border-gray-100 {
+  .xl\:border-gray-50 {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:border-gray-200 {
+  .xl\:border-gray-100 {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:border-gray-300 {
+  .xl\:border-gray-200 {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:border-gray-400 {
+  .xl\:border-gray-300 {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:border-gray-400 {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .xl\:border-gray-500 {
@@ -60286,16 +60962,20 @@ video {
     border-color: #744210;
   }
 
-  .xl\:border-green-100 {
+  .xl\:border-green-50 {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:border-green-200 {
+  .xl\:border-green-100 {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:border-green-300 {
+  .xl\:border-green-200 {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:border-green-300 {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .xl\:border-green-400 {
@@ -60518,20 +61198,24 @@ video {
     border-color: #fff;
   }
 
-  .xl\:hover\:border-gray-100:hover {
+  .xl\:hover\:border-gray-50:hover {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:hover\:border-gray-200:hover {
+  .xl\:hover\:border-gray-100:hover {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:hover\:border-gray-300:hover {
+  .xl\:hover\:border-gray-200:hover {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:hover\:border-gray-400:hover {
+  .xl\:hover\:border-gray-300:hover {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:hover\:border-gray-400:hover {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .xl\:hover\:border-gray-500:hover {
@@ -60662,16 +61346,20 @@ video {
     border-color: #744210;
   }
 
-  .xl\:hover\:border-green-100:hover {
+  .xl\:hover\:border-green-50:hover {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:hover\:border-green-200:hover {
+  .xl\:hover\:border-green-100:hover {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:hover\:border-green-300:hover {
+  .xl\:hover\:border-green-200:hover {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:hover\:border-green-300:hover {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .xl\:hover\:border-green-400:hover {
@@ -60894,20 +61582,24 @@ video {
     border-color: #fff;
   }
 
-  .xl\:focus\:border-gray-100:focus {
+  .xl\:focus\:border-gray-50:focus {
     border-color: hsl(0, 0%, 97%);
   }
 
-  .xl\:focus\:border-gray-200:focus {
+  .xl\:focus\:border-gray-100:focus {
     border-color: hsl(0, 0%, 88%);
   }
 
-  .xl\:focus\:border-gray-300:focus {
+  .xl\:focus\:border-gray-200:focus {
     border-color: hsl(0, 0%, 81%);
   }
 
-  .xl\:focus\:border-gray-400:focus {
+  .xl\:focus\:border-gray-300:focus {
     border-color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:focus\:border-gray-400:focus {
+    border-color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:border-gray-500:focus {
@@ -61038,16 +61730,20 @@ video {
     border-color: #744210;
   }
 
-  .xl\:focus\:border-green-100:focus {
+  .xl\:focus\:border-green-50:focus {
     border-color: hsl(125, 65%, 93%);
   }
 
-  .xl\:focus\:border-green-200:focus {
+  .xl\:focus\:border-green-100:focus {
     border-color: hsl(126, 49%, 84%);
   }
 
-  .xl\:focus\:border-green-300:focus {
+  .xl\:focus\:border-green-200:focus {
     border-color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:focus\:border-green-300:focus {
+    border-color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:border-green-400:focus {
@@ -64352,84 +65048,104 @@ video {
     color: #fff;
   }
 
-  .xl\:placeholder-gray-100::-webkit-input-placeholder {
+  .xl\:placeholder-gray-50::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:placeholder-gray-50::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:placeholder-gray-50:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:placeholder-gray-50::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:placeholder-gray-50::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:placeholder-gray-100::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:placeholder-gray-100::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:placeholder-gray-100:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:placeholder-gray-100::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:placeholder-gray-100::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:placeholder-gray-200::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:placeholder-gray-200::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:placeholder-gray-200:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:placeholder-gray-200::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:placeholder-gray-200::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:placeholder-gray-300::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:placeholder-gray-300::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:placeholder-gray-300:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:placeholder-gray-300::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:placeholder-gray-300::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:placeholder-gray-400::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:placeholder-gray-400::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:placeholder-gray-400:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:placeholder-gray-400::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:placeholder-gray-400::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:placeholder-gray-500::-webkit-input-placeholder {
@@ -65072,64 +65788,84 @@ video {
     color: #744210;
   }
 
-  .xl\:placeholder-green-100::-webkit-input-placeholder {
+  .xl\:placeholder-green-50::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:placeholder-green-50::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:placeholder-green-50:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:placeholder-green-50::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:placeholder-green-50::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:placeholder-green-100::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:placeholder-green-100::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:placeholder-green-100:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:placeholder-green-100::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:placeholder-green-100::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:placeholder-green-200::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:placeholder-green-200::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:placeholder-green-200:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:placeholder-green-200::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:placeholder-green-200::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:placeholder-green-300::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:placeholder-green-300::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:placeholder-green-300:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:placeholder-green-300::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:placeholder-green-300::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:placeholder-green-400::-webkit-input-placeholder {
@@ -66232,84 +66968,104 @@ video {
     color: #fff;
   }
 
-  .xl\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+  .xl\:focus\:placeholder-gray-50:focus::-webkit-input-placeholder {
     color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:focus\:placeholder-gray-50:focus::-moz-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:focus\:placeholder-gray-50:focus:-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:focus\:placeholder-gray-50:focus::-ms-input-placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:focus\:placeholder-gray-50:focus::placeholder {
+    color: hsl(0, 0%, 97%);
+  }
+
+  .xl\:focus\:placeholder-gray-100:focus::-webkit-input-placeholder {
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:focus\:placeholder-gray-100:focus::-moz-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:focus\:placeholder-gray-100:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:focus\:placeholder-gray-100:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:focus\:placeholder-gray-100:focus::placeholder {
-    color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 88%);
   }
 
   .xl\:focus\:placeholder-gray-200:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:focus\:placeholder-gray-200:focus::-moz-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:focus\:placeholder-gray-200:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:focus\:placeholder-gray-200:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:focus\:placeholder-gray-200:focus::placeholder {
-    color: hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 81%);
   }
 
   .xl\:focus\:placeholder-gray-300:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:focus\:placeholder-gray-300:focus::-moz-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:focus\:placeholder-gray-300:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:focus\:placeholder-gray-300:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:focus\:placeholder-gray-300:focus::placeholder {
-    color: hsl(0, 0%, 81%);
+    color: hsl(0, 0%, 69%);
   }
 
   .xl\:focus\:placeholder-gray-400:focus::-webkit-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:placeholder-gray-400:focus::-moz-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:placeholder-gray-400:focus:-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:placeholder-gray-400:focus::-ms-input-placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:placeholder-gray-400:focus::placeholder {
-    color: hsl(0, 0%, 69%);
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:placeholder-gray-500:focus::-webkit-input-placeholder {
@@ -66952,64 +67708,84 @@ video {
     color: #744210;
   }
 
-  .xl\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+  .xl\:focus\:placeholder-green-50:focus::-webkit-input-placeholder {
     color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:focus\:placeholder-green-50:focus::-moz-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:focus\:placeholder-green-50:focus:-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:focus\:placeholder-green-50:focus::-ms-input-placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:focus\:placeholder-green-50:focus::placeholder {
+    color: hsl(125, 65%, 93%);
+  }
+
+  .xl\:focus\:placeholder-green-100:focus::-webkit-input-placeholder {
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:focus\:placeholder-green-100:focus::-moz-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:focus\:placeholder-green-100:focus:-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:focus\:placeholder-green-100:focus::-ms-input-placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:focus\:placeholder-green-100:focus::placeholder {
-    color: hsl(125, 65%, 93%);
+    color: hsl(126, 49%, 84%);
   }
 
   .xl\:focus\:placeholder-green-200:focus::-webkit-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:focus\:placeholder-green-200:focus::-moz-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:focus\:placeholder-green-200:focus:-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:focus\:placeholder-green-200:focus::-ms-input-placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:focus\:placeholder-green-200:focus::placeholder {
-    color: hsl(126, 49%, 84%);
+    color: hsl(122, 42%, 75%);
   }
 
   .xl\:focus\:placeholder-green-300:focus::-webkit-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:placeholder-green-300:focus::-moz-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:placeholder-green-300:focus:-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:placeholder-green-300:focus::-ms-input-placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:placeholder-green-300:focus::placeholder {
-    color: hsl(122, 42%, 75%);
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:placeholder-green-400:focus::-webkit-input-placeholder {
@@ -68323,20 +69099,24 @@ video {
     color: #fff;
   }
 
-  .xl\:text-gray-100 {
+  .xl\:text-gray-50 {
     color: hsl(0, 0%, 97%);
   }
 
-  .xl\:text-gray-200 {
+  .xl\:text-gray-100 {
     color: hsl(0, 0%, 88%);
   }
 
-  .xl\:text-gray-300 {
+  .xl\:text-gray-200 {
     color: hsl(0, 0%, 81%);
   }
 
-  .xl\:text-gray-400 {
+  .xl\:text-gray-300 {
     color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:text-gray-400 {
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:text-gray-500 {
@@ -68467,16 +69247,20 @@ video {
     color: #744210;
   }
 
-  .xl\:text-green-100 {
+  .xl\:text-green-50 {
     color: hsl(125, 65%, 93%);
   }
 
-  .xl\:text-green-200 {
+  .xl\:text-green-100 {
     color: hsl(126, 49%, 84%);
   }
 
-  .xl\:text-green-300 {
+  .xl\:text-green-200 {
     color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:text-green-300 {
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:text-green-400 {
@@ -68699,20 +69483,24 @@ video {
     color: #fff;
   }
 
-  .xl\:hover\:text-gray-100:hover {
+  .xl\:hover\:text-gray-50:hover {
     color: hsl(0, 0%, 97%);
   }
 
-  .xl\:hover\:text-gray-200:hover {
+  .xl\:hover\:text-gray-100:hover {
     color: hsl(0, 0%, 88%);
   }
 
-  .xl\:hover\:text-gray-300:hover {
+  .xl\:hover\:text-gray-200:hover {
     color: hsl(0, 0%, 81%);
   }
 
-  .xl\:hover\:text-gray-400:hover {
+  .xl\:hover\:text-gray-300:hover {
     color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:hover\:text-gray-400:hover {
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:hover\:text-gray-500:hover {
@@ -68843,16 +69631,20 @@ video {
     color: #744210;
   }
 
-  .xl\:hover\:text-green-100:hover {
+  .xl\:hover\:text-green-50:hover {
     color: hsl(125, 65%, 93%);
   }
 
-  .xl\:hover\:text-green-200:hover {
+  .xl\:hover\:text-green-100:hover {
     color: hsl(126, 49%, 84%);
   }
 
-  .xl\:hover\:text-green-300:hover {
+  .xl\:hover\:text-green-200:hover {
     color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:hover\:text-green-300:hover {
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:hover\:text-green-400:hover {
@@ -69075,20 +69867,24 @@ video {
     color: #fff;
   }
 
-  .xl\:focus\:text-gray-100:focus {
+  .xl\:focus\:text-gray-50:focus {
     color: hsl(0, 0%, 97%);
   }
 
-  .xl\:focus\:text-gray-200:focus {
+  .xl\:focus\:text-gray-100:focus {
     color: hsl(0, 0%, 88%);
   }
 
-  .xl\:focus\:text-gray-300:focus {
+  .xl\:focus\:text-gray-200:focus {
     color: hsl(0, 0%, 81%);
   }
 
-  .xl\:focus\:text-gray-400:focus {
+  .xl\:focus\:text-gray-300:focus {
     color: hsl(0, 0%, 69%);
+  }
+
+  .xl\:focus\:text-gray-400:focus {
+    color: hsl(0, 0%, 62%);
   }
 
   .xl\:focus\:text-gray-500:focus {
@@ -69219,16 +70015,20 @@ video {
     color: #744210;
   }
 
-  .xl\:focus\:text-green-100:focus {
+  .xl\:focus\:text-green-50:focus {
     color: hsl(125, 65%, 93%);
   }
 
-  .xl\:focus\:text-green-200:focus {
+  .xl\:focus\:text-green-100:focus {
     color: hsl(126, 49%, 84%);
   }
 
-  .xl\:focus\:text-green-300:focus {
+  .xl\:focus\:text-green-200:focus {
     color: hsl(122, 42%, 75%);
+  }
+
+  .xl\:focus\:text-green-300:focus {
+    color: hsl(123, 38%, 63%);
   }
 
   .xl\:focus\:text-green-400:focus {
