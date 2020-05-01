@@ -34,6 +34,13 @@ module.exports = {
                     900: 'hsl(125, 86%, 14%)',
                 },
             },
+            fontSize: {
+                0: 0,
+            },
+            spacing: {
+                0.5: '0.125rem',
+                2.5: '0.625rem',
+            },
         },
     },
     variants: {},

@@ -30,10 +30,10 @@
 
                 <div class="ml-2 sm:ml-6">
                     <nav class="flex">
-                        <a class="px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700" href="#">
+                        <a class="px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700" href="{{ route('polls.create') }}">
                             {{ __('Create Poll') }}
                         </a>
-                        <a class="sm:ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700" href="#">
+                        <a class="sm:ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700" href="{{ route('polls.index') }}">
                             {{ __('View Polls') }}
                         </a>
                     </nav>
