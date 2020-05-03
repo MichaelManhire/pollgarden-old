@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     theme: {
         container: {
@@ -8,41 +10,16 @@ module.exports = {
             sans: ['Inter', 'sans-serif'],
         },
         extend: {
-            colors: {
-                gray: {
-                    50: 'hsl(0, 0%, 97%)',
-                    100: 'hsl(0, 0%, 88%)',
-                    200: 'hsl(0, 0%, 81%)',
-                    300: 'hsl(0, 0%, 69%)',
-                    400: 'hsl(0, 0%, 62%)',
-                    500: 'hsl(0, 0%, 49%)',
-                    600: 'hsl(0, 0%, 38%)',
-                    700: 'hsl(0, 0%, 32%)',
-                    800: 'hsl(0, 0%, 23%)',
-                    900: 'hsl(0, 0%, 13%)',
-                },
-                green: {
-                    50: 'hsl(125, 65%, 93%)',
-                    100: 'hsl(126, 49%, 84%)',
-                    200: 'hsl(122, 42%, 75%)',
-                    300: 'hsl(123, 38%, 63%)',
-                    400: 'hsl(123, 35%, 51%)',
-                    500: 'hsl(122, 39%, 41%)',
-                    600: 'hsl(122, 47%, 35%)',
-                    700: 'hsl(125, 56%, 29%)',
-                    800: 'hsl(125, 73%, 20%)',
-                    900: 'hsl(125, 86%, 14%)',
-                },
+            fontFamily: {
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
             fontSize: {
                 0: 0,
             },
-            spacing: {
-                0.5: '0.125rem',
-                2.5: '0.625rem',
-            },
         },
     },
     variants: {},
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/ui'),
+    ],
 }
