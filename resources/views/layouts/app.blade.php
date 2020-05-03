@@ -14,26 +14,26 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="flex flex-col h-full">
-    <header class="text-gray-200 bg-gray-800">
+    <header class="text-green-100 bg-green-800">
         <div class="container flex items-center justify-between h-16">
             <div class="flex items-center">
-                <a class="flex justify-start items-center flex-shrink-0 text-xl leading-none hover:text-white" href="{{ url('/') }}">
+                <a class="flex justify-start items-center flex-shrink-0 text-xl leading-none text-white" href="{{ url('/') }}">
                     <img class="block h-8 w-auto" src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" height="32" width="32">
                     <span class="hidden sm:block sm:ml-1">{{ config('app.name', 'Poll Garden') }}</span>
                 </a>
 
                 <div class="ml-2 sm:ml-6">
                     <nav class="flex">
-                        <a class="px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700" href="{{ route('polls.create') }}">
+                        <a class="px-3 py-2 rounded-md text-sm leading-5 hover:text-white hover:bg-green-700" href="{{ route('polls.create') }}">
                             {{ __('Create Poll') }}
                         </a>
-                        <a class="sm:ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700" href="{{ route('polls.index') }}">
+                        <a class="sm:ml-4 px-3 py-2 rounded-md text-sm leading-5 hover:text-white hover:bg-green-700" href="{{ route('polls.index') }}">
                             {{ __('View Polls') }}
                         </a>
                     </nav>
@@ -43,19 +43,15 @@
                 <div class="flex items-center">
                     @guest
                         <div class="flex-shrink-0">
-                            <span class="rounded-md shadow-sm">
-                                <a class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-50" href="{{ route('login') }}">
-                                    {{ __('Log In') }}
-                                </a>
-                            </span>
+                            <a class="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500" href="{{ route('login') }}">
+                                {{ __('Log In') }}
+                            </a>
                         </div>
 
                         <div class="ml-4 flex-shrink-0">
-                            <span class="rounded-md shadow-sm">
-                                <a class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" href="{{ route('register') }}">
-                                    {{ __('Sign Up') }}
-                                </a>
-                            </span>
+                            <a class="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500" href="{{ route('register') }}">
+                                {{ __('Sign Up') }}
+                            </a>
                         </div>
 
                     @else
@@ -80,9 +76,7 @@
         </div>
     </header>
 
-    <main class="flex-grow flex-shrink-0 my-12">
-        @yield('content')
-    </main>
+    @yield('content')
 
     <footer class="flex-shrink-0 py-4 text-sm text-gray-500 bg-white border-t border-gray-100">
         <div class="container md:flex md:justify-between md:items-center">
