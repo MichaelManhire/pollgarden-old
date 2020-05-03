@@ -9,6 +9,9 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 $factory->define(Poll::class, function (Faker $faker) {
+    $title = Str::replaceLast('.', '?', $faker->sentence);
+    $slug = Str::of($title)->slug('-');
+
     return [
         'category_id' => function () {
             return PollCategory::all()->random()->id;
@@ -16,6 +19,7 @@ $factory->define(Poll::class, function (Faker $faker) {
         'user_id' => function () {
             return User::all()->random()->id;
         },
-        'title' => Str::replaceLast('.', '?', $faker->sentence),
+        'title' => $title,
+        'slug' => $slug,
     ];
 });

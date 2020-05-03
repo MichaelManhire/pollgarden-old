@@ -18,6 +18,7 @@ class CreatePollsTable extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('users')->onUpdate('set null')->onDelete('set null');
