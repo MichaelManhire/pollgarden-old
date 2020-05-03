@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Poll::class, function (Faker $faker) {
     $title = Str::replaceLast('.', '?', $faker->sentence);
-    $slug = Str::of($title)->slug('-');
+    $slug = Str::of($title)->slug('-') . '-' . rand();
 
     return [
         'category_id' => function () {

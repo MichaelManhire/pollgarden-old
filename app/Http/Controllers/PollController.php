@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Poll;
+use App\PollCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class PollController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +35,9 @@ class PollController extends Controller
      */
     public function create()
     {
-        //
+        $categories = PollCategory::all();
+
+        return view('polls.create', compact('categories'));
     }
 
     /**
@@ -37,7 +48,38 @@ class PollController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the poll.
+        $poll = $this->validatePoll();
+
+        // Validate the options.
+        $options = $this->validateOptions();
+
+        // Attach the poll to the logged-in user.
+        $poll['user_id'] = Auth::id();
+
+        // Add a slug for the poll.
+        $poll['slug'] = Str::of($poll['title'])->slug('-') . '-' . rand();
+
+        // Create the poll.
+        $poll = Poll::create($poll);
+
+        // Strip out the empty options.
+        $options = Arr::collapse($options);
+        $options = Arr::where($options, function ($option) {
+            return $option['name'] !== null;
+        });
+
+        // Attach each option to the newly created poll.
+        $pollId = $poll->id;
+        for ($i = 0; $i < count($options); $i++) {
+            Arr::set($options[$i], 'poll_id', $pollId);
+        }
+
+        // Create the options.
+        $poll->options()->createMany($options);
+
+        // Redirect.
+        return redirect(route('polls.show', $poll));
     }
 
     /**
@@ -83,5 +125,25 @@ class PollController extends Controller
     public function destroy(Poll $poll)
     {
         //
+    }
+
+    protected function validatePoll()
+    {
+        return request()->validate([
+            'title' => 'required|string',
+            'category_id' => 'required|integer|exists:poll_categories,id',
+        ]);
+    }
+
+    protected function validateOptions()
+    {
+        return request()->validate([
+            'options.0.name' => 'required|string',
+            'options.1.name' => 'required|string',
+            'options.2.name' => 'nullable|string',
+            'options.3.name' => 'nullable|string',
+            'options.4.name' => 'nullable|string',
+            'options.5.name' => 'nullable|string',
+        ]);
     }
 }
