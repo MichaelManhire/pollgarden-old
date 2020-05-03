@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="hidden md:block md:text-0">
                                         <div>
-                                            <p class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800">{{ __('Politics') }}</p>
+                                            <p class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $poll->category->color }}-100 text-{{ $poll->category->color }}-800">{{ $poll->category->name }}</p>
                                             <div class="mt-2 text-sm leading-5 text-gray-500">
                                                 <svg class="inline-block align-middle" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                     <line x1="18" y1="20" x2="18" y2="10" />
