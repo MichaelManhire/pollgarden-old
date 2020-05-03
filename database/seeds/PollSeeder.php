@@ -11,6 +11,10 @@ class PollSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Poll::class, 50)->create();
+        factory(App\Poll::class, 50)->create()->each(function ($poll) {
+            for ($i = 0; $i < rand(2, 5); $i++) {
+                $poll->options()->save(factory(App\PollOption::class)->make());
+            }
+        });
     }
 }

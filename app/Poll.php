@@ -22,4 +22,9 @@ class Poll extends Model
     {
         return $this->belongsTo('App\PollCategory', 'category_id');
     }
+
+    public function options()
+    {
+        return $this->hasMany('App\PollOption');
+    }
 }

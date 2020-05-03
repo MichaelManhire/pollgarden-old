@@ -10,13 +10,13 @@
 
             <fieldset>
                 <legend class="sr-only">{{ $poll->title }}</legend>
-                @for ($i = 0; $i < 5; $i++)
-                    <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-white cursor-pointer" for="option{{ $i }}">
-                        <input class="appearance-none fancy-radio-button" id="option{{ $i }}" name="options" type="radio">
-                        <span>Option {{ $i }}</span>
+                @foreach ($poll->options as $option)
+                    <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-white cursor-pointer" for="option{{ $loop->index }}">
+                        <input class="appearance-none fancy-radio-button" id="option{{ $loop->index }}" name="options" type="radio">
+                        <span>{{ $option->name }}</span>
                         <span class="float-right">15%</span>
                     </label>
-                @endfor
+                @endforeach
             </fieldset>
         </form>
     </div>
