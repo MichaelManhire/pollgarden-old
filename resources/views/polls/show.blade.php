@@ -2,11 +2,8 @@
 
 @section('content')
 <main class="flex-grow flex-shrink-0 bg-gray-50">
-    <div class="bg-white shadow-sm">
-        <div class="container py-4">
-            <h1 class="text-lg leading-tight font-bold">{{ $poll->title }}</h1>
-        </div>
-    </div>
+    @include('components.page-title', ['title' => $poll->title])
+
     <div class="container py-12">
         <form class="max-w-2xl" action="{{ route('polls.store') }}" method="POST">
             @csrf

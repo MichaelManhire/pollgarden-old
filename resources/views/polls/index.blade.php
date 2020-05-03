@@ -2,11 +2,8 @@
 
 @section('content')
 <main class="flex-grow flex-shrink-0 bg-gray-50">
-    <div class="bg-white shadow-sm">
-        <div class="container py-4">
-            <h1 class="text-lg leading-tight font-bold">{{ __('Polls') }}</h1>
-        </div>
-    </div>
+    @include('components.page-title', ['title' => __('Polls')])
+
     <div class="container py-12">
         <ol class="bg-white shadow overflow-hidden sm:rounded-md">
             @foreach ($polls as $poll)
