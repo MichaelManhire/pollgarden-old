@@ -48,7 +48,7 @@ class PollController extends Controller
      */
     public function show(Poll $poll)
     {
-        //
+        return view('polls.show', compact('poll'));
     }
 
     /**

@@ -31198,6 +31198,24 @@ video {
   transition-delay: 1000ms;
 }
 
+.fancy-radio-button::before {
+  background-color: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 1.5rem;
+  left: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+}
+
+.fancy-radio-button:checked::before {
+  background-color: #38a169;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;

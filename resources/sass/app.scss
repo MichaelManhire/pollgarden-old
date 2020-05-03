@@ -1,3 +1,21 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.fancy-radio-button::before {
+    background-color: #fff;
+    border: 1px solid #edf2f7;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 1.5rem;
+    left: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+}
+
+.fancy-radio-button:checked::before {
+    background-color: #38a169;
+}
