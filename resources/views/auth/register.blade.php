@@ -20,6 +20,7 @@
                        value="{{ old('username') }}"
                        autocomplete="username"
                        required
+                       maxlength="255"
                        @error('username')
                        aria-invalid="true"
                        aria-describedby="username-error"
@@ -39,6 +40,7 @@
                        type="password"
                        autocomplete="new-password"
                        required
+                       minlength="8"
                        @error('password')
                        aria-invalid="true"
                        aria-describedby="password-error"
@@ -57,7 +59,8 @@
                        name="password_confirmation"
                        type="password"
                        autocomplete="new-password"
-                       required>
+                       required
+                       minlength="8">
             </div>
         </div>
 
