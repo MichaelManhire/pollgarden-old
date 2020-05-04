@@ -39,7 +39,7 @@
                        id="password"
                        name="password"
                        type="password"
-                       autocomplete="new-password"
+                       autocomplete="current-password"
                        required
                        @error('password')
                        aria-invalid="true"
