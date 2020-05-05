@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Create a Poll' . ' - ' . config('app.name', 'Poll Garden'))
+
 @section('content')
 <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
     <h1 class="text-lg leading-tight font-medium">{{ __('Create a Poll') }}</h1>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Polls' . ' - ' . config('app.name', 'Poll Garden'))
+
 @section('content')
 <ol class="bg-white shadow overflow-hidden sm:rounded-md">
     @foreach ($polls as $poll)

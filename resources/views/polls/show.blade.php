@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $poll->title . ' - ' . config('app.name', 'Poll Garden'))
+
 @section('content')
 <form class="max-w-2xl" action="{{ route('polls.store') }}" method="POST">
     @csrf

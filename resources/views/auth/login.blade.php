@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Log In' . ' - ' . config('app.name', 'Poll Garden'))
+
 @section('content')
 <div class="max-w-md mx-auto">
     <div class="text-center">
