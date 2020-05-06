@@ -27,4 +27,9 @@ class Poll extends Model
     {
         return $this->hasMany('App\PollOption');
     }
+
+    public function votes()
+    {
+        return $this->hasManyThrough('App\Vote', 'App\PollOption', 'poll_id', 'option_id');
+    }
 }

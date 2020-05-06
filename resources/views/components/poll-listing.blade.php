@@ -19,7 +19,7 @@
                                     <line x1="12" y1="20" x2="12" y2="4" />
                                     <line x1="6" y1="20" x2="6" y2="14" />
                                 </svg>
-                                <p class="inline-block align-middle">{{ __('20 votes') }}</p>
+                                <p class="inline-block align-middle">{{ count($poll->votes) . ' ' . (count($poll->votes) !== 1 ? __('votes') : __('vote')) }}</p>
                             </div>
                         </div>
                     </div>

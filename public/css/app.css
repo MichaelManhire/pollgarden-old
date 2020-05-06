@@ -31204,8 +31204,8 @@ video {
 }
 
 .fancy-radio-button::before {
-  background-color: #fff;
-  border: 1px solid #edf2f7;
+  background-color: #9fa6b2;
+  border: 2px solid #fff;
   border-radius: 50%;
   content: "";
   display: block;
@@ -31218,7 +31218,7 @@ video {
 }
 
 .fancy-radio-button:checked::before {
-  background-color: #38a169;
+  background-color: #2f8332;
 }
 
 @media (min-width: 640px) {

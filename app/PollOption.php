@@ -13,4 +13,9 @@ class PollOption extends Model
     {
         return $this->belongsTo('App\Poll');
     }
+
+    public function votes()
+    {
+        return $this->hasMany('App\Vote', 'option_id');
+    }
 }
