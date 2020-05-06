@@ -2,6 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.overlay {
+    position: relative;
+    top: -3rem;
+}
+
 .fancy-radio-button::before {
     background-color: #fff;
     border: 1px solid #edf2f7;

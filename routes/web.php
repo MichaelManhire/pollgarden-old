@@ -20,3 +20,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('polls', 'PollController');
+Route::resource('users', 'UserController')->except(['create', 'store']);

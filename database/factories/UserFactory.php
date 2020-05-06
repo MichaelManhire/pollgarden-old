@@ -18,14 +18,20 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $username = $faker->username;
+    $slug = Str::of($username)->slug('-');
     $hasEmail = $faker->boolean();
     $hasVerifiedEmail = $hasEmail && $faker->boolean();
+    $hasDescription = $faker->boolean();
 
     return [
-        'username' => $faker->username,
+        'username' => $username,
+        'slug' => $slug,
         'email' => $hasEmail ? $faker->unique()->safeEmail : null,
         'email_verified_at' => $hasVerifiedEmail ? now() : null,
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
+        'avatar' => 'https://api.adorable.io/avatars/200/' . $slug . '.png',
+        'description' => $hasDescription ? $faker->paragraph($faker->numberBetween(1, 4)) : null,
     ];
 });

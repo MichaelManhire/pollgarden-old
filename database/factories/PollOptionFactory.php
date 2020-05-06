@@ -8,6 +8,6 @@ use Illuminate\Support\Str;
 
 $factory->define(PollOption::class, function (Faker $faker) {
     return [
-        'name' => Str::ucfirst($faker->words(rand(1, 5), true)),
+        'name' => Str::ucfirst($faker->words($faker->numberBetween(1, 5), true)),
     ];
 });

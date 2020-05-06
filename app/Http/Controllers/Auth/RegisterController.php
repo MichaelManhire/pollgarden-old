@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -63,9 +64,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $username = $data['username'];
+        $slug = Str::of($username)->slug('-');
+
         return User::create([
-            'username' => $data['username'],
+            'username' => $username,
+            'slug' => $slug,
             'password' => Hash::make($data['password']),
+            'avatar' => 'https://api.adorable.io/avatars/200/' . $slug . '.png',
         ]);
     }
 }

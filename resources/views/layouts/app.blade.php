@@ -86,8 +86,8 @@
                     </div>
 
                     <div class="flex-shrink-0 ml-3 text-white">
-                        <a class="block rounded-full shadow-solid" href="#" title="{{ __('My Profile') }}">
-                            <img class="h-8 w-8 rounded-full" src="https://source.unsplash.com/64x64/" alt="" height="32" width="32">
+                        <a class="block rounded-full shadow-solid" href="{{ route('users.show', Auth::user()) }}" title="{{ __('My Profile') }}">
+                            <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->avatar }}" alt="" height="32" width="32">
                             <span class="sr-only">{{ __('Profile') }}</span>
                         </a>
                     </div>
