@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PollController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->only(['create', 'store']);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +32,8 @@ class PollController extends Controller
     {
         $categories = PollCategory::all();
 
+        $this->authorize('create', Poll::class);
+
         return view('polls.create', compact('categories'));
     }
 
@@ -48,6 +45,8 @@ class PollController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Poll::class);
+
         // Validate the poll.
         $poll = $this->validatePoll();
 
