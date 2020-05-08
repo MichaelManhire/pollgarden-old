@@ -30,9 +30,9 @@ class PollController extends Controller
      */
     public function create()
     {
-        $categories = PollCategory::all();
-
         $this->authorize('create', Poll::class);
+
+        $categories = PollCategory::all();
 
         return view('polls.create', compact('categories'));
     }

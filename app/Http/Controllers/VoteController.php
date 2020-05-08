@@ -4,29 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,29 +16,15 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->authorize('create', Vote::class);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Vote  $vote
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vote $vote)
-    {
-        //
-    }
+        $vote = $this->validateVote();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Vote  $vote
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vote $vote)
-    {
-        //
+        $vote['user_id'] = Auth::id();
+
+        $vote = Vote::create($vote);
+
+        return redirect()->back();
     }
 
     /**
@@ -81,5 +48,12 @@ class VoteController extends Controller
     public function destroy(Vote $vote)
     {
         //
+    }
+
+    protected function validateVote()
+    {
+        return request()->validate([
+            'option_id' => 'required|integer|exists:poll_options,id',
+        ]);
     }
 }
