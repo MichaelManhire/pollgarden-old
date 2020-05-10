@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
 class InputGroup extends React.Component {
     constructor (props) {
@@ -31,15 +32,9 @@ class InputGroup extends React.Component {
                 <div key={i}>
                     <label className="sr-only" htmlFor={`option${i}`}>{`Option ${i + 1}`}</label>
                     <div className={`mt-1.5 rounded-md shadow-sm ${i !== 0 && 'mt-2'}`}>
-                        <input className="form-input block w-full"
-                               id={`option${i}`}
-                               name={`options[${i}][name]`}
-                               type="text"
-                               placeholder={`Option ${i + 1}`}
-                               autoComplete="none"
-                               required={i < 2 ? true : false} />
+                        <input className="form-input block w-full" id={`option${i}`} name={`options[${i}][name]`} type="text" placeholder={`Option ${i + 1}`} autoComplete="none" required={i < 2} />
                     </div>
-                </div>
+                </div>,
             )
         }
 
@@ -48,23 +43,20 @@ class InputGroup extends React.Component {
                 {inputs}
                 <div className="flex justify-end">
                     {this.state.currentNumberOfInputs > this.props.minNumberOfInputs &&
-                        <button className="flex items-center mt-2 px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-red-700 bg-red-100 hover:bg-red-50"
-                                type="button"
-                                onClick={this.handleRemove}>
-                            Remove Option
-                        </button>
+                        <button className="flex items-center mt-2 px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-red-700 bg-red-100 hover:bg-red-50" type="button" onClick={this.handleRemove}>Remove Option</button>
                     }
                     {this.state.currentNumberOfInputs < this.props.maxNumberOfInputs &&
-                        <button className="flex items-center mt-2 ml-2 px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-green-700 bg-green-100 hover:bg-green-50"
-                                type="button"
-                                onClick={this.handleAdd}>
-                            Add Option
-                        </button>
+                        <button className="flex items-center mt-2 ml-2 px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-green-700 bg-green-100 hover:bg-green-50" type="button" onClick={this.handleAdd}>Add Option</button>
                     }
                 </div>
             </div>
         )
     }
+}
+
+InputGroup.propTypes = {
+    minNumberOfInputs: PropTypes.string.isRequired,
+    maxNumberOfInputs: PropTypes.number.isRequired,
 }
 
 ReactDOM.render(<InputGroup minNumberOfInputs={2} maxNumberOfInputs={5} />, document.getElementById('input-group'))
