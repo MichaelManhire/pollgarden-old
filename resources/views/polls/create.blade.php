@@ -32,18 +32,22 @@
 
         <div class="mt-4">
             <p class="block text-sm font-medium leading-tight text-gray-700">{{ __('Poll Options') }}</p>
-            @for ($i = 0; $i < 5; $i++)
-                <label class="sr-only" for="option{{ $i }}">{{ __('Option') . ' ' . ($i + 1) }}</label>
-                <div class="mt-1.5 rounded-md shadow-sm">
-                    <input class="form-input block w-full {{ $i !== 0 ? 'mt-2' : '' }}"
-                           id="option{{ $i }}"
-                           name="options[{{ $i }}][name]"
-                           type="text"
-                           placeholder="{{ __('Option') . ' ' . ($i + 1) }}"
-                           autocomplete="none"
-                           {{ $i < 2 ? 'required' : '' }}>
-                </div>
-            @endfor
+            <div id="input-group">
+                @for ($i = 0; $i < 5; $i++)
+                    <div>
+                        <label class="sr-only" for="option{{ $i }}">{{ __('Option') . ' ' . ($i + 1) }}</label>
+                        <div class="mt-1.5 rounded-md shadow-sm">
+                            <input class="form-input block w-full {{ $i !== 0 ? 'mt-2' : '' }}"
+                                   id="option{{ $i }}"
+                                   name="options[{{ $i }}][name]"
+                                   type="text"
+                                   placeholder="{{ __('Option') . ' ' . ($i + 1) }}"
+                                   autocomplete="none"
+                                   {{ $i < 2 ? 'required' : '' }}>
+                        </div>
+                    </div>
+                @endfor
+            </div>
         </div>
 
         <div class="mt-4">
