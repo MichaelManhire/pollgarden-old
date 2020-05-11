@@ -59,4 +59,6 @@ InputGroup.propTypes = {
     maxNumberOfInputs: PropTypes.number.isRequired,
 }
 
-ReactDOM.render(<InputGroup minNumberOfInputs={2} maxNumberOfInputs={5} />, document.getElementById('input-group'))
+if (document.getElementById('input-group')) {
+    ReactDOM.render(<InputGroup minNumberOfInputs={2} maxNumberOfInputs={5} />, document.getElementById('input-group'))
+}

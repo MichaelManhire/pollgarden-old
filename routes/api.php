@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Resources\Poll as PollResource;
+use App\Poll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/polls/{id}', function ($id) {
+    return new PollResource(Poll::findOrFail($id)->load('options')->load('votes'));
 });

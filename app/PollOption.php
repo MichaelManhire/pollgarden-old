@@ -8,6 +8,7 @@ class PollOption extends Model
 {
     public $timestamps = false;
     protected $guarded = [];
+    protected $with = ['votes'];
 
     public function poll()
     {
