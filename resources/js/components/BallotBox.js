@@ -64,11 +64,11 @@ class BallotBox extends React.Component {
             <fieldset>
                 <legend className="sr-only">{this.state.title}</legend>
                 {this.state.options.map((option) =>
-                    <label key={option.id} className="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id} style={{ background: this.state.isShowingResults ? `linear-gradient(to right, #bcf0da ${option.percentage}, #d2d6dc ${option.percentage}` : '#d2d6dc' }}>
+                    <label key={option.id} className="relative flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id} style={{ background: this.state.isShowingResults ? `linear-gradient(to right, #bcf0da ${option.percentage}, #d2d6dc ${option.percentage}` : '#d2d6dc' }}>
                         <input className="appearance-none fancy-radio-button" id={option.id} name="option_id" type="radio" value={option.id} onChange={this.handleVote} />
                         <span>{option.name}</span>
                         {this.state.isShowingResults &&
-                            <span className="float-right">{option.percentage}</span>
+                            <span>{option.percentage}</span>
                         }
                     </label>,
                 )}

@@ -19,4 +19,13 @@ class PollOption extends Model
     {
         return $this->hasMany('App\Vote', 'option_id');
     }
+
+    public function percentage($totalVotes)
+    {
+        if ($totalVotes > 0) {
+            return round($this->votes->count() / $totalVotes * 100) . '%';
+        }
+
+        return '0%';
+    }
 }

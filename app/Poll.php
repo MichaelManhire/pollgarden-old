@@ -32,4 +32,13 @@ class Poll extends Model
     {
         return $this->hasManyThrough('App\Vote', 'App\PollOption', 'poll_id', 'option_id');
     }
+
+    public function hasBeenVotedOnBy($userId)
+    {
+        if ($this->votes->where('user_id', $userId)->count()) {
+            return true;
+        }
+
+        return false;
+    }
 }
