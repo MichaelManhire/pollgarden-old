@@ -10,7 +10,7 @@ class BallotBox extends React.Component {
         this.handleVote = this.handleVote.bind(this)
         this.showResults = this.showResults.bind(this)
         this.state = {
-            isShowingResults: false,
+            isShowingResults: this.props.isShowingResults,
             options: [],
             title: null,
             totalVotes: null,
@@ -38,7 +38,7 @@ class BallotBox extends React.Component {
     }
 
     handleVote (event) {
-        axios.post('/votes', {
+        axios.post(this.props.endpointUrl, {
             option_id: event.target.value,
         })
             .then((response) => {
@@ -61,23 +61,51 @@ class BallotBox extends React.Component {
 
     render () {
         return (
-            <fieldset>
-                <legend className="sr-only">{this.state.title}</legend>
-                {this.state.options.map((option) =>
-                    <label key={option.id} className="relative flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id} style={{ background: this.state.isShowingResults ? `linear-gradient(to right, #bcf0da ${option.percentage}, #d2d6dc ${option.percentage}` : '#d2d6dc' }}>
-                        <input className="appearance-none fancy-radio-button" id={option.id} name="option_id" type="radio" value={option.id} onChange={this.handleVote} />
-                        <span>{option.name}</span>
-                        {this.state.isShowingResults &&
-                            <span>{option.percentage}</span>
-                        }
-                    </label>,
+            <div>
+                {this.state.isShowingResults ? (
+                    <table className="block">
+                        <caption className="sr-only">{this.state.title}</caption>
+                        <thead className="sr-only">
+                            <tr>
+                                <th scope="col">Option Name</th>
+                                <th scope="col">Percentage Voted For</th>
+                            </tr>
+                        </thead>
+                        <tbody className="block">
+                            {this.state.options.map((option) =>
+                                <tr key={option.id} className="flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300" style={{ background: this.state.isShowingResults ? `linear-gradient(to right, #bcf0da ${option.percentage}, #d2d6dc ${option.percentage}` : '#d2d6dc' }}>
+                                    <td>{option.name}</td>
+                                    <td>{option.percentage}</td>
+                                </tr>,
+                            )}
+                        </tbody>
+                    </table>
+                ) : (
+                    <form action={this.props.endpointUrl} method="POST">
+                        <fieldset>
+                            <legend className="sr-only">{this.state.title}</legend>
+                            {this.state.options.map((option) =>
+                                <label key={option.id} className="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id}>
+                                    <input className="appearance-none fancy-radio-button" id={option.id} name="option_id" type="radio" value={option.id} onChange={this.handleVote} />
+                                    <span>{option.name}</span>
+                                    {this.state.isShowingResults &&
+                                        <span>{option.percentage}</span>
+                                    }
+                                </label>,
+                            )}
+                        </fieldset>
+
+                        <button className="sr-only" type="submit">Cast Your Vote</button>
+                    </form>
                 )}
-            </fieldset>
+            </div>
         )
     }
 }
 
 BallotBox.propTypes = {
+    endpointUrl: PropTypes.string.isRequired,
+    isShowingResults: PropTypes.string.isRequired,
     pollId: PropTypes.string.isRequired,
 }
 

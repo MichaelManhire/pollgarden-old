@@ -48734,7 +48734,7 @@ var BallotBox = /*#__PURE__*/function (_React$Component) {
     _this.handleVote = _this.handleVote.bind(_assertThisInitialized(_this));
     _this.showResults = _this.showResults.bind(_assertThisInitialized(_this));
     _this.state = {
-      isShowingResults: false,
+      isShowingResults: _this.props.isShowingResults,
       options: [],
       title: null,
       totalVotes: null
@@ -48773,7 +48773,7 @@ var BallotBox = /*#__PURE__*/function (_React$Component) {
     value: function handleVote(event) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/votes', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.props.endpointUrl, {
         option_id: event.target.value
       }).then(function (response) {
         _this3.fetchPoll().then(function () {
@@ -48800,16 +48800,36 @@ var BallotBox = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("legend", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.isShowingResults ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", {
+        className: "block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("caption", {
+        className: "sr-only"
+      }, this.state.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("thead", {
+        className: "sr-only"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", {
+        scope: "col"
+      }, "Option Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", {
+        scope: "col"
+      }, "Percentage Voted For"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", {
+        className: "block"
+      }, this.state.options.map(function (option) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", {
+          key: option.id,
+          className: "flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300",
+          style: {
+            background: _this4.state.isShowingResults ? "linear-gradient(to right, #bcf0da ".concat(option.percentage, ", #d2d6dc ").concat(option.percentage) : '#d2d6dc'
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, option.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, option.percentage));
+      }))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        action: this.props.endpointUrl,
+        method: "POST"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("legend", {
         className: "sr-only"
       }, this.state.title), this.state.options.map(function (option) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           key: option.id,
           className: "relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer",
-          htmlFor: option.id,
-          style: {
-            background: _this4.state.isShowingResults ? "linear-gradient(to right, #bcf0da ".concat(option.percentage, ", #d2d6dc ").concat(option.percentage) : '#d2d6dc'
-          }
+          htmlFor: option.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           className: "appearance-none fancy-radio-button",
           id: option.id,
@@ -48817,10 +48837,11 @@ var BallotBox = /*#__PURE__*/function (_React$Component) {
           type: "radio",
           value: option.id,
           onChange: _this4.handleVote
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, option.name), _this4.state.isShowingResults && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-          className: "float-right"
-        }, option.percentage));
-      }));
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, option.name), _this4.state.isShowingResults && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, option.percentage));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "sr-only",
+        type: "submit"
+      }, "Cast Your Vote")));
     }
   }]);
 
@@ -48828,6 +48849,8 @@ var BallotBox = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 BallotBox.propTypes = {
+  endpointUrl: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string.isRequired,
+  isShowingResults: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string.isRequired,
   pollId: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string.isRequired
 };
 var element = document.getElementById('ballot-box');
