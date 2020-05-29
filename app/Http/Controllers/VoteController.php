@@ -36,7 +36,11 @@ class VoteController extends Controller
      */
     public function update(Request $request, Vote $vote)
     {
-        //
+        $this->authorize('update', $vote);
+
+        $vote->update($this->validateVote());
+
+        return redirect()->back();
     }
 
     /**

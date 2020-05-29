@@ -8,10 +8,12 @@
     <p class="mt-2 text-sm leading-tight text-gray-600">{{ __('Posted by') }} <a class="hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a> <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time> {{ __('in') . ' ' . $poll->category->name }}</p>
     <div class="block mt-8 max-w-2xl"
          id="ballot-box"
-         data-endpoint-url="{{ route('votes.store') }}"
-         data-is-showing-results="{{ (Auth::check() && $poll->hasBeenVotedOnBy(auth()->user()->id)) ? true : false }}"
+         data-endpoint-url-store="{{ route('votes.store') }}"
+         data-endpoint-url-update="{{ route('votes.update', $poll->id) }}"
+         data-is-showing-results="{{ (Auth::check() && $poll->optionVotedForBy(auth()->user()->id)) ? true : false }}"
+         data-option-voted-for-id="{{ (Auth::check() && $poll->optionVotedForBy(auth()->user()->id)) ? $poll->optionVotedForBy(auth()->user()->id) : '' }}"
          data-poll-id="{{ $poll->id }}">
-        @if (Auth::check() && $poll->hasBeenVotedOnBy(auth()->user()->id))
+        @if (Auth::check() && $poll->optionVotedForBy(auth()->user()->id))
             <table class="block">
                 <caption class="sr-only">{{ $poll->title }}</caption>
                 <thead class="sr-only">

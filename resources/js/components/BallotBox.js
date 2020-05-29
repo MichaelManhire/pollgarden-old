@@ -8,7 +8,7 @@ class BallotBox extends React.Component {
         super(props)
         this.fetchPoll = this.fetchPoll.bind(this)
         this.handleVote = this.handleVote.bind(this)
-        this.showResults = this.showResults.bind(this)
+        this.toggleResults = this.toggleResults.bind(this)
         this.state = {
             isShowingResults: this.props.isShowingResults,
             options: [],
@@ -38,12 +38,12 @@ class BallotBox extends React.Component {
     }
 
     handleVote (event) {
-        axios.post(this.props.endpointUrl, {
+        axios.post(this.props.endpointUrlStore, {
             option_id: event.target.value,
         })
             .then((response) => {
                 this.fetchPoll().then(() => {
-                    this.showResults()
+                    this.toggleResults()
                 })
             })
             .catch((error) => {
@@ -51,8 +51,8 @@ class BallotBox extends React.Component {
             })
     }
 
-    showResults () {
-        this.setState({ isShowingResults: true })
+    toggleResults () {
+        this.setState({ isShowingResults: !this.state.isShowingResults })
     }
 
     componentDidMount () {
@@ -63,40 +63,82 @@ class BallotBox extends React.Component {
         return (
             <div>
                 {this.state.isShowingResults ? (
-                    <table className="block">
-                        <caption className="sr-only">{this.state.title}</caption>
-                        <thead className="sr-only">
-                            <tr>
-                                <th scope="col">Option Name</th>
-                                <th scope="col">Percentage Voted For</th>
-                            </tr>
-                        </thead>
-                        <tbody className="block">
-                            {this.state.options.map((option) =>
-                                <tr key={option.id} className="flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300" style={{ background: this.state.isShowingResults ? `linear-gradient(to right, #bcf0da ${option.percentage}, #d2d6dc ${option.percentage}` : '#d2d6dc' }}>
-                                    <td>{option.name}</td>
-                                    <td>{option.percentage}</td>
-                                </tr>,
-                            )}
-                        </tbody>
-                    </table>
+                    <div>
+                        <table className="block">
+                            <caption className="sr-only">{this.state.title}</caption>
+                            <thead className="sr-only">
+                                <tr>
+                                    <th scope="col">Option Name</th>
+                                    <th scope="col">Percentage Voted For</th>
+                                </tr>
+                            </thead>
+                            <tbody className="block">
+                                {this.state.options.map((option) =>
+                                    <tr key={option.id} className="flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300" style={{ background: this.state.isShowingResults ? `linear-gradient(to right, #bcf0da ${option.percentage}, #d2d6dc ${option.percentage}` : '#d2d6dc' }}>
+                                        <td>{option.name}</td>
+                                        <td>{option.percentage}</td>
+                                    </tr>,
+                                )}
+                            </tbody>
+                        </table>
+                        <div className="text-right text-sm">
+                            <button className="inline-block p-2 -mt-2" type="button" onClick={this.toggleResults}>
+                                {this.props.optionVotedForId ? 'Change Your Vote' : 'Back to Voting'}
+                            </button>
+                        </div>
+                    </div>
                 ) : (
-                    <form action={this.props.endpointUrl} method="POST">
-                        <fieldset>
-                            <legend className="sr-only">{this.state.title}</legend>
-                            {this.state.options.map((option) =>
-                                <label key={option.id} className="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id}>
-                                    <input className="appearance-none fancy-radio-button" id={option.id} name="option_id" type="radio" value={option.id} onChange={this.handleVote} />
-                                    <span>{option.name}</span>
-                                    {this.state.isShowingResults &&
-                                        <span>{option.percentage}</span>
-                                    }
-                                </label>,
-                            )}
-                        </fieldset>
+                    <div>
+                        {this.props.optionVotedForId ? (
+                            <div>
+                                <form action={this.props.endpointUrlUpdate} method="POST">
+                                    <input name="_method" type="hidden" value="PUT" />
 
-                        <button className="sr-only" type="submit">Cast Your Vote</button>
-                    </form>
+                                    <fieldset>
+                                        <legend className="sr-only">{this.state.title}</legend>
+                                        {this.state.options.map((option) =>
+                                            <label key={option.id} className="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id}>
+                                                <input className="appearance-none fancy-radio-button" id={option.id} name="option_id" type="radio" value={option.id} checked={option.id.toString() === this.props.optionVotedForId} />
+                                                <span>{option.name}</span>
+                                                {this.state.isShowingResults &&
+                                                    <span>{option.percentage}</span>
+                                                }
+                                            </label>,
+                                        )}
+                                    </fieldset>
+
+                                    <div className="text-right">
+                                        <button className="py-2 px-4 mb-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">Submit Updated Vote</button>
+                                    </div>
+                                </form>
+                                <div className="text-right text-sm">
+                                    <button className="inline-block p-2 -mt-2" type="button" onClick={this.toggleResults}>Show Results</button>
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <form action={this.props.endpointUrlStore} method="POST">
+                                    <fieldset>
+                                        <legend className="sr-only">{this.state.title}</legend>
+                                        {this.state.options.map((option) =>
+                                            <label key={option.id} className="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" htmlFor={option.id}>
+                                                <input className="appearance-none fancy-radio-button" id={option.id} name="option_id" type="radio" value={option.id} onChange={this.handleVote} />
+                                                <span>{option.name}</span>
+                                                {this.state.isShowingResults &&
+                                                    <span>{option.percentage}</span>
+                                                }
+                                            </label>,
+                                        )}
+                                    </fieldset>
+
+                                    <button className="sr-only" type="submit">Cast Your Vote</button>
+                                </form>
+                                <div className="text-right text-sm">
+                                    <button className="inline-block p-2 -mt-2" type="button" onClick={this.toggleResults}>Show Results</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 )}
             </div>
         )
@@ -104,8 +146,10 @@ class BallotBox extends React.Component {
 }
 
 BallotBox.propTypes = {
-    endpointUrl: PropTypes.string.isRequired,
+    endpointUrlStore: PropTypes.string.isRequired,
+    endpointUrlUpdate: PropTypes.string.isRequired,
     isShowingResults: PropTypes.string.isRequired,
+    optionVotedForId: PropTypes.string.isRequired,
     pollId: PropTypes.string.isRequired,
 }
 

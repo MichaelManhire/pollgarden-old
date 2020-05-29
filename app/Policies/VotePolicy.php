@@ -30,7 +30,7 @@ class VotePolicy
      */
     public function update(User $user, Vote $vote)
     {
-        //
+        return $vote->belongsTo($user);
     }
 
     /**
