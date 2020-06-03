@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -15,7 +16,15 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create', Comment::class);
+
+        $comment = $this->validateComment();
+
+        $comment['user_id'] = Auth::id();
+
+        $comment = Comment::create($comment);
+
+        return redirect()->back();
     }
 
     /**
@@ -39,5 +48,13 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+    }
+
+    protected function validateComment()
+    {
+        return request()->validate([
+            'poll_id' => 'required|integer|exists:polls,id',
+            'body' => 'required|string',
+        ]);
     }
 }
