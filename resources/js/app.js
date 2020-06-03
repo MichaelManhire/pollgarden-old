@@ -1,3 +1,1 @@
-require('./bootstrap')
-require('./components/BallotBox')
-require('./components/InputGroup')
+require('./bootstrap');
