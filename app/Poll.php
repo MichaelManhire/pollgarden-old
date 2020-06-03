@@ -23,6 +23,11 @@ class Poll extends Model
         return $this->belongsTo('App\PollCategory', 'category_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function options()
     {
         return $this->hasMany('App\PollOption');

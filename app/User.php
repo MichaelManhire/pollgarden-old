@@ -35,6 +35,11 @@ class User extends Authenticatable
         return 'slug';
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function polls()
     {
         return $this->hasMany('App\Poll');

@@ -51,4 +51,22 @@
         @endif
     </div>
 </div>
+@if (count($poll->comments) > 0)
+    <article class="mt-6">
+        <h2 class="mb-2 text-2xl leading-tight font-extrabold">{{ __('Comments') }}</h2>
+        @foreach ($poll->comments as $comment)
+            <article class="flex items-start max-w-3xl px-2 py-4 bg-white shadow sm:px-5 sm:rounded-lg {{ (! $loop->first) ? 'mt-4' : '' }}">
+                <a class="flex-shrink-0 text-center text-white" href="{{ route('users.show', $comment->author->id) }}">
+                    <figure>
+                        <img class="h-12 w-12 rounded-full shadow-solid" src="{{ $comment->author->avatar }}" alt="" height="48" width="48" loading="lazy">
+                        <figcaption class="mt-1 text-sm text-black hover:underline">{{ $comment->author->username }}</figcaption>
+                    </figure>
+                </a>
+                <div class="ml-4">
+                    <p>{{ $comment->body }}</p>
+                </div>
+            </article>
+        @endforeach
+    </article>
+@endif
 @endsection
