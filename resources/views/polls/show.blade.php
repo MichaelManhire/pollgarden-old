@@ -56,51 +56,47 @@
         <h2 class="mb-2 text-2xl leading-tight font-extrabold">{{ __('Comments') }}</h2>
 
         @auth
-            <div class="max-w-3xl px-2 py-4 mb-4 bg-white shadow sm:px-5 sm:rounded-lg">
-                <h3 class="mb-4 text-lg leading-tight font-extrabold">{{ __('Write a Comment') }}</h3>
+            <div class="flex items-start max-w-3xl px-2 py-4 mb-4 bg-white shadow sm:px-5 sm:rounded-lg">
+                <figure class="flex-shrink-0 text-center text-white">
+                    <img class="h-12 w-12 rounded-full shadow-solid" src="{{ Auth::user()->avatar }}" alt="" height="48" width="48" loading="lazy">
+                    <figcaption class="mt-1 text-sm text-black">{{ Auth::user()->username }}</figcaption>
+                </figure>
 
-                <div class="flex items-start">
-                    <figure class="flex-shrink-0 text-center text-white">
-                        <img class="h-12 w-12 rounded-full shadow-solid" src="{{ Auth::user()->avatar }}" alt="" height="48" width="48" loading="lazy">
-                        <figcaption class="mt-1 text-sm text-black">{{ Auth::user()->username }}</figcaption>
-                    </figure>
+                <form class="flex-1 ml-4" action="{{ route('comments.store') }}" method="POST">
+                    @csrf
 
-                    <form class="flex-1 ml-4" action="{{ route('comments.store') }}" method="POST">
-                        @csrf
-
-                        <div>
-                            <label class="sr-only" for="body">{{ __('Comment') }}</label>
-                            <div class="rounded-md shadow-sm">
-                                <textarea class="form-input block w-full @error('body') border-red-300 text-red-900 @enderror"
-                                       id="body"
-                                       name="body"
-                                       value="{{ old('body') }}"
-                                       autocomplete="off"
-                                       required
-                                       @error('body')
-                                       aria-invalid="true"
-                                       aria-describedby="body-error"
-                                       @enderror></textarea>
-                            </div>
-                            @error('body')
-                                <p class="mt-2 text-sm text-red-600" id="body-error">{{ $message }}</p>
-                            @enderror
+                    <div>
+                        <label class="sr-only" for="body">{{ __('Comment') }}</label>
+                        <div class="rounded-md shadow-sm">
+                            <textarea class="form-input block w-full @error('body') border-red-300 text-red-900 @enderror"
+                                   id="body"
+                                   name="body"
+                                   value="{{ old('body') }}"
+                                   autocomplete="off"
+                                   required
+                                   @error('body')
+                                   aria-invalid="true"
+                                   aria-describedby="body-error"
+                                   @enderror></textarea>
                         </div>
+                        @error('body')
+                            <p class="mt-2 text-sm text-red-600" id="body-error">{{ $message }}</p>
+                        @enderror
+                    </div>
 
-                        <input name="poll_id" type="hidden" value="{{ $poll->id }}">
+                    <input name="poll_id" type="hidden" value="{{ $poll->id }}">
 
-                        <div class="flex justify-end mt-4">
-                            <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
-                                {{ __('Submit Comment') }}
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="flex justify-end mt-4">
+                        <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
+                            {{ __('Submit Comment') }}
+                        </button>
+                    </div>
+                </form>
             </div>
         @endauth
 
         @foreach ($poll->comments->sortByDesc('created_at') as $comment)
-            <article class="flex items-start max-w-3xl px-2 py-4 bg-white shadow sm:px-5 sm:rounded-lg {{ (! $loop->first) ? 'mt-4' : '' }}">
+            <article class="relative flex items-start max-w-3xl px-2 pt-4 pb-6 bg-white shadow sm:px-5 sm:rounded-lg {{ (! $loop->first) ? 'mt-4' : '' }}">
                 <a class="flex-shrink-0 text-center text-white" href="{{ route('users.show', $comment->author->id) }}">
                     <figure>
                         <img class="h-12 w-12 rounded-full shadow-solid" src="{{ $comment->author->avatar }}" alt="" height="48" width="48" loading="lazy">
@@ -110,7 +106,50 @@
                 <div class="ml-4">
                     <p>{{ $comment->body }}</p>
                 </div>
+                <div class="absolute bottom-0 right-0 px-2 py-4 text-right text-sm">
+                    <p class="inline-block">{{ __('Posted') . ' ' }} <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time></p>
+                    <button class="inline-block ml-2 text-green-600 hover:underline" type="button">Reply</button>
+                </div>
             </article>
+            @auth
+                <div class="flex items-start max-w-3xl px-2 py-4 mt-4 mb-4 ml-8 bg-white shadow sm:px-5 sm:rounded-lg">
+                    <figure class="flex-shrink-0 text-center text-white">
+                        <img class="h-12 w-12 rounded-full shadow-solid" src="{{ Auth::user()->avatar }}" alt="" height="48" width="48" loading="lazy">
+                        <figcaption class="mt-1 text-sm text-black">{{ Auth::user()->username }}</figcaption>
+                    </figure>
+
+                    <form class="flex-1 ml-4" action="{{ route('comments.store') }}" method="POST">
+                        @csrf
+
+                        <div>
+                            <label class="sr-only" for="body-{{ $comment->id }}">{{ __('Comment') }}</label>
+                            <div class="rounded-md shadow-sm">
+                                <textarea class="form-input block w-full @error('body') border-red-300 text-red-900 @enderror"
+                                       id="body-{{ $comment->id }}"
+                                       name="body"
+                                       value="{{ old('body') }}"
+                                       autocomplete="off"
+                                       required
+                                       @error('body')
+                                       aria-invalid="true"
+                                       aria-describedby="body-{{ $comment->id }}-error"
+                                       @enderror></textarea>
+                            </div>
+                            @error('body')
+                                <p class="mt-2 text-sm text-red-600" id="body-{{ $comment->id }}-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <input name="poll_id" type="hidden" value="{{ $poll->id }}">
+
+                        <div class="flex justify-end mt-4">
+                            <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
+                                {{ __('Submit Reply') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            @endauth
         @endforeach
     </div>
 @endif
