@@ -28,6 +28,11 @@ class Poll extends Model
         return $this->hasMany('App\Comment');
     }
 
+    public function parentComments()
+    {
+        return $this->hasMany('App\Comment')->whereNull('parent_comment_id');
+    }
+
     public function options()
     {
         return $this->hasMany('App\PollOption');

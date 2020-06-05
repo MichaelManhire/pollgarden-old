@@ -17,8 +17,13 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('poll_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('parent_comment_id')->nullable();
             $table->text('body');
             $table->timestamps();
+
+            $table->foreign('poll_id')->references('id')->on('polls')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('parent_comment_id')->references('id')->on('comments')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
