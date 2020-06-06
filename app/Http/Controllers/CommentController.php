@@ -24,7 +24,7 @@ class CommentController extends Controller
 
         $comment = Comment::create($comment);
 
-        return redirect()->back();
+        return back();
     }
 
     /**
@@ -36,7 +36,11 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $this->authorize('update', $comment);
+
+        $comment->update($this->validateComment());
+
+        return back();
     }
 
     /**

@@ -58,21 +58,27 @@
 
         @include('components.comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
 
-        @foreach ($poll->parentComments->sortByDesc('created_at') as $comment)
-            <ol>
-                @include('components.comment', ['comment' => $comment])
-                @include('components.comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
+        <ol>
+            @foreach ($poll->parentComments->sortByDesc('created_at') as $comment)
+                <li class="js-comment mt-4 mb-4">
+                    @include('components.comment', ['comment' => $comment])
+                    @include('components.comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
+                    @include('components.comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
+                </li>
 
                 @if ($comment->childComments->isNotEmpty())
                     <ol class="ml-8">
                         @foreach ($comment->childComments->sortByDesc('created_at') as $childComment)
-                            @include('components.comment', ['comment' => $childComment])
-                            @include('components.comment-form', ['id' => 'reply-for-comment-' . $childComment->id, 'isReply' => true])
+                            <li class="js-comment mt-4 mb-4">
+                                @include('components.comment', ['comment' => $childComment])
+                                @include('components.comment-form-edit', ['comment' => $childComment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => true])
+                                @include('components.comment-form', ['id' => 'reply-for-comment-' . $childComment->id, 'isReply' => true])
+                            </li>
                         @endforeach
                     </ol>
                 @endif
-            </ol>
-        @endforeach
+            @endforeach
+        </ol>
     </div>
 @endif
 @endsection
