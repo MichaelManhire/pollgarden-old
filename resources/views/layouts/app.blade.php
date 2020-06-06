@@ -19,7 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="flex flex-col h-full">
-    <header class="sticky top-0 bg-white shadow-sm">
+    <header class="sticky top-0 z-10 bg-white shadow-sm">
         <div class="container flex justify-between h-16">
             <div class="flex">
                 @if (Request::is('/'))
