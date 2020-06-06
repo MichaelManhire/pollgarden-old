@@ -9,10 +9,19 @@
     <div class="absolute bottom-0 right-0 px-2 py-2 text-right text-sm sm:px-5">
         <p class="inline-block">{{ __('Posted') . ' ' }} <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time></p>
         @auth
-            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">Reply</button>
+            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">{{ __('Reply') }}</button>
         @endauth
         @can('update', $comment)
-            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">Edit</button>
+            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">{{ __('Edit') }}</button>
+        @endcan
+        @can('delete', $comment)
+            <form class="inline-block ml-2" action="{{ route('comments.destroy', $comment) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <input name="id" type="hidden" value="{{ $comment->id }}">
+                <button class="text-green-600 hover:underline" type="submit">{{ __('Delete') }}</button>
+            </form>
         @endcan
     </div>
 </article>
