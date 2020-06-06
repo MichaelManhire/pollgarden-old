@@ -19,7 +19,6 @@
                 @csrf
                 @method('DELETE')
 
-                <input name="id" type="hidden" value="{{ $comment->id }}">
                 <button class="text-green-600 hover:underline" type="submit">{{ __('Delete') }}</button>
             </form>
         @endcan
