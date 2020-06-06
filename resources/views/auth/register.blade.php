@@ -9,7 +9,7 @@
         <h1 class="mt-4 text-3xl leading-9 font-extrabold">{{ __('Sign up for a new account') }}</h1>
         <p class="mt-2 text-sm leading-5 text-gray-600">{{ __('Registering an account allows you to create polls, vote in polls, share your opinions, message other users, and more.') }}</p>
     </div>
-    <form class="px-4 py-8 mt-8 bg-white shadow sm:px-10 sm:rounded-lg" action="{{ route('register') }}" method="POST">
+    <form class="px-4 py-8 mt-8 bg-white shadow rounded-lg sm:px-10" action="{{ route('register') }}" method="POST">
         @csrf
 
         <div>

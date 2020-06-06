@@ -3,7 +3,7 @@
 @section('title', $poll->title . ' - ' . config('app.name', 'Poll Garden'))
 
 @section('content')
-<div class="px-4 py-8 bg-white shadow sm:px-10 sm:rounded-lg">
+<div class="px-4 py-8 bg-white shadow rounded-lg sm:px-10">
     <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
 
     <div class="mt-2 text-sm leading-tight text-gray-600">

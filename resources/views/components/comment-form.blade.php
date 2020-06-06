@@ -1,5 +1,5 @@
 @can('create', App\Comment::class)
-    <div class="flex items-start max-w-3xl px-2 py-4 mt-4 mb-4 bg-white shadow sm:px-5 sm:rounded-lg {{ $isReply ? 'ml-8' : '' }}">
+    <div class="flex items-start max-w-3xl px-2 py-4 mt-4 mb-4 bg-white shadow rounded-lg sm:px-5 {{ $isReply ? 'ml-8' : '' }}">
         <div class="flex-shrink-0 text-white">
             <img class="h-12 w-12 rounded-full shadow-solid" src="{{ Auth::user()->avatar }}" alt="" height="48" width="48" loading="lazy">
         </div>

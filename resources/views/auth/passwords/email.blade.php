@@ -14,7 +14,7 @@
         <img class="mx-auto" src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" height="64" width="64">
         <h1 class="mt-4 text-3xl leading-9 font-extrabold">{{ __('Reset Password') }}</h1>
     </div>
-    <form class="px-4 py-8 mt-8 bg-white shadow sm:px-10 sm:rounded-lg" action="{{ route('login') }}" method="POST">
+    <form class="px-4 py-8 mt-8 bg-white shadow rounded-lg sm:px-10" action="{{ route('login') }}" method="POST">
         @csrf
 
         <div>

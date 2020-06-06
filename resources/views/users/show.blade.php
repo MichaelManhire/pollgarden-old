@@ -3,7 +3,7 @@
 @section('title', $user->username . ' - ' . config('app.name', 'Poll Garden'))
 
 @section('content')
-    <div class="px-4 mt-12 text-center bg-white shadow sm:px-10 sm:rounded-lg">
+    <div class="px-4 mt-12 text-center bg-white shadow rounded-lg sm:px-10">
         <div class="overlay">
             <div class="text-white">
                 <img class="mx-auto rounded-full shadow-solid" src="{{ $user->avatar }}" alt="" width="96" height="96">

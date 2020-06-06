@@ -3,7 +3,7 @@
 @section('title', 'Create a Poll' . ' - ' . config('app.name', 'Poll Garden'))
 
 @section('content')
-<div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+<div class="bg-white shadow px-4 py-5 rounded-lg sm:p-6">
     <h1 class="text-lg leading-tight font-medium">{{ __('Edit Your Poll') }}</h1>
 
     <form class="mt-6" action="{{ route('polls.update', $poll) }}" method="POST">

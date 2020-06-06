@@ -11,7 +11,7 @@
             {{ __('Or') }} <a class="font-medium text-green-600 hover:text-green-500 hover:underline" href="{{ route('register') }}">{{ __('register a new account') }}</a>
         </p>
     </div>
-    <form class="px-4 py-8 mt-8 bg-white shadow sm:px-10 sm:rounded-lg" action="{{ route('login') }}" method="POST">
+    <form class="px-4 py-8 mt-8 bg-white shadow rounded-lg sm:px-10" action="{{ route('login') }}" method="POST">
         @csrf
 
         <div>

@@ -3,7 +3,7 @@
 @section('title', 'Create a Poll' . ' - ' . config('app.name', 'Poll Garden'))
 
 @section('content')
-<div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+<div class="bg-white shadow px-4 py-5 rounded-lg sm:p-6">
     <h1 class="text-lg leading-tight font-medium">{{ __('Create a Poll') }}</h1>
     <p class="mt-1 text-sm text-gray-500">{{ __('Your poll will be placed in the list of polls and voted on by the Poll Garden community.') }}</p>
 

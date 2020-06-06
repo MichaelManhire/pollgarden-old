@@ -1,4 +1,4 @@
-<article class="relative flex items-start max-w-3xl px-2 pt-4 pb-6 bg-white shadow sm:px-5 sm:rounded-lg">
+<article class="relative flex items-start max-w-3xl px-2 pt-4 pb-6 bg-white shadow rounded-lg sm:px-5">
     <a class="flex-shrink-0 text-white" href="{{ route('users.show', $comment->author) }}">
         <img class="h-12 w-12 rounded-full shadow-solid" src="{{ $comment->author->avatar }}" alt="" height="48" width="48" loading="lazy">
     </a>
