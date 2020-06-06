@@ -42,7 +42,7 @@ class PollPolicy
      */
     public function delete(User $user, Poll $poll)
     {
-        //
+        return $user->id === $poll->user_id;
     }
 
     /**

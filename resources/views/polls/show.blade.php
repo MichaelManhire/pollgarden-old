@@ -11,6 +11,15 @@
         @can('update', $poll)
             <a class="inline-block ml-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">{{ __('Edit Poll') }}</a>
         @endcan
+        @can('delete', $poll)
+            <form class="inline-block ml-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <input name="id" type="hidden" value="{{ $poll->id }}">
+                <button class="text-green-600 hover:underline" type="submit">{{ __('Delete Poll') }}</button>
+            </form>
+        @endcan
     </div>
 
     <div class="block mt-8 max-w-2xl"

@@ -131,7 +131,11 @@ class PollController extends Controller
      */
     public function destroy(Poll $poll)
     {
-        //
+        $this->authorize('delete', $poll);
+
+        $poll->delete();
+
+        return redirect(route('polls.index'));
     }
 
     protected function validatePoll()
