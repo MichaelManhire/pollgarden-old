@@ -100,7 +100,11 @@ class PollController extends Controller
      */
     public function edit(Poll $poll)
     {
-        //
+        $this->authorize('update', $poll);
+
+        $categories = PollCategory::all();
+
+        return view('polls.edit', compact(['categories', 'poll']));
     }
 
     /**
@@ -112,7 +116,11 @@ class PollController extends Controller
      */
     public function update(Request $request, Poll $poll)
     {
-        //
+        $this->authorize('update', $poll);
+
+        $poll->update($this->validatePoll());
+
+        return redirect(route('polls.show', $poll));
     }
 
     /**

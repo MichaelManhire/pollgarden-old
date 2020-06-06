@@ -5,7 +5,14 @@
 @section('content')
 <div class="px-4 py-8 bg-white shadow sm:px-10 sm:rounded-lg">
     <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
-    <p class="mt-2 text-sm leading-tight text-gray-600">{{ __('Posted by') }} <a class="hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a> <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time> {{ __('in') . ' ' . $poll->category->name }}</p>
+
+    <div class="mt-2 text-sm leading-tight text-gray-600">
+        <p class="inline-block">{{ __('Posted by') }} <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a> <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time> {{ __('in') . ' ' . $poll->category->name }}</p>
+        @can('update', $poll)
+            <a class="inline-block ml-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">{{ __('Edit Poll') }}</a>
+        @endcan
+    </div>
+
     <div class="block mt-8 max-w-2xl"
          id="ballot-box"
          data-endpoint-url-store="{{ route('votes.store') }}"
