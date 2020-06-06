@@ -43,12 +43,12 @@ class Poll extends Model
         return $this->hasManyThrough('App\Vote', 'App\PollOption', 'poll_id', 'option_id');
     }
 
-    public function optionVotedForBy($userId)
+    public function usersVote($userId)
     {
         $vote = $this->votes->where('user_id', $userId)->first();
 
         if ($vote) {
-            return $vote->option_id;
+            return $vote;
         }
 
         return null;

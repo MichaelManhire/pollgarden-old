@@ -30,7 +30,7 @@ class VotePolicy
      */
     public function update(User $user, Vote $vote)
     {
-        return $vote->belongsTo($user);
+        return $user->id === $vote->user_id;
     }
 
     /**
@@ -42,7 +42,7 @@ class VotePolicy
      */
     public function delete(User $user, Vote $vote)
     {
-        //
+        return $user->id === $vote->user_id;
     }
 
     /**

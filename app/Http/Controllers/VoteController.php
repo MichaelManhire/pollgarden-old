@@ -24,7 +24,7 @@ class VoteController extends Controller
 
         $vote = Vote::create($vote);
 
-        return redirect()->back();
+        return back();
     }
 
     /**
@@ -40,7 +40,7 @@ class VoteController extends Controller
 
         $vote->update($this->validateVote());
 
-        return redirect()->back();
+        return back();
     }
 
     /**
@@ -51,7 +51,11 @@ class VoteController extends Controller
      */
     public function destroy(Vote $vote)
     {
-        //
+        $this->authorize('delete', $vote);
+
+        $vote->delete();
+
+        return back();
     }
 
     protected function validateVote()

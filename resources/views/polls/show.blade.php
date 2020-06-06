@@ -22,49 +22,90 @@
         @endcan
     </div>
 
-    <div class="block mt-8 max-w-2xl"
-         id="ballot-box"
-         data-endpoint-url-store="{{ route('votes.store') }}"
-         data-endpoint-url-update="{{ route('votes.update', $poll->id) }}"
-         data-is-showing-results="{{ (Auth::check() && $poll->optionVotedForBy(auth()->user()->id)) ? true : false }}"
-         data-option-voted-for-id="{{ (Auth::check() && $poll->optionVotedForBy(auth()->user()->id)) ? $poll->optionVotedForBy(auth()->user()->id) : '' }}"
-         data-poll-id="{{ $poll->id }}">
-        @if (Auth::check() && $poll->optionVotedForBy(auth()->user()->id))
-            <table class="block">
-                <caption class="sr-only">{{ $poll->title }}</caption>
-                <thead class="sr-only">
-                    <tr>
-                        <th scope="col">{{ __('Option Name') }}</th>
-                        <th scope="col">{{ __('Percentage Voted For') }}</th>
-                    </tr>
-                </thead>
-                <tbody class="block">
-                    @foreach ($poll->options as $option)
-                        <tr class="flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300" style="background: linear-gradient(to right, #bcf0da {{ $option->percentage(count($poll->votes)) }}, #d2d6dc {{ $option->percentage(count($poll->votes)) }});">
-                            <td>{{ $option->name }}</td>
-                            <td>{{ $option->percentage(count($poll->votes)) }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @else
+    <div class="block mt-8 max-w-2xl" id="ballot-box">
+        @if (is_null($poll->usersVote(Auth::id())))
+            <h2 class="sr-only">{{ __('Vote') }}</h2>
             <form action="{{ route('votes.store') }}" method="POST">
                 @csrf
 
                 <fieldset>
                     <legend class="sr-only">{{ $poll->title }}</legend>
                     @foreach ($poll->options as $option)
-                        <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer" for="{{ $option->id }}">
-                            <input class="appearance-none fancy-radio-button" id="{{ $option->id }}" name="option_id" type="radio" value="{{ $option->id }}">
+                        <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer"
+                               for="{{ $option->id }}">
+                            <input class="appearance-none fancy-radio-button"
+                                   id="{{ $option->id }}"
+                                   name="option_id"
+                                   type="radio"
+                                   value="{{ $option->id }}">
                             <span>{{ $option->name }}</span>
-                            <span>{{ $option->percentage(count($poll->votes)) }}</span>
                         </label>
                     @endforeach
                 </fieldset>
 
-                <button class="sr-only" type="submit">Cast Your Vote</button>
+                <div class="flex justify-end mt-2">
+                    <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
+                        {{ __('Cast Your Vote') }}
+                    </button>
+                </div>
+            </form>
+        @else
+            <h2 class="sr-only">{{ __('Change Your Vote') }}</h2>
+            <form action="{{ route('votes.update', $poll->usersVote(Auth::id())) }}" method="POST">
+                @csrf
+                @method('PATCH')
+
+                <fieldset>
+                    <legend class="sr-only">{{ $poll->title }}</legend>
+                    @foreach ($poll->options as $option)
+                        <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer"
+                               for="{{ $option->id }}"
+                               style="background: linear-gradient(to right, #bcf0da {{ $option->percentage(count($poll->votes)) }}, #d2d6dc {{ $option->percentage(count($poll->votes)) }}">
+                            <input class="appearance-none fancy-radio-button"
+                                   id="{{ $option->id }}"
+                                   name="option_id"
+                                   type="radio"
+                                   value="{{ $option->id }}"
+                                   {{ $poll->usersVote(Auth::id())->option_id === $option->id ? 'checked' : '' }}>
+                            <span>{{ $option->name }}</span>
+                            <span class="float-right font-bold">{{ $option->percentage(count($poll->votes)) }}</span>
+                        </label>
+                    @endforeach
+                </fieldset>
+
+                <div class="flex justify-end mt-2">
+                    <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
+                        {{ __('Change Your Vote') }}
+                    </button>
+                </div>
+            </form>
+            <form class="mt-3 text-right text-sm" action="{{ route('votes.destroy', $poll->usersVote(Auth::id())) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button class="text-green-600 hover:underline" type="submit">{{ __('Withdraw Your Vote') }}</button>
             </form>
         @endif
+
+        {{--
+        <table class="block">
+            <caption class="sr-only">{{ $poll->title }}</caption>
+            <thead class="sr-only">
+                <tr>
+                    <th scope="col">{{ __('Option Name') }}</th>
+                    <th scope="col">{{ __('Percentage Voted For') }}</th>
+                </tr>
+            </thead>
+            <tbody class="block">
+                @foreach ($poll->options as $option)
+                    <tr class="flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300" style="background: linear-gradient(to right, #bcf0da {{ $option->percentage(count($poll->votes)) }}, #d2d6dc {{ $option->percentage(count($poll->votes)) }});">
+                        <td>{{ $option->name }}</td>
+                        <td>{{ $option->percentage(count($poll->votes)) }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        --}}
     </div>
 </div>
 
