@@ -15,14 +15,14 @@ class CreatePollsTable extends Migration
     {
         Schema::create('polls', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('slug')->unique();
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('users')->onUpdate('set null')->onDelete('set null');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('set null')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('poll_categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

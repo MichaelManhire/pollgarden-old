@@ -16,11 +16,11 @@ class CreateVotesTable extends Migration
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('option_id');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('option_id')->references('id')->on('poll_options')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('set null')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
