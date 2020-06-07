@@ -36693,6 +36693,10 @@ video {
   top: -3rem;
 }
 
+.profile-tab-content:not(:target) {
+  display: none;
+}
+
 .fancy-radio-button::before {
   background-color: #9fa6b2;
   border: 2px solid #fff;

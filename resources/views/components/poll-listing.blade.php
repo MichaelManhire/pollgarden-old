@@ -1,7 +1,7 @@
 <li class="{{ (! $loop->first) ? 'border-t border-gray-100' : '' }}">
     <a class="block hover:bg-gray-50" href="{{ route('polls.show', $poll) }}">
         <div class="flex items-center px-4 py-4 sm:px-6">
-            <div class="min-w-0 flex-1 flex items-center">
+            <div class="min-w-0 flex-1 flex items-start">
                 <div class="flex-shrink-0 text-white">
                     <img class="h-12 w-12 rounded-full shadow-solid" src="{{ $poll->author->avatar }}" alt="" height="48" width="48" loading="lazy">
                 </div>
