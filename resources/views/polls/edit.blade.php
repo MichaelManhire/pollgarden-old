@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Create a Poll' . ' - ' . config('app.name', 'Poll Garden'))
+@section('title', 'Edit Your Poll - Poll Garden')
 
 @section('content')
-<div class="bg-white shadow px-4 py-5 rounded-lg sm:p-6">
-    <h1 class="text-lg leading-tight font-medium">{{ __('Edit Your Poll') }}</h1>
+<article class="p-6 bg-white rounded-lg shadow">
+    <h1 class="text-lg font-medium leading-tight">Edit Your Poll</h1>
 
     <form class="mt-6" action="{{ route('polls.update', $poll) }}" method="POST">
         @csrf
         @method('PATCH')
 
         <div>
-            <label class="block text-sm font-medium leading-tight text-gray-700" for="title">{{ __('Poll Title') }}</label>
+            <label class="block text-sm font-medium leading-tight" for="title">Poll Title</label>
             <div class="mt-1.5 rounded-md shadow-sm">
                 <input class="form-input block w-full @error('title') border-red-300 text-red-900 @enderror"
                        id="title"
@@ -31,7 +31,7 @@
         </div>
 
         <div class="mt-4">
-            <label class="block text-sm font-medium leading-tight text-gray-700" for="category_id">{{ __('Category') }}</label>
+            <label class="block text-sm font-medium leading-tight" for="category_id">Category</label>
             <div class="mt-1.5 rounded-md shadow-sm">
                 <select class="form-select block w-full @error('category_id') border-red-300 text-red-900 @enderror"
                         id="category_id"
@@ -53,10 +53,10 @@
         </div>
 
         <div class="flex justify-end mt-6">
-            <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
-                {{ __('Update Poll') }}
+            <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
+                Update Poll
             </button>
         </div>
     </form>
-</div>
+</article>
 @endsection

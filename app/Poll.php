@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Poll extends Model
 {
@@ -28,14 +29,24 @@ class Poll extends Model
         return $this->hasMany('App\Comment');
     }
 
-    public function parentComments()
+    public function numberOfComments()
     {
-        return $this->hasMany('App\Comment')->whereNull('parent_comment_id');
+        return $this->comments->count() . ' ' . Str::plural('comment', $this->comments->count());
+    }
+
+    public function numberOfVotes()
+    {
+        return $this->votes->count() . ' ' . Str::plural('vote', $this->votes->count());
     }
 
     public function options()
     {
         return $this->hasMany('App\PollOption');
+    }
+
+    public function parentComments()
+    {
+        return $this->hasMany('App\Comment')->whereNull('parent_comment_id');
     }
 
     public function votes()
