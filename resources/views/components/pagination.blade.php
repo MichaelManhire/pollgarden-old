@@ -38,7 +38,7 @@
                         </li>
                     @else
                         <li>
-                            <a class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 hover:text-gray-500 bg-gray-50 border border-gray-200"
+                            <a class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 hover:text-gray-500 bg-white border border-gray-200"
                                href="{{ $url }}">
                                 {{ $page }}
                             </a>

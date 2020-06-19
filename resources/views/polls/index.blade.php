@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Polls - Poll Garden')
+@section('title', 'Polls')
 
 @section('content')
 <article>

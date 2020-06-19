@@ -46,7 +46,7 @@ class Poll extends Model
 
     public function parentComments()
     {
-        return $this->hasMany('App\Comment')->whereNull('parent_comment_id');
+        return $this->hasMany('App\Comment')->whereNull('parent_comment_id')->latest();
     }
 
     public function votes()

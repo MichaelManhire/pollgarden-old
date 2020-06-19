@@ -2,9 +2,7 @@
     <a class="block hover:bg-gray-50" href="{{ route('polls.show', $poll) }}">
         <article class="flex items-center p-4 sm:px-6">
             <div class="flex-1 flex items-start">
-                <div class="flex-shrink-0 text-white">
-                    <img class="h-12 w-12 rounded-full shadow-solid" src="{{ $poll->author->avatar }}" alt="" height="48" width="48" loading="lazy">
-                </div>
+                @include('components.avatar', ['isLink' => false, 'src' => $poll->author->avatar])
 
                 <div class="flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create a Poll - Poll Garden')
+@section('title', 'Create a Poll')
 
 @section('content')
 <article class="p-6 bg-white rounded-lg shadow">

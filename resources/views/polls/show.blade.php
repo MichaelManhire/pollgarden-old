@@ -1,56 +1,60 @@
 @extends('layouts.app')
 
-@section('title', $poll->title . ' - ' . config('app.name', 'Poll Garden'))
+@section('title', $poll->title)
 
 @section('content')
-<div class="px-4 py-8 bg-white shadow rounded-lg sm:px-10">
+<article class="p-6 bg-white rounded-lg shadow">
     <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
 
-    <div class="mt-2 text-sm leading-tight text-gray-600">
-        <p class="inline-block">{{ __('Posted by') }} <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a> <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time> {{ __('in') . ' ' . $poll->category->name }}</p>
+    <div class="mt-2 text-sm leading-tight text-gray-500">
+        <p class="inline-block">
+            <span>Posted by</span>
+            <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a>
+            <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time>
+            <span>in {{ $poll->category->name }}</span>
+        </p>
+
         @can('update', $poll)
-            <a class="inline-block ml-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">{{ __('Edit Poll') }}</a>
+            <a class="inline-block ml-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">Edit Poll</a>
         @endcan
+
         @can('delete', $poll)
             <form class="inline-block ml-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
                 @csrf
                 @method('DELETE')
 
                 <input name="id" type="hidden" value="{{ $poll->id }}">
-                <button class="text-green-600 hover:underline" type="submit">{{ __('Delete Poll') }}</button>
+                <button class="text-green-600 hover:underline" type="submit">Delete Poll</button>
             </form>
         @endcan
     </div>
 
-    <div class="block mt-8 max-w-2xl" id="ballot-box">
+    <article class="block mt-8 max-w-2xl" id="ballot-box">
+        {{-- User has not voted: --}}
         @if (is_null($poll->usersVote(Auth::id())))
-            <h2 class="sr-only">{{ __('Vote') }}</h2>
+            <h2 class="sr-only">Vote</h2>
             <form action="{{ route('votes.store') }}" method="POST">
                 @csrf
 
                 <fieldset>
                     <legend class="sr-only">{{ $poll->title }}</legend>
                     @foreach ($poll->options as $option)
-                        <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer"
-                               for="{{ $option->id }}">
-                            <input class="appearance-none fancy-radio-button"
-                                   id="{{ $option->id }}"
-                                   name="option_id"
-                                   type="radio"
-                                   value="{{ $option->id }}">
+                        <label class="relative block py-4 pl-12 pr-4 mb-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
+                            <input class="appearance-none fancy-radio-button" id="{{ $option->id }}" name="option_id" type="radio" value="{{ $option->id }}">
                             <span>{{ $option->name }}</span>
                         </label>
                     @endforeach
                 </fieldset>
 
                 <div class="flex justify-end mt-2">
-                    <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
-                        {{ __('Cast Your Vote') }}
+                    <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
+                        Cast Your Vote
                     </button>
                 </div>
             </form>
+        {{-- User has voted: --}}
         @else
-            <h2 class="sr-only">{{ __('Change Your Vote') }}</h2>
+            <h2 class="sr-only">Change Your Vote</h2>
             <form action="{{ route('votes.update', $poll->usersVote(Auth::id())) }}" method="POST">
                 @csrf
                 @method('PATCH')
@@ -58,7 +62,7 @@
                 <fieldset>
                     <legend class="sr-only">{{ $poll->title }}</legend>
                     @foreach ($poll->options as $option)
-                        <label class="relative block pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300 cursor-pointer"
+                        <label class="relative block py-4 pl-12 pr-4 mb-4 bg-gray-300 rounded-full cursor-pointer"
                                for="{{ $option->id }}"
                                style="background: linear-gradient(to right, #bcf0da {{ $option->percentage(count($poll->votes)) }}, #d2d6dc {{ $option->percentage(count($poll->votes)) }}">
                             <input class="appearance-none fancy-radio-button"
@@ -74,68 +78,49 @@
                 </fieldset>
 
                 <div class="flex justify-end mt-2">
-                    <button class="py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" type="submit">
-                        {{ __('Change Your Vote') }}
+                    <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
+                        Change Your Vote
                     </button>
                 </div>
             </form>
+
             <form class="mt-3 text-right text-sm" action="{{ route('votes.destroy', $poll->usersVote(Auth::id())) }}" method="POST">
                 @csrf
                 @method('DELETE')
 
-                <button class="text-green-600 hover:underline" type="submit">{{ __('Withdraw Your Vote') }}</button>
+                <button class="text-green-600 hover:underline" type="submit">Withdraw Your Vote</button>
             </form>
         @endif
-
-        {{--
-        <table class="block">
-            <caption class="sr-only">{{ $poll->title }}</caption>
-            <thead class="sr-only">
-                <tr>
-                    <th scope="col">{{ __('Option Name') }}</th>
-                    <th scope="col">{{ __('Percentage Voted For') }}</th>
-                </tr>
-            </thead>
-            <tbody class="block">
-                @foreach ($poll->options as $option)
-                    <tr class="flex justify-between pl-12 pr-4 py-4 mb-4 rounded-full bg-gray-300" style="background: linear-gradient(to right, #bcf0da {{ $option->percentage(count($poll->votes)) }}, #d2d6dc {{ $option->percentage(count($poll->votes)) }});">
-                        <td>{{ $option->name }}</td>
-                        <td>{{ $option->percentage(count($poll->votes)) }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        --}}
-    </div>
-</div>
+    </article>
+</article>
 
 @if ($poll->parentComments->isNotEmpty())
-    <div class="mt-6">
-        <h2 class="mb-2 text-2xl leading-tight font-extrabold">{{ __('Comments') }}</h2>
+    <article class="mt-6">
+        <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
 
         @include('components.comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
 
         <ol>
-            @foreach ($poll->parentComments->sortByDesc('created_at') as $comment)
-                <li class="js-comment mt-4 mb-4">
+            @foreach ($poll->parentComments as $comment)
+                <li class="js-comment my-4">
                     @include('components.comment', ['comment' => $comment])
                     @include('components.comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
                     @include('components.comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
                 </li>
 
-                @if ($comment->childComments->isNotEmpty())
+                @if ($comment->replies->isNotEmpty())
                     <ol class="ml-8">
-                        @foreach ($comment->childComments->sortByDesc('created_at') as $childComment)
-                            <li class="js-comment mt-4 mb-4">
-                                @include('components.comment', ['comment' => $childComment])
-                                @include('components.comment-form-edit', ['comment' => $childComment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => true])
-                                @include('components.comment-form', ['id' => 'reply-for-comment-' . $childComment->id, 'isReply' => true])
+                        @foreach ($comment->replies as $reply)
+                            <li class="js-comment my-4">
+                                @include('components.comment', ['comment' => $reply])
+                                @include('components.comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
+                                @include('components.comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])
                             </li>
                         @endforeach
                     </ol>
                 @endif
             @endforeach
         </ol>
-    </div>
+    </article>
 @endif
 @endsection

@@ -1,26 +1,37 @@
-<article class="relative flex items-start max-w-3xl px-2 pt-4 pb-6 bg-white shadow rounded-lg sm:px-5">
-    <a class="flex-shrink-0 text-white" href="{{ route('users.show', $comment->author) }}">
-        <img class="h-12 w-12 rounded-full shadow-solid" src="{{ $comment->author->avatar }}" alt="" height="48" width="48" loading="lazy">
-    </a>
-    <div class="ml-4">
-        <p class="mb-1"><a class="text-green-600 hover:underline" href="{{ route('users.show', $comment->author) }}">{{ $comment->author->username }}</a> <span class="sr-only">{{ __('wrote:') }}</span></p>
-        <p class="mb-2">{{ $comment->body }}</p>
+<article class="max-w-3xl p-4 bg-white rounded-lg shadow">
+    <div class="flex items-start">
+        @include('components.avatar', ['href' => route('users.show', $comment->author), 'isLink' => true, 'src' => $comment->author->avatar])
+
+        <div class="ml-4">
+            <h3>
+                <a class="text-green-600 hover:underline" href="{{ route('users.show', $comment->author) }}">{{ $comment->author->username }}</a>
+                <span class="sr-only">wrote:</span>
+            </h3>
+            <p class="mt-1">{{ $comment->body }}</p>
+        </div>
     </div>
-    <div class="absolute bottom-0 right-0 px-2 py-2 text-right text-sm sm:px-5">
-        <p class="inline-block">{{ __('Posted') . ' ' }} <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time></p>
+
+    <footer class="mt-2 text-right text-sm">
+        <p class="inline-block">
+            <span>Posted</span>
+            <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time>
+        </p>
+
         @auth
-            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">{{ __('Reply') }}</button>
+            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">Reply</button>
         @endauth
+
         @can('update', $comment)
-            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">{{ __('Edit') }}</button>
+            <button class="inline-block ml-2 text-green-600 hover:underline" type="button">Edit</button>
         @endcan
+
         @can('delete', $comment)
             <form class="inline-block ml-2" action="{{ route('comments.destroy', $comment) }}" method="POST">
                 @csrf
                 @method('DELETE')
 
-                <button class="text-green-600 hover:underline" type="submit">{{ __('Delete') }}</button>
+                <button class="text-green-600 hover:underline" type="submit">Delete</button>
             </form>
         @endcan
-    </div>
+    </footer>
 </article>
