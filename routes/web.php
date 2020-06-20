@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::redirect('/', '/polls');
+
 Auth::routes();
 
 Route::resource('comments', 'CommentController')->only(['store', 'update', 'destroy']);
