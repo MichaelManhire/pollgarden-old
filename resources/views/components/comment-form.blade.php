@@ -1,6 +1,8 @@
 @can('create', App\Comment::class)
     <div class="flex items-start max-w-3xl px-2 py-4 mt-4 mb-4 bg-white shadow rounded-lg sm:px-5 {{ $isReply ? 'ml-8' : '' }}">
-        @include('components.avatar', ['isLink' => false, 'src' => Auth::user()->avatar])
+        <div class="text-white">
+            @include('components.avatar', ['imageSrc' => Auth::user()->avatar, 'height' => 48, 'width' => 48, 'username' => Auth::user()->username])
+        </div>
 
         <form class="flex-1 ml-4" action="{{ route('comments.store') }}" method="POST">
             @csrf

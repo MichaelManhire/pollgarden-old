@@ -6,15 +6,17 @@
 <article>
     <h1 class="sr-only">Polls</h1>
 
-    @if ($polls->isNotEmpty())
-        <ol class="bg-white rounded-lg shadow">
-            @foreach ($polls as $poll)
-                @include('components.poll-listing', ['poll' => $poll])
-            @endforeach
-        </ol>
-    @else
-        <p>There are currently no polls!</p>
-    @endif
+    <x-panel>
+        @if ($polls->isNotEmpty())
+            <ol>
+                @foreach ($polls as $poll)
+                    @include('components.poll-listing')
+                @endforeach
+            </ol>
+        @else
+            <p>There are currently no polls!</p>
+        @endif
+    </x-panel>
 </article>
 
 {{ $polls->links() }}
