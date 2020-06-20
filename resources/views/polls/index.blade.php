@@ -10,7 +10,7 @@
         @if ($polls->isNotEmpty())
             <ol>
                 @foreach ($polls as $poll)
-                    @include('components.poll-listing')
+                    @include('_poll-listing')
                 @endforeach
             </ol>
         @else

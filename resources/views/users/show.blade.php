@@ -6,7 +6,7 @@
 <article class="px-4 mt-12 text-center bg-white shadow rounded-lg sm:px-10">
     <div class="overlay">
         <div class="text-white">
-            @include('components.avatar', ['imageSrc' => $user->avatar, 'height' => 96, 'width' => 96, 'username' => $user->username])
+            @include('_avatar', ['imageSrc' => $user->avatar, 'height' => 96, 'width' => 96, 'username' => $user->username])
         </div>
 
         <h1 class="mt-2 text-3xl leading-tight font-extrabold sm:text-4xl">{{ $user->username }}</h1>
@@ -34,7 +34,7 @@
                 @if ($user->polls->isNotEmpty())
                     <ol class="text-left">
                         @foreach ($user->polls as $poll)
-                            @include('components.poll-listing', ['poll' => $poll])
+                            @include('_poll-listing', ['poll' => $poll])
                         @endforeach
                     </ol>
                 @else
@@ -47,7 +47,7 @@
                 @if ($user->votes->isNotEmpty())
                     <ol class="text-left">
                         @foreach ($user->votes as $vote)
-                            @include('components.vote-listing', ['poll' => $vote->recipient->poll, 'vote' => $vote])
+                            @include('_vote-listing', ['poll' => $vote->recipient->poll, 'vote' => $vote])
                         @endforeach
                     </ol>
                 @else
@@ -60,7 +60,7 @@
                 @if ($user->comments->isNotEmpty())
                     <ol class="text-left">
                         @foreach ($user->comments as $comment)
-                            @include('components.comment-listing', ['poll' => $comment->poll, 'comment' => $comment])
+                            @include('_comment-listing', ['poll' => $comment->poll, 'comment' => $comment])
                         @endforeach
                     </ol>
                 @else

@@ -100,23 +100,23 @@
     <article class="mt-6">
         <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
 
-        @include('components.comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
+        @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
 
         <ol>
             @foreach ($poll->parentComments as $comment)
                 <li class="js-comment my-4">
-                    @include('components.comment', ['comment' => $comment])
-                    @include('components.comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
-                    @include('components.comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
+                    @include('_comment', ['comment' => $comment])
+                    @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
+                    @include('_comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
                 </li>
 
                 @if ($comment->replies->isNotEmpty())
                     <ol class="ml-8">
                         @foreach ($comment->replies as $reply)
                             <li class="js-comment my-4">
-                                @include('components.comment', ['comment' => $reply])
-                                @include('components.comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
-                                @include('components.comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])
+                                @include('_comment', ['comment' => $reply])
+                                @include('_comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
+                                @include('_comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])
                             </li>
                         @endforeach
                     </ol>
