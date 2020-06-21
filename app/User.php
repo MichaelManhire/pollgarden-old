@@ -35,9 +35,44 @@ class User extends Authenticatable
         return 'slug';
     }
 
+    public function career()
+    {
+        return $this->hasOne('App\UserCareer');
+    }
+
     public function comments()
     {
         return $this->hasMany('App\Comment');
+    }
+
+    public function country()
+    {
+        return $this->hasOne('App\UserCountry');
+    }
+
+    public function educationLevel()
+    {
+        return $this->hasOne('App\UserEducationLevel');
+    }
+
+    public function ethnicity()
+    {
+        return $this->hasOne('App\UserEthnicity');
+    }
+
+    public function gender()
+    {
+        return $this->hasOne('App\UserGender');
+    }
+
+    public function orientation()
+    {
+        return $this->hasOne('App\UserOrientation');
+    }
+
+    public function politics()
+    {
+        return $this->hasOne('App\UserPolitics');
     }
 
     public function polls()
@@ -45,8 +80,23 @@ class User extends Authenticatable
         return $this->hasMany('App\Poll');
     }
 
+    public function religion()
+    {
+        return $this->hasOne('App\UserReligion');
+    }
+
+    public function state()
+    {
+        return $this->hasOne('App\UserState');
+    }
+
     public function votes()
     {
         return $this->hasMany('App\Vote');
+    }
+
+    public function zodiacSign()
+    {
+        return $this->hasOne('App\UserZodiacSign');
     }
 }
