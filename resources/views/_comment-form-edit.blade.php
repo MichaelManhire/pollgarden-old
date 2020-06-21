@@ -1,5 +1,5 @@
 @can('update', $comment)
-    <div class="flex items-start max-w-3xl px-2 py-4 mt-4 mb-4 bg-white shadow rounded-lg sm:px-5 {{ $isReply ? 'ml-8' : '' }}">
+    <div class="flex items-start max-w-3xl px-2 py-4 mt-4 mb-4 bg-white shadow rounded-lg sm:px-5 {{ $isReply ? 'ml-8' : '' }}" x-show="isEditing">
         <div class="text-white">
             @include('_avatar', ['imageSrc' => Auth::user()->avatar, 'height' => 48, 'width' => 48, 'username' => Auth::user()->username])
         </div>
