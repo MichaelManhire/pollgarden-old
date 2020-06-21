@@ -37,7 +37,7 @@ class User extends Authenticatable
 
     public function career()
     {
-        return $this->hasOne('App\UserCareer');
+        return $this->belongsTo('App\UserCareer');
     }
 
     public function comments()
@@ -47,32 +47,32 @@ class User extends Authenticatable
 
     public function country()
     {
-        return $this->hasOne('App\UserCountry');
+        return $this->belongsTo('App\UserCountry');
     }
 
     public function educationLevel()
     {
-        return $this->hasOne('App\UserEducationLevel');
+        return $this->belongsTo('App\UserEducationLevel');
     }
 
     public function ethnicity()
     {
-        return $this->hasOne('App\UserEthnicity');
+        return $this->belongsTo('App\UserEthnicity');
     }
 
     public function gender()
     {
-        return $this->hasOne('App\UserGender');
+        return $this->belongsTo('App\UserGender');
     }
 
     public function orientation()
     {
-        return $this->hasOne('App\UserOrientation');
+        return $this->belongsTo('App\UserOrientation');
     }
 
     public function politics()
     {
-        return $this->hasOne('App\UserPolitics');
+        return $this->belongsTo('App\UserPolitics');
     }
 
     public function polls()
@@ -82,12 +82,12 @@ class User extends Authenticatable
 
     public function religion()
     {
-        return $this->hasOne('App\UserReligion');
+        return $this->belongsTo('App\UserReligion');
     }
 
     public function state()
     {
-        return $this->hasOne('App\UserState');
+        return $this->belongsTo('App\UserState');
     }
 
     public function votes()
@@ -97,6 +97,6 @@ class User extends Authenticatable
 
     public function zodiacSign()
     {
-        return $this->hasOne('App\UserZodiacSign');
+        return $this->belongsTo('App\UserZodiacSign');
     }
 }

@@ -14,29 +14,51 @@
         <div class="md:flex md:justify-between mt-8 text-left">
             <article class="md:px-2" style="flex: 1 0 225px;">
                 <h2 class="text-xl font-medium leading-tight">Profile Details</h2>
-                <dl class="mt-1.5 text-sm clearfix">
-                    <dt class="float-left clear-left text-gray-600">Age:</dt>
-                    <dd class="float-left ml-1 font-medium">27</time></dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Gender:</dt>
-                    <dd class="float-left mt-1 ml-1 font-medium">Male</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Country:</dt>
-                    <dd class="float-left mt-1 ml-1 font-medium">United States</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">State:</dt>
-                    <dd class="float-left mt-1 ml-1 font-medium">California</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Education:</dd>
-                    <dd class="float-left mt-1 ml-1 font-medium">Some College</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Career:</dd>
-                    <dd class="float-left mt-1 ml-1 font-medium">Technology</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Ethnicity:</dt>
-                    <dd class="float-left mt-1 ml-1 font-medium">White</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Religion:</dd>
-                    <dd class="float-left mt-1 ml-1 font-medium">Agnostic</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Politics:</dd>
-                    <dd class="float-left mt-1 ml-1 font-medium">Moderate</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Orientation:</dd>
-                    <dd class="float-left mt-1 ml-1 font-medium">Straight</dd>
-                    <dt class="float-left clear-left mt-1 text-gray-600">Zodiac Sign:</dd>
-                    <dd class="float-left mt-1 ml-1 font-medium">Taurus</dd>
+                <dl class="mt-0.5 text-sm clearfix">
+                    @if ($user->age)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Age:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->age }}</time></dd>
+                    @endif
+                    @if ($user->gender)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Gender:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->gender->name }}</time></dd>
+                    @endif
+                    @if ($user->country)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Country:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->country->name }}</time></dd>
+                    @endif
+                    @if ($user->state)
+                        <dt class="float-left clear-left mt-1 text-gray-600">State:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->state->name }}</time></dd>
+                    @endif
+                    @if ($user->educationLevel)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Education:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->educationLevel->name }}</time></dd>
+                    @endif
+                    @if ($user->career)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Career:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->career->name }}</time></dd>
+                    @endif
+                    @if ($user->orientation)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Orientation:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->orientation->name }}</time></dd>
+                    @endif
+                    @if ($user->ethnicity)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Ethnicity:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->ethnicity->name }}</time></dd>
+                    @endif
+                    @if ($user->zodiacSign)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Zodiac Sign:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->zodiacSign->name }}</time></dd>
+                    @endif
+                    @if ($user->religion)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Religion:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->religion->name }}</time></dd>
+                    @endif
+                    @if ($user->politics)
+                        <dt class="float-left clear-left mt-1 text-gray-600">Politics:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->politics->name }}</time></dd>
+                    @endif
                 </dl>
             </article>
             @if ($user->description)
