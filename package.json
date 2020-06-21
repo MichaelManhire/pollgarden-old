@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@tailwindcss/ui": "^0.3.0",
+        "alpinejs": "^2.4.1",
         "axios": "^0.19",
         "cross-env": "^7.0",
         "laravel-mix": "^5.0.1",
@@ -18,7 +19,6 @@
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
         "tailwindcss": "^1.4.6",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.11"
     }
 }
