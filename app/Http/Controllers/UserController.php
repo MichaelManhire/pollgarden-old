@@ -36,7 +36,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $this->authorize('update', $user);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -48,7 +50,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->authorize('update', $user);
+
+        $user->update($this->validateUser());
+
+        return redirect(route('users.show', $user));
     }
 
     /**
@@ -60,5 +66,14 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    protected function validateUser()
+    {
+        return request()->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
     }
 }
