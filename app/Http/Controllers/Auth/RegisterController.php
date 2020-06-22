@@ -51,7 +51,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -70,6 +71,7 @@ class RegisterController extends Controller
         return User::create([
             'username' => $username,
             'slug' => $slug,
+            'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'avatar' => 'https://api.adorable.io/avatars/200/' . $slug . '.png',
         ]);

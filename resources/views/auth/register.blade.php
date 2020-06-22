@@ -36,6 +36,26 @@
             </div>
 
             <div class="mt-6">
+                <label class="block text-sm font-medium leading-tight" for="email">Email</label>
+                <div class="mt-1.5 rounded-md shadow-sm">
+                    <input class="form-input block w-full @error('email') border-red-300 text-red-900 @enderror"
+                           id="email"
+                           name="email"
+                           type="email"
+                           autocomplete="email"
+                           required
+                           maxlength="255"
+                           @error('email')
+                           aria-invalid="true"
+                           aria-describedby="email-error"
+                           @enderror>
+                </div>
+                @error('email')
+                    <p class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mt-6">
                 <label class="block text-sm font-medium leading-tight" for="password">Password</label>
                 <div class="mt-1.5 rounded-md shadow-sm">
                     <input class="form-input block w-full @error('password') border-red-300 text-red-900 @enderror"
