@@ -1,117 +1,130 @@
 <!doctype html>
-<html class="h-full text-gray-900 bg-gray-100" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title') - Poll Garden</title>
-
-    <!-- Scripts -->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
-
-    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="flex flex-col h-full">
-    <header class="sticky top-0 z-10 bg-white shadow-sm">
+<body class="text-gray-900 bg-gray-100">
+    {{-- Mobile Navigation --}}
+    <div class="sticky top-0 z-10 lg:hidden bg-white shadow-sm">
         <div class="container flex justify-between h-16">
-            <div class="flex">
+            <div class="flex items-center">
                 @if (Request::is('/'))
-                    <h1 class="flex-shrink-0 flex items-center text-xl font-medium leading-none">
-                        <img class="block h-8 w-auto" src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" height="32" width="32">
+                    <span class="flex-shrink-0 flex items-center text-xl font-medium leading-none">
+                        <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" width="32" height="32" loading="lazy">
                         <span class="hidden sm:block sm:ml-1">{{ config('app.name', 'Poll Garden') }}</span>
-                    </h1>
+                    </span>
                 @else
                     <a class="flex-shrink-0 flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
-                        <img class="block h-8 w-auto" src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" height="32" width="32">
+                        <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" width="32" height="32" loading="lazy">
                         <span class="hidden sm:block sm:ml-1">{{ config('app.name', 'Poll Garden') }}</span>
                     </a>
                 @endif
 
-                <nav class="flex ml-6" aria-label="Primary navigation">
-                    <ul class="flex">
-                        <li class="flex">
-                            @if (url()->current() === route('polls.create'))
-                                <span class="flex items-center px-1 pt-1 border-b-2 border-green-500 text-sm font-medium leading-5 text-gray-900" aria-current="true">
-                                    {{ __('Create Poll') }}
-                                </span>
-                            @else
-                                <a class="flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:border-gray-300 hover:text-gray-700" href="{{ route('polls.create') }}">
-                                    {{ __('Create Poll') }}
-                                </a>
-                            @endif
+                <ul class="flex md:ml-2">
+                    @can('create', App\Poll::class)
+                        <li>
+                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.create') }}">Create Poll</a>
                         </li>
-                        <li class="flex">
-                            @if (url()->current() === route('polls.index'))
-                                <span class="flex items-center px-1 pt-1 ml-8 border-b-2 border-green-500 text-sm font-medium leading-5 text-gray-900" aria-current="true">
-                                    {{ __('View Polls') }}
-                                </span>
-                            @else
-                                <a class="flex items-center px-1 pt-1 ml-8 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:border-gray-300 hover:text-gray-700" href="{{ route('polls.index') }}">
-                                    {{ __('View Polls') }}
-                                </a>
-                            @endif
+                    @endcan
+                    <li>
+                        <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View Polls</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center">
+                @guest
+                    <ul class="flex md:ml-2">
+                        <li>
+                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
+                        </li>
+                        <li>
+                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
                         </li>
                     </ul>
-                </nav>
-            </div>
-            <div class="flex items-center ml-6">
-                @guest
-                    <div class="flex-shrink-0">
-                        <a class="flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-50" href="{{ route('login') }}">
-                            {{ __('Log In') }}
-                        </a>
-                    </div>
-
-                    <div class="ml-4 flex-shrink-0">
-                        <a class="flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-green-500" href="{{ route('register') }}">
-                            {{ __('Sign Up') }}
-                        </a>
-                    </div>
-
                 @else
-                    <div class="flex-shrink-0">
-                        <a class="text-gray-400 hover:text-gray-500" href="#" title="{{ __('Notifications') }}">
-                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24" height="24" width="24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                            <span class="sr-only">{{ __('Notifications') }}</span>
-                        </a>
-                    </div>
-
-                    <div class="flex-shrink-0 ml-3 text-white">
-                        <a class="block rounded-full shadow-solid" href="{{ route('users.show', Auth::user()) }}" title="{{ __('My Profile') }}">
-                            <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->avatar }}" alt="" height="32" width="32">
-                            <span class="sr-only">{{ __('Profile') }}</span>
-                        </a>
-                    </div>
+                    <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="">
+                        @include('icons.notifications')
+                        <span class="sr-only">Notifications</span>
+                    </a>
+                    <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
+                        @include('_avatar', ['imageSrc' => Auth::user()->avatar, 'height' => 32, 'width' => 32, 'username' => Auth::user()->username])
+                    </a>
                 @endguest
             </div>
         </div>
-    </header>
+    </div>
 
-    <main class="flex-grow flex-shrink-0 container py-12">
-        @yield('content')
-    </main>
+    {{-- Desktop Navigation --}}
+    <div class="flex container py-12">
+        <header class="hidden lg:inline-block min-w-1/5 mr-6">
+            <x-panel class="p-4">
+                @if (Request::is('/'))
+                    <h1 class="flex items-center text-xl font-medium leading-none">
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="42" height="42" loading="lazy">
+                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
+                    </h1>
+                @else
+                    <a class="flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="42" height="42" loading="lazy">
+                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
+                    </a>
+                @endif
 
-    <footer class="flex-shrink-0 py-4 text-sm text-white bg-gray-900">
-        <div class="container flex justify-between items-center">
-            <ul class="flex justify-around">
-                <li>
-                    <a class="hover:underline" href="{{ url('/terms-of-use') }}">{{ __('Terms of Use') }}</a>
-                </li>
-                <li class="ml-8">
-                    <a class="hover:underline" href="{{ url('/privacy-policy') }}">{{ __('Privacy Policy') }}</a>
-                </li>
-            </ul>
-            <small class="text-left text-sm">&copy; {{ __('Copyright') . ' ' . now()->year . ' ' . config('app.name', 'Poll Garden') }}</small>
-        </div>
-    </footer>
+                <nav class="mt-4" aria-label="Primary navigation">
+                    <ul>
+                        @can('create', App\Poll::class)
+                            <li class="block mt-1">
+                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.create') }}">Create New Poll</a>
+                            </li>
+                        @endcan
+                        <li class="block mt-1">
+                            <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.index') }}">View Polls</a>
+                        </li>
+                        @guest
+                            <li class="block mt-1">
+                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('login') }}">Log In</a>
+                            </li>
+                            <li class="block mt-1">
+                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('register') }}">Create an Account</a>
+                            </li>
+                        @else
+                            <li class="block mt-1">
+                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">Notifications</a>
+                            </li>
+                            <li class="block mt-1">
+                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">Messages</a>
+                            </li>
+                            <li class="block mt-1">
+                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('users.edit', Auth::user()) }}">Edit Profile</a>
+                            </li>
+                        @endguest
+                    </ul>
+                </nav>
+
+                @auth
+                    <a class="group flex items-center mt-12 text-white" href="{{ route('users.show', Auth::user()) }}">
+                        <div>
+                            @include('_avatar', ['imageSrc' => Auth::user()->avatar, 'height' => 42, 'width' => 42, 'username' => Auth::user()->username])
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-base font-medium leading-6 text-gray-700 group-hover:text-gray-900">{{ Auth::user()->username }}</p>
+                            <p class="text-sm font-medium leading-5 text-gray-500 group-hover:text-gray-700">View Profile</p>
+                        </div>
+                    </a>
+                @endauth
+            </x-panel>
+        </header>
+
+        <main class="flex-grow">
+            @yield('content')
+        </main>
+    </div>
 </body>
 </html>
