@@ -9,7 +9,7 @@
         </div>
 
         <div class="text-gray-400">
-            @include('icons.arrow-right')
+            @include('icons.arrow-right', ['width' => '20', 'height' => '20'])
         </div>
     </article>
 </a>

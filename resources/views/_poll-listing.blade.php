@@ -17,12 +17,12 @@
 
                 <div class="mt-2 text-sm leading-5 text-gray-500">
                     <div class="inline-block align-middle">
-                        @include('icons.poll')
+                        @include('icons.poll', ['width' => '16', 'height' => '16'])
                     </div>
                     <p class="inline-block align-middle">{{ $poll->numberOfVotes() }}</p>
 
                     <div class="inline-block align-middle ml-2">
-                        @include('icons.comment')
+                        @include('icons.comment', ['width' => '16', 'height' => '16'])
                     </div>
                     <p class="inline-block align-middle">{{ $poll->numberOfComments() }}</p>
                 </div>

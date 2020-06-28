@@ -50,7 +50,7 @@
                     </ul>
                 @else
                     <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="">
-                        @include('icons.notifications')
+                        @include('icons.notifications', ['width' => '24', 'height' => '24'])
                         <span class="sr-only">Notifications</span>
                     </a>
                     <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
@@ -81,28 +81,63 @@
                     <ul>
                         @can('create', App\Poll::class)
                             <li class="block mt-1">
-                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.create') }}">Create New Poll</a>
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.create') }}">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.create', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    Create New Poll
+                                </a>
                             </li>
                         @endcan
                         <li class="block mt-1">
-                            <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.index') }}">View Polls</a>
+                            <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.index') }}">
+                                <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    @include('icons.poll', ['width' => '20', 'height' => '20'])
+                                </div>
+                                View Polls
+                            </a>
                         </li>
                         @guest
                             <li class="block mt-1">
-                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('login') }}">Log In</a>
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('login') }}">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.login', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    Log In
+                                </a>
                             </li>
                             <li class="block mt-1">
-                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('register') }}">Create an Account</a>
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('register') }}">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.signup', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    Create an Account
+                                </a>
                             </li>
                         @else
                             <li class="block mt-1">
-                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">Notifications</a>
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.notifications', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    Notifications
+                                </a>
                             </li>
                             <li class="block mt-1">
-                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">Messages</a>
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.message', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    Messages
+                                </a>
                             </li>
                             <li class="block mt-1">
-                                <a class="block p-2 text-base font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('users.edit', Auth::user()) }}">Edit Profile</a>
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('users.edit', Auth::user()) }}">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.settings', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    Settings
+                                </a>
                             </li>
                         @endguest
                     </ul>
