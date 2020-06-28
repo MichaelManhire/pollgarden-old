@@ -219,6 +219,18 @@
                                     </a>
                                 </li>
                             @endif
+                            <li class="block mt-1">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+
+                                    <button class="group flex items-center w-full p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" type="submit">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.logout', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Log Out
+                                    </button>
+                                </form>
+                            </li>
                         @endguest
                     </ul>
                 </nav>
