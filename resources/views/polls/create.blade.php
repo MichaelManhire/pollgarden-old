@@ -12,15 +12,16 @@
             @csrf
 
             <div>
-                <label class="block text-sm font-medium leading-tight" for="title">Poll Title</label>
+                <label class="block text-sm font-medium leading-tight" for="title">Title</label>
                 <div class="mt-1.5 rounded-md shadow-sm">
                     <input class="form-input block w-full @error('title') border-red-300 text-red-900 @enderror"
                            id="title"
                            name="title"
                            type="text"
                            value="{{ old('title') }}"
-                           autocomplete="off"
                            required
+                           autocomplete="off"
+                           autofocus
                            @error('title')
                            aria-invalid="true"
                            aria-describedby="title-error"
@@ -31,23 +32,106 @@
                 @enderror
             </div>
 
-            <div class="mt-4">
-                <p class="block text-sm font-medium leading-tight">Poll Options</p>
-                @for ($i = 0; $i < 5; $i++)
-                    <div>
-                        <label class="sr-only" for="option{{ $i }}">Option {{ $i + 1 }}</label>
-                        <div class="mt-1.5 rounded-md shadow-sm">
-                            <input class="form-input block w-full {{ $i !== 0 ? 'mt-2' : '' }}"
-                                   id="option{{ $i }}"
-                                   name="options[{{ $i }}][name]"
-                                   type="text"
-                                   placeholder="Option {{ $i + 1 }}"
-                                   autocomplete="off"
-                                   {{ $i < 2 ? 'required' : '' }}>
-                        </div>
+            <fieldset class="mt-4">
+                <legend class="block text-sm font-medium leading-tight">Options</legend>
+                <div>
+                    <label class="sr-only" for="option0">Option 1</label>
+                    <div class="mt-1.5 rounded-md shadow-sm">
+                        <input class="form-input block w-full @error('options.0.name') border-red-300 text-red-900 @enderror"
+                               id="option0"
+                               name="options[0][name]"
+                               type="text"
+                               value="{{ old('options.0.name') }}"
+                               placeholder="Option 1"
+                               required
+                               autocomplete="off"
+                               @error('options.0.name')
+                               aria-invalid="true"
+                               aria-describedby="option0-error"
+                               @enderror>
                     </div>
-                @endfor
-            </div>
+                    @error('options.0.name')
+                        <p class="mt-2 text-sm text-red-600" id="option0-error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="sr-only" for="option0">Option 2</label>
+                    <div class="mt-2 rounded-md shadow-sm">
+                        <input class="form-input block w-full @error('options.1.name') border-red-300 text-red-900 @enderror"
+                               id="option1"
+                               name="options[1][name]"
+                               type="text"
+                               value="{{ old('options.1.name') }}"
+                               placeholder="Option 2"
+                               required
+                               autocomplete="off"
+                               @error('options.1.name')
+                               aria-invalid="true"
+                               aria-describedby="option0-error"
+                               @enderror>
+                    </div>
+                    @error('options.1.name')
+                        <p class="mt-2 text-sm text-red-600" id="option1-error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="sr-only" for="option0">Option 3</label>
+                    <div class="mt-2 rounded-md shadow-sm">
+                        <input class="form-input block w-full @error('options.2.name') border-red-300 text-red-900 @enderror"
+                               id="option2"
+                               name="options[2][name]"
+                               type="text"
+                               value="{{ old('options.2.name') }}"
+                               placeholder="Option 3"
+                               autocomplete="off"
+                               @error('options.2.name')
+                               aria-invalid="true"
+                               aria-describedby="option0-error"
+                               @enderror>
+                    </div>
+                    @error('options.2.name')
+                        <p class="mt-2 text-sm text-red-600" id="option2-error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="sr-only" for="option0">Option 4</label>
+                    <div class="mt-2 rounded-md shadow-sm">
+                        <input class="form-input block w-full @error('options.3.name') border-red-300 text-red-900 @enderror"
+                               id="option3"
+                               name="options[3][name]"
+                               type="text"
+                               value="{{ old('options.3.name') }}"
+                               placeholder="Option 4"
+                               autocomplete="off"
+                               @error('options.3.name')
+                               aria-invalid="true"
+                               aria-describedby="option0-error"
+                               @enderror>
+                    </div>
+                    @error('options.3.name')
+                        <p class="mt-2 text-sm text-red-600" id="option3-error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="sr-only" for="option0">Option 5</label>
+                    <div class="mt-2 rounded-md shadow-sm">
+                        <input class="form-input block w-full @error('options.4.name') border-red-300 text-red-900 @enderror"
+                               id="option4"
+                               name="options[4][name]"
+                               type="text"
+                               value="{{ old('options.4.name') }}"
+                               placeholder="Option 5"
+                               autocomplete="off"
+                               @error('options.4.name')
+                               aria-invalid="true"
+                               aria-describedby="option0-error"
+                               @enderror>
+                    </div>
+                    @error('options.4.name')
+                        <p class="mt-2 text-sm text-red-600" id="option4-error">{{ $message }}</p>
+                    @enderror
+                </div>
+            </fieldset>
 
             <div class="mt-4">
                 <label class="block text-sm font-medium leading-tight" for="category_id">Category</label>
@@ -55,8 +139,8 @@
                     <select class="form-select block w-full @error('category_id') border-red-300 text-red-900 @enderror"
                             id="category_id"
                             name="category_id"
-                            autocomplete="off"
                             required
+                            autocomplete="off"
                             @error('category_id')
                             aria-invalid="true"
                             aria-describedby="category-error"
@@ -72,9 +156,7 @@
             </div>
 
             <div class="flex justify-end mt-6">
-                <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
-                    Create Poll
-                </button>
+                <x-button type="submit">Create Poll</x-button>
             </div>
         </form>
     </article>
