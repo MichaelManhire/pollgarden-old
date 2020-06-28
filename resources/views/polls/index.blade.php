@@ -7,15 +7,14 @@
     <h1 class="sr-only">Polls</h1>
 
     <x-panel>
-        @if ($polls->isNotEmpty())
-            <ol>
-                @foreach ($polls as $poll)
-                    @include('_poll-listing')
-                @endforeach
-            </ol>
-        @else
-            <p>There are currently no polls!</p>
-        @endif
+        <ol>
+            @forelse ($polls as $poll)
+                @include('_poll-listing')
+
+            @empty
+                <li>There are currently no polls!</li>
+            @endforelse
+        </ol>
     </x-panel>
 </article>
 

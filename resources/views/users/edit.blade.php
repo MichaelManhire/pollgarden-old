@@ -98,9 +98,7 @@
         </x-panel>
 
         <div class="flex justify-end mt-6">
-            <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
-                Save Profile
-            </button>
+            <x-button>Save Profile</x-button>
         </div>
     </form>
 </article>

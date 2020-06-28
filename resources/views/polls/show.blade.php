@@ -30,7 +30,7 @@
             @endcan
         </div>
 
-        <article class="block mt-8 max-w-2xl" id="ballot-box">
+        <article class="block mt-8" id="ballot-box">
             {{-- User has not voted: --}}
             @if (is_null($poll->usersVote(Auth::id())))
                 <h2 class="sr-only">Vote</h2>
@@ -41,16 +41,19 @@
                         <legend class="sr-only">{{ $poll->title }}</legend>
                         @foreach ($poll->options as $option)
                             <label class="relative block py-4 pl-12 pr-4 mb-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
-                                <input class="appearance-none fancy-radio-button" id="{{ $option->id }}" name="option_id" type="radio" value="{{ $option->id }}">
+                                <input class="appearance-none fancy-radio-button"
+                                       id="{{ $option->id }}"
+                                       name="option_id"
+                                       type="radio"
+                                       value="{{ $option->id }}"
+                                       required>
                                 <span>{{ $option->name }}</span>
                             </label>
                         @endforeach
                     </fieldset>
 
                     <div class="flex justify-end mt-2">
-                        <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
-                            Cast Your Vote
-                        </button>
+                        <x-button>Cast Your Vote</x-button>
                     </div>
                 </form>
             {{-- User has voted: --}}
@@ -71,6 +74,7 @@
                                        name="option_id"
                                        type="radio"
                                        value="{{ $option->id }}"
+                                       required
                                        {{ $poll->usersVote(Auth::id())->option_id === $option->id ? 'checked' : '' }}>
                                 <span>{{ $option->name }}</span>
                                 <span class="float-right font-bold">{{ $option->percentage(count($poll->votes)) }}</span>
@@ -96,12 +100,12 @@
     </article>
 </x-panel>
 
-@if ($poll->parentComments->isNotEmpty())
-    <article class="mt-6">
-        <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
+<article class="mt-6">
+    <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
 
-        @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
+    @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
 
+    @if ($poll->parentComments->isNotEmpty())
         <ol>
             @foreach ($poll->parentComments as $comment)
                 <li class="my-4" x-data="{ isReplying: false, isEditing: false }">
@@ -123,6 +127,6 @@
                 @endif
             @endforeach
         </ol>
-    </article>
-@endif
+    @endif
+</article>
 @endsection

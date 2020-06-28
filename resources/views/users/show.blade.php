@@ -7,7 +7,7 @@
     <x-panel class="px-4 sm:px-10 mt-12 text-center">
         <div class="overlay">
             <div class="text-white">
-                @include('_avatar', ['imageSrc' => $user->avatar, 'height' => 96, 'width' => 96, 'username' => $user->username])
+                <x-avatar :src="$user->avatar" width="96" height="96" />
             </div>
 
             <h1 class="mt-2 text-3xl leading-tight font-extrabold sm:text-4xl">{{ $user->username }}</h1>

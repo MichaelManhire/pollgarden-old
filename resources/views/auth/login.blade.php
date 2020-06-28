@@ -22,8 +22,9 @@
                            name="username"
                            type="text"
                            value="{{ old('username') }}"
-                           autocomplete="username"
                            required
+                           autocomplete="username"
+                           autofocus
                            maxlength="255"
                            @error('username')
                            aria-invalid="true"
@@ -42,8 +43,8 @@
                            id="password"
                            name="password"
                            type="password"
-                           autocomplete="current-password"
                            required
+                           autocomplete="current-password"
                            @error('password')
                            aria-invalid="true"
                            aria-describedby="password-error"
@@ -68,7 +69,7 @@
             </div>
 
             <div class="mt-6 rounded-md shadow-sm">
-                <button class="w-full py-2 px-4 text-sm font-medium text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">Log In</button>
+                <x-button class="w-full">Log In</x-button>
             </div>
         </form>
     </x-panel>

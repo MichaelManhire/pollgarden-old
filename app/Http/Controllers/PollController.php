@@ -141,7 +141,7 @@ class PollController extends Controller
     protected function validatePoll()
     {
         return request()->validate([
-            'title' => 'required|string',
+            'title' => 'required|string|max:255',
             'category_id' => 'required|integer|exists:poll_categories,id',
         ]);
     }
@@ -149,12 +149,12 @@ class PollController extends Controller
     protected function validateOptions()
     {
         return request()->validate([
-            'options.0.name' => 'required|string',
-            'options.1.name' => 'required|string',
-            'options.2.name' => 'nullable|string',
-            'options.3.name' => 'nullable|string',
-            'options.4.name' => 'nullable|string',
-            'options.5.name' => 'nullable|string',
+            'options.0.name' => 'required|string|max:255',
+            'options.1.name' => 'required|string|max:255',
+            'options.2.name' => 'nullable|string|max:255',
+            'options.3.name' => 'nullable|string|max:255',
+            'options.4.name' => 'nullable|string|max:255',
+            'options.5.name' => 'nullable|string|max:255',
         ]);
     }
 }

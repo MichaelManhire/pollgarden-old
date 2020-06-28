@@ -23,6 +23,7 @@
                            type="text"
                            value="{{ old('username') }}"
                            autocomplete="username"
+                           autofocus
                            required
                            maxlength="255"
                            @error('username')
@@ -42,8 +43,8 @@
                            id="email"
                            name="email"
                            type="email"
-                           autocomplete="email"
                            required
+                           autocomplete="email"
                            maxlength="255"
                            @error('email')
                            aria-invalid="true"
@@ -62,8 +63,8 @@
                            id="password"
                            name="password"
                            type="password"
-                           autocomplete="new-password"
                            required
+                           autocomplete="new-password"
                            minlength="8"
                            @error('password')
                            aria-invalid="true"
@@ -82,14 +83,14 @@
                            id="password-confirm"
                            name="password_confirmation"
                            type="password"
-                           autocomplete="new-password"
                            required
+                           autocomplete="new-password"
                            minlength="8">
                 </div>
             </div>
 
             <div class="mt-6 rounded-md shadow-sm">
-                <button class="w-full py-2 px-4 text-sm font-medium text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">Create Account</button>
+                <x-button class="w-full">Create Account</x-button>
             </div>
         </form>
     </x-panel>

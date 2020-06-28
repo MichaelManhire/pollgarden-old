@@ -12,15 +12,17 @@
             @method('PATCH')
 
             <div>
-                <label class="block text-sm font-medium leading-tight" for="title">Poll Title</label>
+                <label class="block text-sm font-medium leading-tight" for="title">Title</label>
                 <div class="mt-1.5 rounded-md shadow-sm">
                     <input class="form-input block w-full @error('title') border-red-300 text-red-900 @enderror"
                            id="title"
                            name="title"
                            type="text"
                            value="{{ $poll->title }}"
-                           autocomplete="off"
                            required
+                           autocomplete="off"
+                           autofocus
+                           maxlength="255"
                            @error('title')
                            aria-invalid="true"
                            aria-describedby="title-error"
@@ -54,9 +56,7 @@
             </div>
 
             <div class="flex justify-end mt-6">
-                <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
-                    Update Poll
-                </button>
+                <x-button>Update Poll</x-button>
             </div>
         </form>
     </article>

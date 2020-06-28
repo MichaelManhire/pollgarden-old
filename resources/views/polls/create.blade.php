@@ -22,6 +22,7 @@
                            required
                            autocomplete="off"
                            autofocus
+                           maxlength="255"
                            @error('title')
                            aria-invalid="true"
                            aria-describedby="title-error"
@@ -45,6 +46,7 @@
                                placeholder="Option 1"
                                required
                                autocomplete="off"
+                               maxlength="255"
                                @error('options.0.name')
                                aria-invalid="true"
                                aria-describedby="option0-error"
@@ -65,6 +67,7 @@
                                placeholder="Option 2"
                                required
                                autocomplete="off"
+                               maxlength="255"
                                @error('options.1.name')
                                aria-invalid="true"
                                aria-describedby="option0-error"
@@ -84,6 +87,7 @@
                                value="{{ old('options.2.name') }}"
                                placeholder="Option 3"
                                autocomplete="off"
+                               maxlength="255"
                                @error('options.2.name')
                                aria-invalid="true"
                                aria-describedby="option0-error"
@@ -103,6 +107,7 @@
                                value="{{ old('options.3.name') }}"
                                placeholder="Option 4"
                                autocomplete="off"
+                               maxlength="255"
                                @error('options.3.name')
                                aria-invalid="true"
                                aria-describedby="option0-error"
@@ -122,6 +127,7 @@
                                value="{{ old('options.4.name') }}"
                                placeholder="Option 5"
                                autocomplete="off"
+                               maxlength="255"
                                @error('options.4.name')
                                aria-invalid="true"
                                aria-describedby="option0-error"
@@ -156,7 +162,7 @@
             </div>
 
             <div class="flex justify-end mt-6">
-                <x-button type="submit">Create Poll</x-button>
+                <x-button>Create Poll</x-button>
             </div>
         </form>
     </article>

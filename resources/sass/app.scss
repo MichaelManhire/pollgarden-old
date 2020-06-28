@@ -11,18 +11,23 @@
     display: none;
 }
 
-.fancy-radio-button::before {
-    background-color: #9fa6b2;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    content: "";
-    display: block;
+.fancy-radio-button {
     height: 1.5rem;
     left: 1rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 1.5rem;
+}
+
+.fancy-radio-button::before {
+    background-color: #9fa6b2;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .fancy-radio-button:checked::before {

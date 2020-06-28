@@ -1,8 +1,8 @@
-<x-panel class="max-w-3xl p-4">
+<x-panel class="p-4">
     <article>
         <div class="flex items-start">
             <a class="flex-shrink-0 text-white" href="{{ route('users.show', $comment->author) }}">
-                @include('_avatar', ['imageSrc' => $comment->author->avatar, 'height' => 48, 'width' => 48, 'username' => $comment->author->username])
+                <x-avatar :src="$comment->author->avatar" />
             </a>
 
             <div class="ml-4">
