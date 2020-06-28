@@ -17,35 +17,51 @@
             <div class="flex items-center">
                 @if (Request::is('/'))
                     <span class="flex-shrink-0 flex items-center text-xl font-medium leading-none">
-                        <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" width="32" height="32" loading="lazy">
-                        <span class="hidden sm:block sm:ml-1">{{ config('app.name', 'Poll Garden') }}</span>
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
+                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
                     </span>
                 @else
                     <a class="flex-shrink-0 flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
-                        <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Poll Garden') }}" width="32" height="32" loading="lazy">
-                        <span class="hidden sm:block sm:ml-1">{{ config('app.name', 'Poll Garden') }}</span>
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
+                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
                     </a>
                 @endif
 
-                <ul class="flex md:ml-2">
+                <ul class="flex sm:ml-2">
                     @can('create', App\Poll::class)
                         <li>
-                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.create') }}">Create Poll</a>
+                            @if (url()->current() === route('polls.create'))
+                                <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Create Poll</span>
+                            @else
+                                <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.create') }}">Create Poll</a>
+                            @endif
                         </li>
                     @endcan
                     <li>
-                        <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View Polls</a>
+                        @if (url()->current() === route('polls.index'))
+                            <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">View Polls</span>
+                        @else
+                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View Polls</a>
+                        @endif
                     </li>
                 </ul>
             </div>
             <div class="flex items-center">
                 @guest
-                    <ul class="flex md:ml-2">
+                    <ul class="flex sm:ml-2">
                         <li>
-                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
+                            @if (url()->current() === route('login'))
+                                <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Log In</span>
+                            @else
+                                <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
+                            @endif
                         </li>
                         <li>
-                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
+                            @if (url()->current() === route('register'))
+                                <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Sign Up</span>
+                            @else
+                                <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
+                            @endif
                         </li>
                     </ul>
                 @else
@@ -55,6 +71,7 @@
                     </a>
                     <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
                         <x-avatar :src="Auth::user()->avatar" width="32" height="32" />
+                        <span class="sr-only">Profile</span>
                     </a>
                 @endguest
             </div>
@@ -81,38 +98,74 @@
                     <ul>
                         @can('create', App\Poll::class)
                             <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.create') }}">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                        @include('icons.create', ['width' => '20', 'height' => '20'])
-                                    </div>
-                                    Create New Poll
-                                </a>
+                                @if (url()->current() === route('polls.create'))
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.create', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Create New Poll
+                                    </span>
+                                @else
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.create') }}">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.create', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Create New Poll
+                                    </a>
+                                @endif
                             </li>
                         @endcan
                         <li class="block mt-1">
-                            <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.index') }}">
-                                <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                    @include('icons.poll', ['width' => '20', 'height' => '20'])
-                                </div>
-                                View Polls
-                            </a>
+                            @if (url()->current() === route('polls.index'))
+                                <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <div class="mr-2 text-green-400">
+                                        @include('icons.poll', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    View Polls
+                                </span>
+                            @else
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.index') }}">
+                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        @include('icons.poll', ['width' => '20', 'height' => '20'])
+                                    </div>
+                                    View Polls
+                                </a>
+                            @endif
                         </li>
                         @guest
                             <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('login') }}">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                        @include('icons.login', ['width' => '20', 'height' => '20'])
-                                    </div>
-                                    Log In
-                                </a>
+                                @if (url()->current() === route('login'))
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.login', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Log In
+                                    </span>
+                                @else
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('login') }}">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.login', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Log In
+                                    </a>
+                                @endif
                             </li>
                             <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('register') }}">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                        @include('icons.signup', ['width' => '20', 'height' => '20'])
-                                    </div>
-                                    Create an Account
-                                </a>
+                                @if (url()->current() === route('register'))
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.signup', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Create an Account
+                                    </span>
+                                @else
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('register') }}">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.signup', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Create an Account
+                                    </a>
+                                @endif
                             </li>
                         @else
                             <li class="block mt-1">
@@ -132,12 +185,21 @@
                                 </a>
                             </li>
                             <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('users.edit', Auth::user()) }}">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                        @include('icons.settings', ['width' => '20', 'height' => '20'])
-                                    </div>
-                                    Settings
-                                </a>
+                                @if (url()->current() === route('users.edit', Auth::user()))
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.settings', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Settings
+                                    </span>
+                                @else
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('users.edit', Auth::user()) }}">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.settings', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Settings
+                                    </a>
+                                @endif
                             </li>
                         @endguest
                     </ul>
