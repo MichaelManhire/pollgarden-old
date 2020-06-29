@@ -15,8 +15,8 @@ class CreatePollsTable extends Migration
     {
         Schema::create('polls', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('category_id');
+            $table->foreignId('user_id');
             $table->string('title');
             $table->string('slug')->unique();
             $table->timestamps();
