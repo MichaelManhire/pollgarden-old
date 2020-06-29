@@ -61,11 +61,9 @@
                     <label class="ml-2 text-sm leading-5" for="remember">{{ __('Remember Me') }}</label>
                 </div>
 
-                {{--
                 <div class="text-sm leading-5">
                     <a class="font-medium text-green-600 hover:text-green-500 hover:underline" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                 </div>
-                --}}
             </div>
 
             <div class="mt-6 rounded-md shadow-sm">

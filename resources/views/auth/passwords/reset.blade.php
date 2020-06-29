@@ -1,65 +1,79 @@
 @extends('layouts.app')
 
+@section('title', 'Password Reset')
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<article class="max-w-md mx-auto">
+    <x-form-header>
+        <x-slot name="title">Reset Your Password</x-slot>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+        Please update your password to something new below.
+    </x-form-header>
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+    <x-panel class="px-4 sm:px-10 py-8 mt-8">
+        <form action="{{ route('password.update') }}" method="POST">
+            @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+            <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+            <div>
+                <label class="block text-sm font-medium leading-tight" for="email">Email</label>
+                <div class="mt-1.5 rounded-md shadow-sm">
+                    <input class="form-input block w-full @error('email') border-red-300 text-red-900 @enderror"
+                           id="email"
+                           name="email"
+                           type="email"
+                           required
+                           autocomplete="email"
+                           autofocus
+                           maxlength="255"
+                           @error('email')
+                           aria-invalid="true"
+                           aria-describedby="email-error"
+                           @enderror>
+                </div>
+                @error('email')
+                    <p class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</p>
+                @enderror
+            </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <div class="mt-6">
+                <label class="block text-sm font-medium leading-tight" for="password">Password</label>
+                <div class="mt-1.5 rounded-md shadow-sm">
+                    <input class="form-input block w-full @error('password') border-red-300 text-red-900 @enderror"
+                           id="password"
+                           name="password"
+                           type="password"
+                           required
+                           autocomplete="new-password"
+                           minlength="8"
+                           @error('password')
+                           aria-invalid="true"
+                           aria-describedby="password-error"
+                           @enderror>
+                </div>
+                @error('password')
+                    <p class="mt-2 text-sm text-red-600" id="password-error">{{ $message }}</p>
+                @enderror
+            </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="mt-6">
+                <label class="block text-sm font-medium leading-tight" for="password-confirm">Confirm Password</label>
+                <div class="mt-1.5 rounded-md shadow-sm">
+                    <input class="form-input block w-full"
+                           id="password-confirm"
+                           name="password_confirmation"
+                           type="password"
+                           required
+                           autocomplete="new-password"
+                           minlength="8">
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+            <div class="mt-6 rounded-md shadow-sm">
+                <x-button class="w-full">Reset Password</x-button>
+            </div>
+        </form>
+    </x-panel>
+</article>
 @endsection
