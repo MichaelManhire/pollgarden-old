@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserStateSeeder extends Seeder
+class StateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class UserStateSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_states')->insert([
+        DB::table('states')->insert([
             ['name' => 'Alabama'],
             ['name' => 'Alaska'],
             ['name' => 'Arizona'],
@@ -51,6 +51,7 @@ class UserStateSeeder extends Seeder
             ['name' => 'Oklahoma'],
             ['name' => 'Oregon'],
             ['name' => 'Pennsylvania'],
+            ['name' => 'Puerto Rico'],
             ['name' => 'Rhode Island'],
             ['name' => 'South Carolina'],
             ['name' => 'South Dakota'],
@@ -60,6 +61,7 @@ class UserStateSeeder extends Seeder
             ['name' => 'Vermont'],
             ['name' => 'Virginia'],
             ['name' => 'Washington'],
+            ['name' => 'Washington, D.C.'],
             ['name' => 'West Virginia'],
             ['name' => 'Wisconsin'],
             ['name' => 'Wyoming'],

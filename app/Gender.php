@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserZodiacSign extends Model
+class Gender extends Model
 {
     //
 }

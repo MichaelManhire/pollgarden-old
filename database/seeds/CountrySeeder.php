@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserCountrySeeder extends Seeder
+class CountrySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class UserCountrySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_countries')->insert([
+        DB::table('countries')->insert([
             ['name' => 'United States'],
             ['name' => 'Canada'],
             ['name' => 'United Kingdom'],

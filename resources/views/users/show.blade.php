@@ -20,7 +20,7 @@
 
     <div class="lg:flex lg:justify-between mt-4">
         <x-panel class="lg:order-1 p-4 lg:ml-2 min-w-1/4 whitespace-no-wrap">
-            <div class="sm:flex sm:justify-between lg:block">
+            <div class="sm:flex sm:justify-around lg:block">
                 <article class="sm:px-2 lg:px-0">
                     <h2 class="text-xl font-medium leading-tight">Profile Details</h2>
                     <dl class="mt-0.5 text-sm clearfix">
