@@ -32,7 +32,7 @@
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
                         <li aria-current="page">
-                            <span class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-green-600 bg-green-100 border border-green-100">
+                            <span class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-green-600 bg-green-100 border border-gray-200">
                                 {{ $page }}
                             </span>
                         </li>

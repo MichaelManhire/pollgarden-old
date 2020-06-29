@@ -18,7 +18,7 @@
         </div>
     </x-panel>
 
-    <div class="lg:flex lg:justify-between mt-4">
+    <div class="lg:flex lg:justify-between lg:items-start mt-4">
         <x-panel class="lg:order-1 p-4 lg:ml-2 min-w-1/4 whitespace-no-wrap">
             <div class="sm:flex sm:justify-around lg:block">
                 <article class="sm:px-2 lg:px-0">
@@ -39,34 +39,6 @@
                         @if ($user->state)
                             <dt class="float-left clear-left mt-1 text-gray-600">State:</dt>
                             <dd class="float-left mt-1 ml-1 font-medium">{{ $user->state->name }}</time></dd>
-                        @endif
-                        @if ($user->educationLevel)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Education:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->educationLevel->name }}</time></dd>
-                        @endif
-                        @if ($user->career)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Career:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->career->name }}</time></dd>
-                        @endif
-                        @if ($user->orientation)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Orientation:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->orientation->name }}</time></dd>
-                        @endif
-                        @if ($user->ethnicity)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Ethnicity:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->ethnicity->name }}</time></dd>
-                        @endif
-                        @if ($user->zodiacSign)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Zodiac Sign:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->zodiacSign->name }}</time></dd>
-                        @endif
-                        @if ($user->religion)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Religion:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->religion->name }}</time></dd>
-                        @endif
-                        @if ($user->politics)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Politics:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->politics->name }}</time></dd>
                         @endif
                     </dl>
                 </article>
@@ -120,41 +92,47 @@
 
                 <article class="mt-6" id="polls" x-show="activeTab === 'polls'">
                     <h2 class="sr-only">Polls</h2>
-                    @if ($user->polls->isNotEmpty())
-                        <ol class="text-left">
-                            @foreach ($user->polls as $poll)
-                                @include('_poll-listing', ['poll' => $poll])
-                            @endforeach
-                        </ol>
-                    @else
-                        <p>This user has not created any polls yet!</p>
-                    @endif
+                    <ol class="text-left">
+                        @forelse ($polls as $poll)
+                            @include('_poll-listing', ['poll' => $poll])
+                        @empty
+                            <li class="px-4">{{ $user->username }} has not created any polls yet!</li>
+                        @endforelse
+                    </ol>
+
+                    <div class="px-4">
+                        {{ $polls->links() }}
+                    </div>
                 </article>
 
                 <article class="mt-6" id="votes" x-show="activeTab === 'votes'">
                     <h2 class="sr-only">Votes</h2>
-                    @if ($user->votes->isNotEmpty())
-                        <ol class="text-left">
-                            @foreach ($user->votes as $vote)
-                                @include('_vote-listing', ['poll' => $vote->recipient->poll, 'vote' => $vote])
-                            @endforeach
-                        </ol>
-                    @else
-                        <p>This user has not voted in any polls yet!</p>
-                    @endif
+                    <ol class="text-left">
+                        @forelse ($votes as $vote)
+                            @include('_vote-listing', ['poll' => $vote->recipient->poll, 'vote' => $vote])
+                        @empty
+                            <li class="px-4">{{ $user->username }} has not voted in any polls yet!</li>
+                        @endforelse
+                    </ol>
+
+                    <div class="px-4">
+                        {{ $votes->links() }}
+                    </div>
                 </article>
 
                 <article class="mt-6" id="comments" x-show="activeTab === 'comments'">
                     <h2 class="sr-only">Comments</h2>
-                    @if ($user->comments->isNotEmpty())
-                        <ol class="text-left">
-                            @foreach ($user->comments as $comment)
-                                @include('_comment-listing', ['poll' => $comment->poll, 'comment' => $comment])
-                            @endforeach
-                        </ol>
-                    @else
-                        <p>This user has not commented on any polls yet!</p>
-                    @endif
+                    <ol class="text-left">
+                        @forelse ($comments as $comment)
+                            @include('_comment-listing', ['poll' => $comment->poll, 'comment' => $comment])
+                        @empty
+                            <li class="px-4">{{ $user->username }} has not commented on any polls yet!</li>
+                        @endforelse
+                    </ol>
+
+                    <div class="px-4">
+                        {{ $comments->links() }}
+                    </div>
                 </article>
             </div>
         </x-panel>
