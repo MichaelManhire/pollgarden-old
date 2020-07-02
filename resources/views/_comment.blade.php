@@ -2,7 +2,7 @@
     <article>
         <div class="flex items-start">
             <a class="flex-shrink-0 text-white" href="{{ route('users.show', $comment->author) }}">
-                <x-avatar :src="$comment->author->avatar" />
+                <x-avatar :src="$comment->author->getAvatar()" />
             </a>
 
             <div class="ml-4">

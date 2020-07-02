@@ -78,7 +78,7 @@
                         <span class="sr-only">Notifications</span>
                     </a>
                     <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
-                        <x-avatar :src="Auth::user()->avatar" width="32" height="32" />
+                        <x-avatar :src="Auth::user()->getAvatar()" width="32" height="32" />
                         <span class="sr-only">Profile</span>
                     </a>
                 @endguest
@@ -238,7 +238,7 @@
                 @auth
                     <a class="group flex items-center mt-12 text-white" href="{{ route('users.show', Auth::user()) }}">
                         <div>
-                            <x-avatar :src="Auth::user()->avatar" width="42" height="42" />
+                            <x-avatar :src="Auth::user()->getAvatar()" width="42" height="42" />
                         </div>
                         <div class="ml-3">
                             <p class="text-base font-medium leading-6 text-gray-700 group-hover:text-gray-900">{{ Auth::user()->username }}</p>

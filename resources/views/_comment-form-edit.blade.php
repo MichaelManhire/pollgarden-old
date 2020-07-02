@@ -1,7 +1,7 @@
 @can('update', $comment)
     <div class="flex items-start px-2 py-4 mt-4 mb-4 bg-white shadow rounded-lg sm:px-5 {{ $isReply ? 'ml-8' : '' }}" x-show="isEditing">
         <div class="text-white">
-            <x-avatar :src="Auth::user()->avatar" />
+            <x-avatar :src="Auth::user()->getAvatar()" />
         </div>
 
         <form class="flex-1 ml-4" action="{{ route('comments.update', $comment) }}" method="POST">

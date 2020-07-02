@@ -7,7 +7,7 @@
     <x-panel class="px-4 sm:px-10 mt-12 text-center">
         <div class="overlay">
             <div class="text-white">
-                <x-avatar :src="$user->avatar" width="96" height="96" />
+                <x-avatar :src="$user->getAvatar()" width="96" height="96" />
             </div>
 
             <h1 class="mt-2 text-3xl leading-tight font-extrabold sm:text-4xl">{{ $user->username }}</h1>

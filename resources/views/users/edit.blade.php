@@ -6,7 +6,7 @@
 <article>
     <h1 class="sr-only">Edit Your Profile</h1>
 
-    <form action="{{ route('users.update', $user) }}" method="POST">
+    <form action="{{ route('users.update', $user) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -18,6 +18,30 @@
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div>
+                        <label class="block text-sm font-medium leading-tight" for="avatar">Avatar</label>
+                        <div class="mt-1.5">
+                            <div class="inline-block align-middle mr-4 text-white">
+                                <x-avatar :src="$user->getAvatar()" />
+                            </div>
+
+                            <input class="inline-block align-middle @error('avatar') border-red-300 text-red-900 @enderror"
+                                id="avatar"
+                                name="avatar"
+                                type="file"
+                                autocomplete="off"
+                                min="13"
+                                max="99"
+                                @error('avatar')
+                                aria-invalid="true"
+                                aria-describedby="avatar-error"
+                                @enderror>
+                        </div>
+                        @error('avatar')
+                            <p class="mt-2 text-sm text-red-600" id="avatar-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="mt-4">
                         <label class="block text-sm font-medium leading-tight" for="age">Age</label>
                         <div class="mt-1.5 rounded-md shadow-sm">
                             <input class="form-input block w-full @error('age') border-red-300 text-red-900 @enderror"

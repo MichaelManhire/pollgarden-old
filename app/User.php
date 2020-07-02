@@ -50,6 +50,15 @@ class User extends Authenticatable
         return $this->belongsTo('App\Gender');
     }
 
+    public function getAvatar()
+    {
+        if (is_null($this->avatar)) {
+            return 'https://api.adorable.io/avatars/200/' . $this->slug . '.png';
+        }
+
+        return asset('storage/' . $this->avatar);
+    }
+
     public function polls()
     {
         return $this->hasMany('App\Poll');

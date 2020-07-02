@@ -2,7 +2,7 @@
     <article class="flex items-center p-4 sm:px-6">
         <div class="flex-1 flex items-start">
             <div class="flex-shrink-0 text-white">
-                <x-avatar :src="$poll->author->avatar" />
+                <x-avatar :src="$poll->author->getAvatar()" />
             </div>
 
             {{ $slot }}

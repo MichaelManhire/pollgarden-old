@@ -68,8 +68,14 @@ class UserController extends Controller
 
         $updatedUser = $this->validateUser($user);
 
+        // Don't keep the state if the user is not from the US
         if ($updatedUser['country_id'] !== '1') {
             $updatedUser['state_id'] = null;
+        }
+
+        // Handle avatar
+        if (Arr::exists($updatedUser, 'avatar')) {
+            $updatedUser['avatar'] = request('avatar')->store('avatars/' . $user->id);
         }
 
         $user->update($updatedUser);
@@ -114,6 +120,7 @@ class UserController extends Controller
     protected function validateUser()
     {
         return request()->validate([
+            'avatar' => 'nullable|image',
             'age' => 'nullable|integer|min:13|max:99',
             'gender_id' => 'nullable|integer|exists:genders,id',
             'country_id' => 'nullable|integer|exists:countries,id',
