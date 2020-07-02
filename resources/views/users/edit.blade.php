@@ -5,6 +5,7 @@
 @section('content')
 <article>
     <h1 class="sr-only">Edit Your Profile</h1>
+
     <form action="{{ route('users.update', $user) }}" method="POST">
         @csrf
         @method('PATCH')
@@ -12,8 +13,117 @@
         <x-panel class="px-4 py-5 sm:p-6">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
+                    <h2 class="text-lg font-medium leading-6">Profile Details</h2>
+                    <p class="mt-1 text-sm leading-5 text-gray-500">These details will be displayed on your profile page.</p>
+                </div>
+                <div class="mt-5 md:mt-0 md:col-span-2">
+                    <div>
+                        <label class="block text-sm font-medium leading-tight" for="age">Age</label>
+                        <div class="mt-1.5 rounded-md shadow-sm">
+                            <input class="form-input block w-full @error('age') border-red-300 text-red-900 @enderror"
+                                id="age"
+                                name="age"
+                                type="number"
+                                value="{{ $user->age }}"
+                                autocomplete="off"
+                                min="13"
+                                max="99"
+                                @error('age')
+                                aria-invalid="true"
+                                aria-describedby="age-error"
+                                @enderror>
+                        </div>
+                        @error('age')
+                            <p class="mt-2 text-sm text-red-600" id="age-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium leading-tight" for="gender_id">Gender</label>
+                        <div class="mt-1.5 rounded-md shadow-sm">
+                            <select class="form-select block w-full @error('gender_id') border-red-300 text-red-900 @enderror"
+                                    id="gender_id"
+                                    name="gender_id"
+                                    autocomplete="off"
+                                    @error('gender_id')
+                                    aria-invalid="true"
+                                    aria-describedby="gender-error"
+                                    @enderror>
+                                    <option value="">Please select a gender</option>
+                                @foreach ($genders as $gender)
+                                    <option value="{{ $gender->id }}" {{ $user->gender_id == $gender->id ? 'selected' : '' }}>{{ $gender->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('gender_id')
+                            <p class="mt-2 text-sm text-red-600" id="gender-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div x-data="{ countryId: {{ $user->country_id ? $user->country_id : 0 }} }">
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium leading-tight" for="country_id">Country</label>
+                            <div class="mt-1.5 rounded-md shadow-sm">
+                                <select class="form-select block w-full @error('country_id') border-red-300 text-red-900 @enderror"
+                                        id="country_id"
+                                        name="country_id"
+                                        autocomplete="off"
+                                        @error('country_id')
+                                        aria-invalid="true"
+                                        aria-describedby="country-error"
+                                        @enderror
+                                        x-model="countryId">
+                                    <option value="">Please select a country</option>
+                                    @foreach ($countries as $country)
+                                        <option value="{{ $country->id }}" {{ $user->country_id == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('gender_id')
+                                <p class="mt-2 text-sm text-red-600" id="gender-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="mt-4" x-show="countryId == 1">
+                            <label class="block text-sm font-medium leading-tight" for="state_id">State</label>
+                            <div class="mt-1.5 rounded-md shadow-sm">
+                                <select class="form-select block w-full @error('state_id') border-red-300 text-red-900 @enderror"
+                                        id="state_id"
+                                        name="state_id"
+                                        autocomplete="off"
+                                        @error('state_id')
+                                        aria-invalid="true"
+                                        aria-describedby="state-error"
+                                        @enderror>
+                                    <option value="">Please select a state</option>
+                                    @foreach ($states as $state)
+                                        <option value="{{ $state->id }}" {{ $user->state_id == $state->id ? 'selected' : '' }}>{{ $state->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('gender_id')
+                                <p class="mt-2 text-sm text-red-600" id="gender-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </x-panel>
+
+        <div class="flex justify-end mt-6">
+            <x-button>Save Profile Details</x-button>
+        </div>
+    </form>
+
+    <form class="mt-8" action="{{ route('users.settings.update', $user) }}" method="POST">
+        @csrf
+        @method('PATCH')
+
+        <x-panel class="px-4 py-5 sm:p-6">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1">
                     <h2 class="text-lg font-medium leading-6">Account Info</h2>
-                    <p class="mt-1 text-sm leading-5 text-gray-500">Some line of text.</p>
+                    <p class="mt-1 text-sm leading-5 text-gray-500">In case you need it...</p>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div>
@@ -36,7 +146,7 @@
                         @enderror
                     </div>
 
-                    <div class="mt-6">
+                    <div class="mt-4">
                         <label class="block text-sm font-medium leading-tight" for="email">Email</label>
                         <div class="mt-1.5 rounded-md shadow-sm">
                             <input class="form-input block w-full @error('email') border-red-300 text-red-900 @enderror"
@@ -46,6 +156,7 @@
                                    value="{{ $user->email }}"
                                    autocomplete="email"
                                    required
+                                   maxlength="255"
                                    @error('email')
                                    aria-invalid="true"
                                    aria-describedby="email-error"
@@ -56,7 +167,7 @@
                         @enderror
                     </div>
 
-                    <div class="mt-6">
+                    <div class="mt-4">
                         <label class="block text-sm font-medium leading-tight" for="password">Password</label>
                         <div class="mt-1.5 rounded-md shadow-sm">
                             <input class="form-input block w-full @error('password') border-red-300 text-red-900 @enderror"
@@ -75,7 +186,7 @@
                         @enderror
                     </div>
 
-                    <div class="mt-6">
+                    <div class="mt-4">
                         <label class="block text-sm font-medium leading-tight" for="password-confirm">Confirm Password</label>
                         <div class="mt-1.5 rounded-md shadow-sm">
                             <input class="form-input block w-full @error('password-confirm') border-red-300 text-red-900 @enderror"
@@ -98,7 +209,7 @@
         </x-panel>
 
         <div class="flex justify-end mt-6">
-            <x-button>Save Profile</x-button>
+            <x-button>Save Account Settings</x-button>
         </div>
     </form>
 </article>

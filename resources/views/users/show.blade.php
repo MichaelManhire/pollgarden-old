@@ -21,29 +21,31 @@
     <div class="lg:flex lg:justify-between lg:items-start mt-4">
         <x-panel class="lg:order-1 p-4 lg:ml-2 min-w-1/4 whitespace-no-wrap">
             <div class="sm:flex sm:justify-around lg:block">
-                <article class="sm:px-2 lg:px-0">
-                    <h2 class="text-xl font-medium leading-tight">Profile Details</h2>
-                    <dl class="mt-0.5 text-sm clearfix">
-                        @if ($user->age)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Age:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->age }}</time></dd>
-                        @endif
-                        @if ($user->gender)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Gender:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->gender->name }}</time></dd>
-                        @endif
-                        @if ($user->country)
-                            <dt class="float-left clear-left mt-1 text-gray-600">Country:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->country->name }}</time></dd>
-                        @endif
-                        @if ($user->state)
-                            <dt class="float-left clear-left mt-1 text-gray-600">State:</dt>
-                            <dd class="float-left mt-1 ml-1 font-medium">{{ $user->state->name }}</time></dd>
-                        @endif
-                    </dl>
-                </article>
+                @if ($user->age || $user->gender || $user->county)
+                    <article class="sm:px-2 lg:px-0 mb-6 sm:mb-0 lg:mb-6">
+                        <h2 class="text-xl font-medium leading-tight">Profile Details</h2>
+                        <dl class="mt-0.5 text-sm clearfix">
+                            @if ($user->age)
+                                <dt class="float-left clear-left mt-1 text-gray-600">Age:</dt>
+                                <dd class="float-left mt-1 ml-1 font-medium">{{ $user->age }}</time></dd>
+                            @endif
+                            @if ($user->gender)
+                                <dt class="float-left clear-left mt-1 text-gray-600">Gender:</dt>
+                                <dd class="float-left mt-1 ml-1 font-medium">{{ $user->gender->name }}</time></dd>
+                            @endif
+                            @if ($user->country)
+                                <dt class="float-left clear-left mt-1 text-gray-600">Country:</dt>
+                                <dd class="float-left mt-1 ml-1 font-medium">{{ $user->country->name }}</time></dd>
+                            @endif
+                            @if ($user->state)
+                                <dt class="float-left clear-left mt-1 text-gray-600">State:</dt>
+                                <dd class="float-left mt-1 ml-1 font-medium">{{ $user->state->name }}</time></dd>
+                            @endif
+                        </dl>
+                    </article>
+                @endif
 
-                <article class="sm:px-2 lg:px-0 mt-6 sm:mt-0 lg:mt-6">
+                <article class="sm:px-2 lg:px-0">
                     <h2 class="text-xl font-medium leading-tight">Activity</h2>
                     <dl class="mt-0.5 text-sm clearfix">
                         <dt class="float-left clear-left mt-1 text-gray-600">Polls Created:</dt>

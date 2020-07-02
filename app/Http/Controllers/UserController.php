@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
+use App\Gender;
+use App\State;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -40,9 +46,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $genders = Gender::all();
+        $countries = Country::all();
+        $states = State::all();
+
         $this->authorize('update', $user);
 
-        return view('users.edit', compact('user'));
+        return view('users.edit', compact(['user', 'genders', 'countries', 'states']));
     }
 
     /**
@@ -56,7 +66,36 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        $user->update($this->validateUser());
+        $updatedUser = $this->validateUser($user);
+
+        if ($updatedUser['country_id'] !== '1') {
+            $updatedUser['state_id'] = null;
+        }
+
+        $user->update($updatedUser);
+
+        return redirect(route('users.show', $user));
+    }
+
+    public function updateSettings(Request $request, User $user)
+    {
+        $this->authorize('update', $user);
+
+        $updatedUser = $this->validateUserSettings($user);
+
+        // Slugify any new username
+        $username = $updatedUser['username'];
+        $slug = Str::of($username)->slug();
+        $updatedUser['slug'] = $slug;
+
+        // Don't try to update the password if the user left those fields blank
+        if (is_null($updatedUser['password'])) {
+            Arr::forget($updatedUser, 'password');
+        } else {
+            $updatedUser['password'] = Hash::make($updatedUser['password']);
+        }
+
+        $user->update($updatedUser);
 
         return redirect(route('users.show', $user));
     }
@@ -75,9 +114,19 @@ class UserController extends Controller
     protected function validateUser()
     {
         return request()->validate([
-            'username' => 'required|string|alpha_dash|max:255',
-            'email' => 'required|email|max:255',
-            'password' => 'required|string|min:8|confirmed',
+            'age' => 'nullable|integer|min:13|max:99',
+            'gender_id' => 'nullable|integer|exists:genders,id',
+            'country_id' => 'nullable|integer|exists:countries,id',
+            'state_id' => 'nullable|integer|exists:states,id',
+        ]);
+    }
+
+    protected function validateUserSettings(User $user)
+    {
+        return request()->validate([
+            'username' => 'required|string|alpha_dash|max:255|unique:users,username,' . $user->id,
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
     }
 }

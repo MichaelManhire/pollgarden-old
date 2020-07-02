@@ -66,7 +66,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $username = $data['username'];
-        $slug = Str::of($username)->slug('-');
+        $slug = Str::of($username)->slug();
 
         return User::create([
             'username' => $username,
