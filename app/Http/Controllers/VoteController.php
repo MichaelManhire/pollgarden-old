@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\VotesReceived;
 use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,11 @@ class VoteController extends Controller
         $vote['user_id'] = Auth::id();
 
         $vote = Vote::create($vote);
+
+        $poll = $vote->recipient->poll;
+        if ($poll->votes->count() === 5) {
+            $vote->recipient->poll->author->notify(new VotesReceived($poll));
+        }
 
         return back();
     }

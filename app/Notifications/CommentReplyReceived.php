@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 
-class CommentReceived extends Notification
+class CommentReplyReceived extends Notification
 {
     use Queueable;
     protected $comment;

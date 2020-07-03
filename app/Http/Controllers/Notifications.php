@@ -15,8 +15,11 @@ class Notifications extends Controller
      */
     public function __invoke(Request $request)
     {
-        $notifications = Auth::user()->notifications;
+        $unreadNotifications = Auth::user()->unreadNotifications;
+        $readNotifications = Auth::user()->readNotifications->take(20);
 
-        return view('notifications.index', compact('notifications'));
+        Auth::user()->unreadNotifications->markAsRead();
+
+        return view('notifications.index', compact(['unreadNotifications', 'readNotifications']));
     }
 }

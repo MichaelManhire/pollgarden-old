@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Notifications\CommentReceived;
+use App\Notifications\CommentReplyReceived;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
@@ -25,7 +27,11 @@ class CommentController extends Controller
 
         $comment = Comment::create($comment);
 
-        $comment->poll->author->notify(new CommentReceived($comment, Auth::user()));
+        if (Arr::exists($comment, 'parent_comment_id')) {
+            $comment->parentComment->author->notify(new CommentReplyReceived($comment));
+        } else {
+            $comment->poll->author->notify(new CommentReceived($comment));
+        }
 
         return back();
     }

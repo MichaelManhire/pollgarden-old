@@ -79,10 +79,17 @@
                             <span class="sr-only">Notifications</span>
                         </span>
                     @else
-                        <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
-                            @include('icons.notifications', ['width' => '24', 'height' => '24'])
-                            <span class="sr-only">Notifications</span>
-                        </a>
+                        @if (Auth::user()->unreadNotifications->count())
+                            <a class="flex-shrink-0 ml-3 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
+                                @include('icons.notifications', ['width' => '24', 'height' => '24'])
+                                <span class="sr-only">Notifications</span>
+                            </a>
+                        @else
+                            <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
+                                @include('icons.notifications', ['width' => '24', 'height' => '24'])
+                                <span class="sr-only">Notifications</span>
+                            </a>
+                        @endif
                     @endif
                     <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
                         <x-avatar :src="Auth::user()->getAvatar()" width="32" height="32" />
@@ -201,14 +208,28 @@
                                     </span>
                                 </li>
                             @else
-                                <li class="block mt-1">
-                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('notifications') }}">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                            @include('icons.notifications', ['width' => '20', 'height' => '20'])
-                                        </div>
-                                        Notifications
-                                    </a>
-                                </li>
+                                @if (Auth::user()->unreadNotifications->count())
+                                    <li class="block mt-1">
+                                        <a class="group flex items-center p-2 text-sm font-medium leading-6 text-purple-600 hover:text-purple-900 rounded-md bg-purple-100 hover:bg-purple-50" href="{{ route('notifications') }}">
+                                            <div class="mr-2 text-purple-400 group-hover:text-purple-500">
+                                                @include('icons.notifications', ['width' => '20', 'height' => '20'])
+                                            </div>
+                                            Notifications
+                                            <span class="inline-block py-0.5 px-3 ml-auto text-xs leading-4 rounded-full bg-purple-200">
+                                                {{ Auth::user()->unreadNotifications->count() }}
+                                            </span>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="block mt-1">
+                                        <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('notifications') }}">
+                                            <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                                @include('icons.notifications', ['width' => '20', 'height' => '20'])
+                                            </div>
+                                            Notifications
+                                        </a>
+                                    </li>
+                                @endif
                             @endif
                             <li class="block mt-1">
                                 <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">

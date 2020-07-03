@@ -5,19 +5,19 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 
-class CommentReceived extends Notification
+class VotesReceived extends Notification
 {
     use Queueable;
-    protected $comment;
+    protected $poll;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($comment)
+    public function __construct($poll)
     {
-        $this->comment = $comment;
+        $this->poll = $poll;
     }
 
     /**
@@ -40,11 +40,8 @@ class CommentReceived extends Notification
     public function toArray($notifiable)
     {
         return [
-            'author' => $this->comment->author->username,
-            'authorSlug' => $this->comment->author->slug,
-            'poll' => $this->comment->poll->title,
-            'pollSlug' => $this->comment->poll->slug,
-            'commentId' => $this->comment->id,
+            'poll' => $this->poll->title,
+            'pollSlug' => $this->poll->slug,
         ];
     }
 }
