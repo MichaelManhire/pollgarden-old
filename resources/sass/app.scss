@@ -2,6 +2,16 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.comment::before {
+    content: "";
+    display: block;
+    height: 90px;
+    margin-top: -90px;
+    position: relative;
+    visibility: hidden;
+    z-index: -1;
+}
+
 .overlay {
     position: relative;
     top: -3rem;

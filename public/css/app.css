@@ -36712,13 +36712,19 @@ video {
   transition-delay: 1000ms;
 }
 
+.comment::before {
+  content: "";
+  display: block;
+  height: 90px;
+  margin-top: -90px;
+  position: relative;
+  visibility: hidden;
+  z-index: -1;
+}
+
 .overlay {
   position: relative;
   top: -3rem;
-}
-
-.profile-tab-content:not(:target) {
-  display: none;
 }
 
 .fancy-radio-button {

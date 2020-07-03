@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Notifications\CommentReceived;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,8 @@ class CommentController extends Controller
         $comment['user_id'] = Auth::id();
 
         $comment = Comment::create($comment);
+
+        $comment->poll->author->notify(new CommentReceived($comment, Auth::user()));
 
         return back();
     }
@@ -66,4 +69,15 @@ class CommentController extends Controller
             'body' => 'required|string|max:3000',
         ]);
     }
+
+    // protected function sendNotification(Comment $comment)
+    // {
+    //     $comment->poll->author->notify(new CommentReceived([
+    //         Auth::user()->name,
+    //         Auth::user()->slug,
+    //         $comment->poll->title,
+    //         $comment->poll->slug,
+    //         $comment->body,
+    //     ]));
+    // }
 }

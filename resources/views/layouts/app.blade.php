@@ -73,10 +73,17 @@
                         @endif
                     </ul>
                 @else
-                    <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="">
-                        @include('icons.notifications', ['width' => '24', 'height' => '24'])
-                        <span class="sr-only">Notifications</span>
-                    </a>
+                    @if (url()->current() === route('notifications'))
+                        <span class="flex-shrink-0 ml-3 text-green-400">
+                            @include('icons.notifications', ['width' => '24', 'height' => '24'])
+                            <span class="sr-only">Notifications</span>
+                        </span>
+                    @else
+                        <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
+                            @include('icons.notifications', ['width' => '24', 'height' => '24'])
+                            <span class="sr-only">Notifications</span>
+                        </a>
+                    @endif
                     <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
                         <x-avatar :src="Auth::user()->getAvatar()" width="32" height="32" />
                         <span class="sr-only">Profile</span>
@@ -184,14 +191,25 @@
                                 </li>
                             @endif
                         @else
-                            <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                        @include('icons.notifications', ['width' => '20', 'height' => '20'])
-                                    </div>
-                                    Notifications
-                                </a>
-                            </li>
+                            @if (url()->current() === route('notifications'))
+                                <li class="block mt-1">
+                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.notifications', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Notifications
+                                    </span>
+                                </li>
+                            @else
+                                <li class="block mt-1">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('notifications') }}">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.notifications', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Notifications
+                                    </a>
+                                </li>
+                            @endif
                             <li class="block mt-1">
                                 <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">
                                     <div class="mr-2 text-gray-400 group-hover:text-gray-500">

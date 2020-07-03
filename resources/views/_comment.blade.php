@@ -1,5 +1,5 @@
 <x-panel class="p-4">
-    <article>
+    <article class="comment" id="comment{{ $comment->id }}">
         <div class="flex items-start">
             <a class="flex-shrink-0 text-white" href="{{ route('users.show', $comment->author) }}">
                 <x-avatar :src="$comment->author->getAvatar()" />
