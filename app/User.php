@@ -37,7 +37,7 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment')->where('is_deleted', 0);;
     }
 
     public function country()
@@ -61,7 +61,7 @@ class User extends Authenticatable
 
     public function polls()
     {
-        return $this->hasMany('App\Poll');
+        return $this->hasMany('App\Poll')->where('is_deleted', 0);;
     }
 
     public function state()

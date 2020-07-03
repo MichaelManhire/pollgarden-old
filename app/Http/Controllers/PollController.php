@@ -89,6 +89,8 @@ class PollController extends Controller
      */
     public function show(Poll $poll)
     {
+        abort_if($poll->is_deleted, 403, 'This poll has been deleted.');
+
         return view('polls.show', compact('poll'));
     }
 
