@@ -28,9 +28,7 @@
                                 id="avatar"
                                 name="avatar"
                                 type="file"
-                                autocomplete="off"
-                                min="13"
-                                max="99"
+                                accept="image/*"
                                 @error('avatar')
                                 aria-invalid="true"
                                 aria-describedby="avatar-error"
