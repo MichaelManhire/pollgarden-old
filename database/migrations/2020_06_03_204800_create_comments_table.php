@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('parent_comment_id')->nullable();
             $table->text('body');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('poll_id')->references('id')->on('polls')->onUpdate('cascade')->onDelete('cascade');

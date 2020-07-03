@@ -20,7 +20,7 @@ class Comment extends Model
 
     public function replies()
     {
-        return $this->hasMany('App\Comment', 'parent_comment_id')->latest();
+        return $this->hasMany('App\Comment', 'parent_comment_id')->where('is_deleted', 0)->latest();
     }
 
     public function poll()

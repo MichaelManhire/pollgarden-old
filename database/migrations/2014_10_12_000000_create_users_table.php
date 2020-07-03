@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('gender_id')->nullable();
             $table->foreignId('country_id')->nullable();
             $table->foreignId('state_id')->nullable();
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('gender_id')->references('id')->on('genders')->onUpdate('set null')->onDelete('set null');

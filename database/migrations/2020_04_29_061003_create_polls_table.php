@@ -19,6 +19,7 @@ class CreatePollsTable extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->string('slug')->unique();
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('poll_categories')->onUpdate('cascade')->onDelete('cascade');

@@ -26,7 +26,7 @@ class Poll extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment')->where('is_deleted', 0);
     }
 
     public function numberOfComments()
@@ -46,7 +46,7 @@ class Poll extends Model
 
     public function parentComments()
     {
-        return $this->hasMany('App\Comment')->whereNull('parent_comment_id')->latest();
+        return $this->hasMany('App\Comment')->where('is_deleted', 0)->whereNull('parent_comment_id')->latest();
     }
 
     public function votes()

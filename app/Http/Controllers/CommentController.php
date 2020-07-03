@@ -53,7 +53,7 @@ class CommentController extends Controller
     {
         $this->authorize('delete', $comment);
 
-        $comment->delete();
+        $comment->update(['is_deleted' => true]);
 
         return back();
     }

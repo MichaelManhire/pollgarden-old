@@ -18,7 +18,7 @@ class PollController extends Controller
      */
     public function index()
     {
-        $polls = Poll::latest()->paginate(10);
+        $polls = Poll::where('is_deleted', 0)->latest()->paginate(10);
 
         return view('polls.index', compact('polls'));
     }
@@ -133,7 +133,7 @@ class PollController extends Controller
     {
         $this->authorize('delete', $poll);
 
-        $poll->delete();
+        $poll->update(['is_deleted' => true]);
 
         return redirect(route('polls.index'));
     }
