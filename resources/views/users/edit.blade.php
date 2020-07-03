@@ -234,5 +234,14 @@
             <x-button>Save Account Settings</x-button>
         </div>
     </form>
+
+    <form class="mt-8" action="{{ route('users.destroy', $user) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <div class="flex justify-end mt-6">
+            <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-red-600 hover:bg-red-500" type="submit">Delete Your Account</button>
+        </div>
+    </form>
 </article>
 @endsection

@@ -8,6 +8,7 @@ use App\State;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -31,6 +32,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        abort_if($user->is_deleted, 403, 'This user has deleted their account.');
+
         $polls = $user->polls()->latest()->paginate(10);
         $votes = $user->votes()->latest()->paginate(10);
         $comments = $user->comments()->latest()->paginate(10);
@@ -114,7 +117,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->authorize('delete', $user);
+
+        $user->update(['is_deleted' => true]);
+
+        return redirect('/')->with(Auth::logout());
     }
 
     protected function validateUser()
