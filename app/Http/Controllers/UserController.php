@@ -12,6 +12,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -79,7 +80,15 @@ class UserController extends Controller
 
         // Handle avatar
         if (Arr::exists($updatedUser, 'avatar')) {
-            $updatedUser['avatar'] = request('avatar')->store('avatars/' . $user->id);
+            $originalImage = $request->file('avatar');
+            $originalPath = $originalImage->getPathName();
+            $originalExtension = $originalImage->extension();
+            $storagePath = storage_path('app/public/avatars/' . $user->id . '.' . $originalExtension);
+            $croppedImage = Image::make($originalPath);
+            $croppedImage = $croppedImage->fit(200);
+            $croppedImage->save($storagePath);
+
+            $updatedUser['avatar'] = 'avatars/' . $user->id . '.' . $originalExtension;
         }
 
         $updatedUser['updated_at'] = Carbon::now();
