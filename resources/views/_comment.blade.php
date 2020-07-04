@@ -18,6 +18,9 @@
             <p class="inline-block">
                 <span>Posted</span>
                 <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time>
+                @if ($comment->created_at != $comment->updated_at)
+                    <span>(edited <time datetime="{{ $comment->updated_at }}">{{ $comment->updated_at->diffForHumans() }}</time>)</span>
+                @endif
             </p>
 
             @auth

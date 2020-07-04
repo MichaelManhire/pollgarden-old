@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Notifications\VotesReceived;
 use App\Vote;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +45,10 @@ class VoteController extends Controller
     {
         $this->authorize('update', $vote);
 
-        $vote->update($this->validateVote());
+        $updatedVote = $this->validateVote();
+        $updatedVote['updated_at'] = Carbon::now();
+
+        $vote->update($updatedVote);
 
         return back();
     }

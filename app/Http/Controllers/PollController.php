@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Poll;
 use App\PollCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -120,7 +121,10 @@ class PollController extends Controller
     {
         $this->authorize('update', $poll);
 
-        $poll->update($this->validatePoll());
+        $updatedPoll = $this->validatePoll();
+        $updatedPoll['updated_at'] = Carbon::now();
+
+        $poll->update($updatedPoll);
 
         return redirect(route('polls.show', $poll));
     }

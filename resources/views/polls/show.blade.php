@@ -8,19 +8,22 @@
         <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
 
         <div class="mt-2 text-sm leading-tight text-gray-500">
-            <p class="inline-block">
+            <p class="inline-block mb-2 mr-2">
                 <span>Posted by</span>
                 <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a>
                 <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time>
                 <span>in {{ $poll->category->name }}</span>
+                @if ($poll->created_at != $poll->updated_at)
+                    <span>(edited <time datetime="{{ $poll->updated_at }}">{{ $poll->updated_at->diffForHumans() }})</time></span>
+                @endif
             </p>
 
             @can('update', $poll)
-                <a class="inline-block ml-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">Edit Poll</a>
+                <a class="inline-block mb-2 mr-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">Edit Poll</a>
             @endcan
 
             @can('delete', $poll)
-                <form class="inline-block ml-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
+                <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
                     @csrf
                     @method('DELETE')
 
@@ -30,7 +33,7 @@
             @endcan
         </div>
 
-        <article class="block mt-8" id="ballot-box">
+        <article class="block mt-5" id="ballot-box">
             {{-- User has not voted: --}}
             @if (is_null($poll->usersVote(Auth::id())))
                 <h2 class="sr-only">Vote</h2>

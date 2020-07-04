@@ -6,6 +6,7 @@ use App\Country;
 use App\Gender;
 use App\State;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -81,6 +82,8 @@ class UserController extends Controller
             $updatedUser['avatar'] = request('avatar')->store('avatars/' . $user->id);
         }
 
+        $updatedUser['updated_at'] = Carbon::now();
+
         $user->update($updatedUser);
 
         return redirect(route('users.show', $user));
@@ -103,6 +106,8 @@ class UserController extends Controller
         } else {
             $updatedUser['password'] = Hash::make($updatedUser['password']);
         }
+
+        $updatedUser['updated_at'] = Carbon::now();
 
         $user->update($updatedUser);
 

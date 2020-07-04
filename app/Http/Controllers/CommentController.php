@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Notifications\CommentReceived;
 use App\Notifications\CommentReplyReceived;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +48,10 @@ class CommentController extends Controller
     {
         $this->authorize('update', $comment);
 
-        $comment->update($this->validateComment());
+        $updatedComment = $this->validateComment();
+        $updatedComment['updated_at'] = Carbon::now();
+
+        $comment->update($updatedComment);
 
         return back();
     }
