@@ -63,7 +63,11 @@ class User extends Authenticatable
     {
         $receivedConversations = $this->receivedConversations;
         $sentConversations = $this->sentConversations;
-        $conversations = $sentConversations->merge($receivedConversations)->sortByDesc(function ($conversation) {
+        $conversations = $sentConversations->merge($receivedConversations);
+        $conversations = $conversations->filter(function ($conversation) {
+            return $conversation->messages->count();
+        });
+        $conversations = $conversations->sortByDesc(function ($conversation) {
             return $conversation->messages->first()->created_at;
         });
 
