@@ -42,7 +42,6 @@ class MessageReceived extends Notification
         return [
             'author' => $this->message->author->username,
             'authorSlug' => $this->message->author->slug,
-            'message' => $this->message->body,
             'conversationId' => $this->message->conversation->id,
         ];
     }

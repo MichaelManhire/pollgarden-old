@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Conversation;
 use App\Message;
+use App\Notifications\MessageReceived;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,10 +65,12 @@ class ConversationController extends Controller
 
         $conversation = Conversation::create($conversation);
 
-        $conversation->messages()->create([
+        $message = $conversation->messages()->create([
             'body' => $request['body'],
             'user_id' => $conversation['sender_id'],
         ]);
+
+        $conversation->recipient->notify(new MessageReceived($message));
 
         return redirect(route('conversations.show', $conversation));
     }
