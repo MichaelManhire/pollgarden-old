@@ -101,7 +101,7 @@
     </div>
 
     {{-- Desktop Navigation --}}
-    <div class="flex container py-12">
+    <div class="flex container py-8 lg:py-12">
         <header class="hidden lg:inline-block min-w-1/5 mr-6">
             <x-panel class="p-4">
                 @if (Request::is('/'))

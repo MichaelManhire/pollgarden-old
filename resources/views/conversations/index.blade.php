@@ -4,7 +4,7 @@
 
 @section('content')
 <article>
-    <h1 class="sr-only">Messages</h1>
+    <h1 class="mb-4 text-3xl leading-tight font-extrabold">Messages</h1>
 
     @if ($conversations->count())
         <ol>
@@ -49,7 +49,9 @@
             @endforeach
         </ol>
     @else
+    <x-panel class="p-3 mb-4">
         <p>You don't have any messages!</p>
+    </x-panel>
     @endif
 </article>
 

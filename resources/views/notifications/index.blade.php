@@ -4,7 +4,7 @@
 
 @section('content')
 <article>
-    <h1 class="sr-only">Notifications</h1>
+    <h1 class="mb-4 text-3xl leading-tight font-extrabold">Notifications</h1>
     @if ($unreadNotifications->count())
         <article class="mb-4">
             <h2 class="sr-only">Unread Notifications</h2>
@@ -59,6 +59,10 @@
                 @endforeach
             </ol>
         </article>
+    @else
+        <x-panel class="p-3 mb-4">
+            <p>You don't have any new notifications right now!</p>
+        </x-panel>
     @endif
     @if ($readNotifications->count())
         <article>
