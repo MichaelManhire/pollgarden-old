@@ -73,25 +73,37 @@
                         @endif
                     </ul>
                 @else
+                    @if (url()->current() === route('conversations.index'))
+                        <span class="flex-shrink-0 ml-4 text-green-400">
+                            @include('icons.message', ['width' => '24', 'height' => '24'])
+                            <span class="sr-only">Messages</span>
+                        </span>
+                    @else
+                        <a class="flex-shrink-0 ml-4 text-gray-400 hover:text-gray-500" href="{{ route('conversations.index') }}">
+                            @include('icons.message', ['width' => '24', 'height' => '24'])
+                            <span class="sr-only">Messages</span>
+                        </a>
+                    @endif
+
                     @if (url()->current() === route('notifications'))
-                        <span class="flex-shrink-0 ml-3 text-green-400">
+                        <span class="flex-shrink-0 ml-4 text-green-400">
                             @include('icons.notifications', ['width' => '24', 'height' => '24'])
                             <span class="sr-only">Notifications</span>
                         </span>
                     @else
                         @if (Auth::user()->unreadNotifications->count())
-                            <a class="flex-shrink-0 ml-3 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
+                            <a class="flex-shrink-0 ml-4 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
                                 @include('icons.notifications', ['width' => '24', 'height' => '24'])
                                 <span class="sr-only">Notifications</span>
                             </a>
                         @else
-                            <a class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
+                            <a class="flex-shrink-0 ml-4 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
                                 @include('icons.notifications', ['width' => '24', 'height' => '24'])
                                 <span class="sr-only">Notifications</span>
                             </a>
                         @endif
                     @endif
-                    <a class="flex-shrink-0 ml-3 text-white" href="{{ route('users.show', Auth::user()) }}">
+                    <a class="flex-shrink-0 ml-4 text-white" href="{{ route('users.show', Auth::user()) }}">
                         <x-avatar :src="Auth::user()->getAvatar()" width="32" height="32" />
                         <span class="sr-only">Profile</span>
                     </a>
@@ -235,7 +247,7 @@
                                 <li class="block mt-1" aria-current="page">
                                     <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
                                         <div class="mr-2 text-green-400">
-                                            @include('icons.comment', ['width' => '20', 'height' => '20'])
+                                            @include('icons.message', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Messages
                                     </span>
@@ -244,7 +256,7 @@
                                 <li class="block mt-1">
                                     <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('conversations.index') }}">
                                         <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                            @include('icons.comment', ['width' => '20', 'height' => '20'])
+                                            @include('icons.message', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Messages
                                     </a>
