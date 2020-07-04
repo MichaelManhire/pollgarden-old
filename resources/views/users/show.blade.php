@@ -58,12 +58,24 @@
                         <dd class="float-left mt-1 ml-1 font-medium"><time datetime="{{ $user->created_at }}">{{ $user->created_at->diffForHumans() }}</time></dd>
                     </dl>
                 </article>
-
-                @can('create', App\Conversation::class)
+                @auth
                     <article class="sm:px-2 lg:px-0 mt-6 sm:mt-0 lg:mt-6">
-                        <a class="inline-block lg:w-full py-2 px-4 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" href="{{ route('conversations.create', ['recipient_id' => $user->id, 'recipient_name' => $user->username, 'recipient_slug' => $user->slug]) }}">Send Message</a>
+                        @can('update', $user)
+                        <a class="block lg:w-full py-2 px-4 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
+                           href="{{ route('users.edit', $user) }}">
+                            Edit Profile
+                        </a>
+                        @endcan
+                        @if (Auth::id() !== $user->id)
+                            @can('create', App\Conversation::class)
+                                <a class="block lg:w-full py-2 px-4 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
+                                href="{{ route('conversations.create', ['recipient_id' => $user->id, 'recipient_name' => $user->username, 'recipient_slug' => $user->slug]) }}">
+                                    Send Message
+                                </a>
+                            @endcan
+                        @endif
                     </article>
-                @endcan
+                @endauth
             </div>
         </x-panel>
 

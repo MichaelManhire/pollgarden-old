@@ -14,7 +14,7 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <h2 class="text-lg font-medium leading-6">Profile Details</h2>
-                    <p class="mt-1 text-sm leading-5 text-gray-500">These details will be displayed on your profile page.</p>
+                    <p class="mt-1 text-sm leading-5 text-gray-500">These details will be displayed on your profile page. Everything is optional.</p>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div>
@@ -36,6 +36,25 @@
                         </div>
                         @error('avatar')
                             <p class="mt-2 text-sm text-red-600" id="avatar-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium leading-tight" for="description">Short Description</label>
+                        <div class="mt-1.5 rounded-md shadow-sm">
+                            <textarea class="form-input block w-full @error('description') border-red-300 text-red-900 @enderror"
+                                      id="description"
+                                      name="description"
+                                      rows="5"
+                                      autocomplete="off"
+                                      maxlength="300"
+                                      @error('description')
+                                      aria-invalid="true"
+                                      aria-describedby="description-error"
+                                      @enderror>{{ $user->description }}</textarea>
+                        </div>
+                        @error('description')
+                            <p class="mt-2 text-sm text-red-600" id="description-error">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -239,9 +258,13 @@
         @csrf
         @method('DELETE')
 
-        <div class="flex justify-end mt-6">
-            <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-red-600 hover:bg-red-500" type="submit">Delete Your Account</button>
-        </div>
+        <x-panel class="px-4 py-5 sm:p-6">
+            <h2 class="text-lg font-medium leading-6">Deleting Your Account</h2>
+            <p class="mt-2">If you'd like to delete your account, please click the button below. After your account has been deleted, other users will no longer be able to access your profile page and you will no longer be able to log in.</p>
+            <div class="flex justify-end mt-6">
+                <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-red-600 hover:bg-red-500" type="submit">Delete Your Account</button>
+            </div>
+        </x-panel>
     </form>
 </article>
 @endsection

@@ -142,6 +142,7 @@ class UserController extends Controller
     {
         return request()->validate([
             'avatar' => 'nullable|image',
+            'description' => 'nullable|string|max:300',
             'age' => 'nullable|integer|min:13|max:99',
             'gender_id' => 'nullable|integer|exists:genders,id',
             'country_id' => 'nullable|integer|exists:countries,id',
