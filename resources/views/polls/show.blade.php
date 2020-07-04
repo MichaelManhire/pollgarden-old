@@ -5,32 +5,40 @@
 @section('content')
 <x-panel class="p-6">
     <article>
-        <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
+        <div class="flex-1 flex items-start">
+            <div class="flex-shrink-0 text-white">
+                <x-avatar :src="$poll->getImage()" :width="64" :height="64" />
+            </div>
 
-        <div class="mt-2 text-sm leading-tight text-gray-500">
-            <p class="inline-block mb-2 mr-2">
-                <span>Posted by</span>
-                <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a>
-                <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time>
-                <span>in {{ $poll->category->name }}</span>
-                @if ($poll->created_at != $poll->updated_at)
-                    <span>(edited <time datetime="{{ $poll->updated_at }}">{{ $poll->updated_at->diffForHumans() }})</time></span>
-                @endif
-            </p>
+            <div class="ml-4">
+                <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
 
-            @can('update', $poll)
-                <a class="inline-block mb-2 mr-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">Edit Poll</a>
-            @endcan
+                <div class="mt-2 text-sm leading-tight text-gray-500">
+                    <p class="inline-block mb-2 mr-2">
+                        <span>Posted by</span>
+                        <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a>
+                        <time datetime="{{ $poll->created_at }}">{{ $poll->created_at->diffForHumans() }}</time>
+                        <span>in {{ $poll->category->name }}</span>
+                        @if ($poll->created_at != $poll->updated_at)
+                            <span>(edited <time datetime="{{ $poll->updated_at }}">{{ $poll->updated_at->diffForHumans() }})</time></span>
+                        @endif
+                    </p>
 
-            @can('delete', $poll)
-                <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
+                    @can('update', $poll)
+                        <a class="inline-block mb-2 mr-2 text-green-600 hover:underline" href="{{ route('polls.edit', $poll) }}">Edit Poll</a>
+                    @endcan
 
-                    <input name="id" type="hidden" value="{{ $poll->id }}">
-                    <button class="text-green-600 hover:underline" type="submit">Delete Poll</button>
-                </form>
-            @endcan
+                    @can('delete', $poll)
+                        <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <input name="id" type="hidden" value="{{ $poll->id }}">
+                            <button class="text-green-600 hover:underline" type="submit">Delete Poll</button>
+                        </form>
+                    @endcan
+                </div>
+            </div>
         </div>
 
         <article class="block mt-5" id="ballot-box">

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class PollController extends Controller
 {
@@ -59,6 +60,19 @@ class PollController extends Controller
 
         // Add a slug for the poll.
         $poll['slug'] = Str::of($poll['title'])->slug('-') . '-' . rand();
+
+        // Handle poll image
+        if (Arr::exists($poll, 'image')) {
+            $originalImage = $request->file('image');
+            $originalPath = $originalImage->getPathName();
+            $originalExtension = $originalImage->extension();
+            $storagePath = storage_path('app/public/polls/' . $poll['slug'] . '.' . $originalExtension);
+            $croppedImage = Image::make($originalPath);
+            $croppedImage = $croppedImage->fit(200);
+            $croppedImage->save($storagePath);
+
+            $poll['image'] = 'polls/' . $poll['slug'] . '.' . $originalExtension;
+        }
 
         // Create the poll.
         $poll = Poll::create($poll);
@@ -122,6 +136,20 @@ class PollController extends Controller
         $this->authorize('update', $poll);
 
         $updatedPoll = $this->validatePoll();
+
+        // Handle poll image
+        if (Arr::exists($updatedPoll, 'image')) {
+            $originalImage = $request->file('image');
+            $originalPath = $originalImage->getPathName();
+            $originalExtension = $originalImage->extension();
+            $storagePath = storage_path('app/public/polls/' . $poll['slug'] . '.' . $originalExtension);
+            $croppedImage = Image::make($originalPath);
+            $croppedImage = $croppedImage->fit(200);
+            $croppedImage->save($storagePath);
+
+            $updatedPoll['image'] = 'polls/' . $poll['slug'] . '.' . $originalExtension;
+        }
+
         $updatedPoll['updated_at'] = Carbon::now();
 
         $poll->update($updatedPoll);
@@ -149,6 +177,7 @@ class PollController extends Controller
         return request()->validate([
             'title' => 'required|string|max:255',
             'category_id' => 'required|integer|exists:poll_categories,id',
+            'image' => 'nullable|image',
         ]);
     }
 

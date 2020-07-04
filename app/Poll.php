@@ -29,6 +29,15 @@ class Poll extends Model
         return $this->hasMany('App\Comment')->where('is_deleted', 0);
     }
 
+    public function getImage()
+    {
+        if ($this->image) {
+            return asset('storage/' . $this->image);
+        }
+
+        return $this->author->getAvatar();
+    }
+
     public function numberOfComments()
     {
         return $this->comments->count() . ' ' . Str::plural('comment', $this->comments->count());

@@ -21,5 +21,6 @@ $factory->define(Poll::class, function (Faker $faker) {
         },
         'title' => $title,
         'slug' => $slug,
+        'image' => null,
     ];
 });

@@ -8,7 +8,7 @@
         <h1 class="text-lg font-medium leading-tight">Create a Poll</h1>
         <p class="mt-1 text-sm text-gray-500">Your poll will be placed in the list of polls and voted on by the Poll Garden community.</p>
 
-        <form class="mt-6" action="{{ route('polls.store') }}" method="POST">
+        <form class="mt-6" action="{{ route('polls.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div>
@@ -78,14 +78,14 @@
                     @enderror
                 </div>
                 <div>
-                    <label class="sr-only" for="option0">Option 3</label>
+                    <label class="sr-only" for="option0">Option 3 (not required)</label>
                     <div class="mt-2 rounded-md shadow-sm">
                         <input class="form-input block w-full @error('options.2.name') border-red-300 text-red-900 @enderror"
                                id="option2"
                                name="options[2][name]"
                                type="text"
                                value="{{ old('options.2.name') }}"
-                               placeholder="Option 3"
+                               placeholder="Option 3 (not required)"
                                autocomplete="off"
                                maxlength="255"
                                @error('options.2.name')
@@ -98,14 +98,14 @@
                     @enderror
                 </div>
                 <div>
-                    <label class="sr-only" for="option0">Option 4</label>
+                    <label class="sr-only" for="option0">Option 4 (not required)</label>
                     <div class="mt-2 rounded-md shadow-sm">
                         <input class="form-input block w-full @error('options.3.name') border-red-300 text-red-900 @enderror"
                                id="option3"
                                name="options[3][name]"
                                type="text"
                                value="{{ old('options.3.name') }}"
-                               placeholder="Option 4"
+                               placeholder="Option 4 (not required)"
                                autocomplete="off"
                                maxlength="255"
                                @error('options.3.name')
@@ -118,14 +118,14 @@
                     @enderror
                 </div>
                 <div>
-                    <label class="sr-only" for="option0">Option 5</label>
+                    <label class="sr-only" for="option0">Option 5 (not required)</label>
                     <div class="mt-2 rounded-md shadow-sm">
                         <input class="form-input block w-full @error('options.4.name') border-red-300 text-red-900 @enderror"
                                id="option4"
                                name="options[4][name]"
                                type="text"
                                value="{{ old('options.4.name') }}"
-                               placeholder="Option 5"
+                               placeholder="Option 5 (not required)"
                                autocomplete="off"
                                maxlength="255"
                                @error('options.4.name')
@@ -161,8 +161,26 @@
                 @enderror
             </div>
 
+            <div class="mt-4">
+                <label class="block text-sm font-medium leading-tight" for="image">Image (not required)</label>
+                <div class="mt-1.5">
+                    <input class="inline-block align-middle @error('image') border-red-300 text-red-900 @enderror"
+                        id="image"
+                        name="image"
+                        type="file"
+                        accept="image/*"
+                        @error('image')
+                        aria-invalid="true"
+                        aria-describedby="image-error"
+                        @enderror>
+                </div>
+                @error('image')
+                    <p class="mt-2 text-sm text-red-600" id="image-error">{{ $message }}</p>
+                @enderror
+            </div>
+
             <div class="flex justify-end mt-6">
-                <x-button>Create Poll</x-button>
+                <x-button>Create New Poll</x-button>
             </div>
         </form>
     </article>

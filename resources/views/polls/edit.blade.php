@@ -7,7 +7,7 @@
     <article>
         <h1 class="text-lg font-medium leading-tight">Edit Your Poll</h1>
 
-        <form class="mt-6" action="{{ route('polls.update', $poll) }}" method="POST">
+        <form class="mt-6" action="{{ route('polls.update', $poll) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -52,6 +52,28 @@
                 </div>
                 @error('category_id')
                     <p class="mt-2 text-sm text-red-600" id="category-error">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mt-4">
+                <label class="block text-sm font-medium leading-tight" for="image">Image (not required)</label>
+                <div class="mt-1.5">
+                    <div class="inline-block align-middle mr-4 text-white">
+                        <x-avatar :src="$poll->getImage()" />
+                    </div>
+
+                    <input class="inline-block align-middle @error('image') border-red-300 text-red-900 @enderror"
+                        id="image"
+                        name="image"
+                        type="file"
+                        accept="image/*"
+                        @error('image')
+                        aria-invalid="true"
+                        aria-describedby="image-error"
+                        @enderror>
+                </div>
+                @error('image')
+                    <p class="mt-2 text-sm text-red-600" id="image-error">{{ $message }}</p>
                 @enderror
             </div>
 

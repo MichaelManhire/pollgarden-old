@@ -19,6 +19,7 @@ class CreatePollsTable extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 
