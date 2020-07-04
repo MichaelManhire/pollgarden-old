@@ -2,36 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Conversation;
 use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $messages = Auth::user()->getMessages()->sortByDesc('created_at');
-
-        dd($messages);
-
-        return view('messages.index', compact('messages'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -40,6 +17,8 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', [Message::class, Conversation::find($request['conversation_id'])]);
+
         $message = $this->validateMessage();
 
         $message['user_id'] = Auth::id();
@@ -47,17 +26,6 @@ class MessageController extends Controller
         $message = Message::create($message);
 
         return back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Message $message)
-    {
-        //
     }
 
     /**

@@ -21,9 +21,11 @@
     <div class="lg:flex lg:justify-between lg:items-start mt-4">
         <x-panel class="lg:order-1 p-4 lg:ml-2 min-w-1/4 whitespace-no-wrap">
             <div class="sm:flex sm:justify-around lg:block">
-                <article class="sm:px-2 lg:px-0 mb-6 sm:mb-0 lg:mb-6">
-                    <a href="{{ route('conversations.create', ['recipient_id' => $user->id]) }}">Send Message</a>
-                </article>
+                @can('create', App\Conversation::class)
+                    <article class="sm:px-2 lg:px-0 mb-6 sm:mb-0 lg:mb-6">
+                        <a href="{{ route('conversations.create', ['recipient_id' => $user->id]) }}">Send Message</a>
+                    </article>
+                @endcan
 
                 @if ($user->age || $user->gender || $user->county)
                     <article class="sm:px-2 lg:px-0 mb-6 sm:mb-0 lg:mb-6">

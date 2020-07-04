@@ -16,6 +16,8 @@ class ConversationController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Conversation::class);
+
         $conversations = Auth::user()->getConversations();
 
         return view('conversations.index', compact('conversations'));
@@ -28,6 +30,8 @@ class ConversationController extends Controller
      */
     public function create(Request $request)
     {
+        $this->authorize('create', Conversation::class);
+
         $conversations = Auth::user()->getConversations();
         $recipient = $request['recipient_id'];
 
@@ -52,6 +56,8 @@ class ConversationController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Conversation::class);
+
         $conversation = $this->validateConversation();
 
         $conversation['sender_id'] = Auth::id();
@@ -74,41 +80,9 @@ class ConversationController extends Controller
      */
     public function show(Conversation $conversation)
     {
+        $this->authorize('view', $conversation);
+
         return view('conversations.show', compact('conversation'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Conversation  $conversation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Conversation $conversation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Conversations  $conversations
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Conversation $conversation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Conversation  $conversation
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Conversation $conversation)
-    {
-        //
     }
 
     protected function validateConversation()
