@@ -21,12 +21,6 @@
     <div class="lg:flex lg:justify-between lg:items-start mt-4">
         <x-panel class="lg:order-1 p-4 lg:ml-2 min-w-1/4 whitespace-no-wrap">
             <div class="sm:flex sm:justify-around lg:block">
-                @can('create', App\Conversation::class)
-                    <article class="sm:px-2 lg:px-0 mb-6 sm:mb-0 lg:mb-6">
-                        <a href="{{ route('conversations.create', ['recipient_id' => $user->id]) }}">Send Message</a>
-                    </article>
-                @endcan
-
                 @if ($user->age || $user->gender || $user->county)
                     <article class="sm:px-2 lg:px-0 mb-6 sm:mb-0 lg:mb-6">
                         <h2 class="text-xl font-medium leading-tight">Profile Details</h2>
@@ -64,6 +58,12 @@
                         <dd class="float-left mt-1 ml-1 font-medium"><time datetime="{{ $user->created_at }}">{{ $user->created_at->diffForHumans() }}</time></dd>
                     </dl>
                 </article>
+
+                @can('create', App\Conversation::class)
+                    <article class="sm:px-2 lg:px-0 mt-6 sm:mt-0 lg:mt-6">
+                        <a class="inline-block lg:w-full py-2 px-4 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" href="{{ route('conversations.create', ['recipient_id' => $user->id, 'recipient_name' => $user->username, 'recipient_slug' => $user->slug]) }}">Send Message</a>
+                    </article>
+                @endcan
             </div>
         </x-panel>
 

@@ -199,7 +199,7 @@
                             @endif
                         @else
                             @if (url()->current() === route('notifications'))
-                                <li class="block mt-1">
+                                <li class="block mt-1" aria-current="page">
                                     <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.notifications', ['width' => '20', 'height' => '20'])
@@ -231,14 +231,25 @@
                                     </li>
                                 @endif
                             @endif
-                            <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('conversations.index') }}">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
-                                        @include('icons.message', ['width' => '20', 'height' => '20'])
-                                    </div>
-                                    Messages
-                                </a>
-                            </li>
+                            @if (url()->current() === route('conversations.index'))
+                                <li class="block mt-1" aria-current="page">
+                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.comment', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Messages
+                                    </span>
+                                </li>
+                            @else
+                                <li class="block mt-1">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('conversations.index') }}">
+                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                            @include('icons.comment', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        Messages
+                                    </a>
+                                </li>
+                            @endif
                             @if (url()->current() === route('users.edit', Auth::user()))
                                 <li class="block mt-1" aria-current="page">
                                     <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">

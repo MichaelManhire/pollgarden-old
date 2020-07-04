@@ -6,17 +6,51 @@
 <article>
     <h1 class="sr-only">Messages</h1>
 
-    <x-panel class="p-4">
+    @if ($conversations->count())
         <ol>
-            @forelse ($conversations as $conversation)
-                <li class="mb-4">
-                    {{ $conversation->sender->username }} and {{ $conversation->recipient->username }}
+            @foreach ($conversations as $conversation)
+                <li class="{{ ($loop->first) ? '' : 'mt-4' }}">
+                    <a href="{{ route('conversations.show', $conversation) }}">
+                        <x-panel class="p-3">
+                            <article>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-white">
+                                        @if (Auth::id() === $conversation->sender_id)
+                                            <x-avatar :src="$conversation->recipient->getAvatar()" />
+                                        @else
+                                            <x-avatar :src="$conversation->sender->getAvatar()" />
+                                        @endif
+                                    </div>
+
+                                    <div class="ml-4">
+                                        <h2>
+                                            <span class="text-green-600">
+                                                @if (Auth::id() === $conversation->sender_id)
+                                                    {{ $conversation->recipient->username }}
+                                                @else
+                                                    {{ $conversation->sender->username }}
+                                                @endif
+                                            </span>
+                                        </h2>
+                                        <p class="mt-1">{{ $conversation->messages->first()->body }}</p>
+                                    </div>
+                                </div>
+
+                                <footer class="mt-2 text-right text-sm">
+                                    <p>
+                                        <span>{{ Auth::id() === $conversation->messages->first()->user_id ? 'Sent' : 'Received' }}</span>
+                                        <time datetime="{{ $conversation->messages->first()->created_at }}">{{ $conversation->messages->first()->created_at->diffForHumans() }}</time>
+                                    </p>
+                                </footer>
+                            </article>
+                        </x-panel>
+                    </a>
                 </li>
-            @empty
-                <li>You don't have any messages!</li>
-            @endforelse
+            @endforeach
         </ol>
-    </x-panel>
+    @else
+        <p>You don't have any messages!</p>
+    @endif
 </article>
 
 {{-- {{ $messages->links() }} --}}
