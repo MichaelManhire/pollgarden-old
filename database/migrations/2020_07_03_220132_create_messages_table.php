@@ -18,7 +18,6 @@ class CreateMessagesTable extends Migration
             $table->foreignId('conversation_id');
             $table->foreignId('user_id');
             $table->text('body');
-            $table->boolean('is_read')->default(false);
             $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 

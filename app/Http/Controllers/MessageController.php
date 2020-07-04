@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Conversation;
 use App\Message;
+use App\Notifications\MessageReceived;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,14 @@ class MessageController extends Controller
         $message['user_id'] = Auth::id();
 
         $message = Message::create($message);
+
+        if (Auth::id() === $message->conversation->sender_id) {
+            $recipient = $message->conversation->recipient;
+        } else {
+            $recipient = $message->conversation->sender;
+        }
+
+        $recipient->notify(new MessageReceived($message));
 
         return back();
     }

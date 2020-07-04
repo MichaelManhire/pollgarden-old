@@ -31,6 +31,8 @@
                     @enderror
             </div>
 
+            <input name="conversation_id" type="hidden" value="{{ $conversation->id }}">
+
             <div class="flex justify-end mt-4">
                 <x-button>Send Message</x-button>
             </div>

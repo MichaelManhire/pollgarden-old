@@ -42,7 +42,7 @@
                         </li>
                     @endif
 
-                    @if ($unreadNotification['type'] === 'App\Notifications\VoteReceived')
+                    @if ($unreadNotification['type'] === 'App\Notifications\VotesReceived')
                         <li class="{{ ($loop->first) ? '' : 'mt-4' }}">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 2px;">
@@ -52,6 +52,22 @@
                                 People have begun voting on your poll,
                                 <a class="text-green-600 underline" href="{{ route('polls.show', $unreadNotification->data['pollSlug']) }}">
                                     {{ $unreadNotification->data['poll'] }}
+                                </a>
+                            </x-panel>
+                        </li>
+                    @endif
+
+                    @if ($unreadNotification['type'] === 'App\Notifications\MessageReceived')
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }}">
+                            <x-panel class="p-3">
+                                <div class="relative inline-block" style="top: 2px;">
+                                    @include('icons.message', ['width' => '16', 'height' => '16'])
+                                </div>
+                                <span class="font-medium">New message:</span>
+                                <a class="text-green-600 underline" href="{{ route('users.show', $unreadNotification->data['authorSlug']) }}">{{ $unreadNotification->data['author'] }}</a>
+                                has sent you a
+                                <a class="text-green-600 underline" href="{{ route('conversations.show', $unreadNotification->data['conversationId']) }}">
+                                    new message
                                 </a>
                             </x-panel>
                         </li>
@@ -66,7 +82,7 @@
     @endif
     @if ($readNotifications->count())
         <article>
-            <h2 class="sr-only">Older Notifications</h2>
+            <h2 class="sr-only">Old Notifications</h2>
             <ol>
                 @foreach ($readNotifications as $readNotification)
                     @if ($readNotification['type'] === 'App\Notifications\CommentReceived')
@@ -101,7 +117,7 @@
                         </li>
                     @endif
 
-                    @if ($readNotification['type'] === 'App\Notifications\VoteReceived')
+                    @if ($readNotification['type'] === 'App\Notifications\VotesReceived')
                         <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-75">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
@@ -111,6 +127,22 @@
                                 People have begun voting on your poll,
                                 <a class="text-green-600 underline" href="{{ route('polls.show', $readNotification->data['pollSlug']) }}">
                                     {{ $readNotification->data['poll'] }}
+                                </a>
+                            </x-panel>
+                        </li>
+                    @endif
+
+                    @if ($readNotification['type'] === 'App\Notifications\MessageReceived')
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-75">
+                            <x-panel class="p-3">
+                                <div class="relative inline-block" style="top: 3px;">
+                                    @include('icons.checkmark', ['width' => '18', 'height' => '18'])
+                                </div>
+                                <span class="font-medium">New message:</span>
+                                <a class="text-green-600 underline" href="{{ route('users.show', $readNotification->data['authorSlug']) }}">{{ $readNotification->data['author'] }}</a>
+                                has sent you a
+                                <a class="text-green-600 underline" href="{{ route('conversations.show', $readNotification->data['conversationId']) }}">
+                                    new message
                                 </a>
                             </x-panel>
                         </li>
