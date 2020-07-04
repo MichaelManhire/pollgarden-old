@@ -28,4 +28,4 @@ Route::patch('/users/{user}/settings', 'UserController@updateSettings')->name('u
 Route::resource('votes', 'VoteController')->only(['store', 'update', 'destroy']);
 Route::get('/notifications', 'Notifications')->middleware('auth')->name('notifications');
 Route::resource('conversations', 'ConversationController')->except(['edit', 'update', 'destroy']);
-Route::resource('messages', 'MessageController')->except(['index', 'create', 'show']);
+Route::resource('messages', 'MessageController')->except(['index', 'create', 'show', 'edit']);

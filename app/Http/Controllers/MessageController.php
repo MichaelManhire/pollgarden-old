@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Conversation;
 use App\Message;
 use App\Notifications\MessageReceived;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,17 +39,6 @@ class MessageController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Message $message)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -57,7 +47,14 @@ class MessageController extends Controller
      */
     public function update(Request $request, Message $message)
     {
-        //
+        $this->authorize('update', $message);
+
+        $updatedMessage = $this->validateMessage();
+        $updatedMessage['updated_at'] = Carbon::now();
+
+        $message->update($updatedMessage);
+
+        return back();
     }
 
     /**
@@ -68,7 +65,11 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        $this->authorize('delete', $message);
+
+        $message->update(['is_deleted' => true]);
+
+        return back();
     }
 
     protected function validateMessage()

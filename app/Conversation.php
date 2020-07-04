@@ -10,7 +10,7 @@ class Conversation extends Model
 
     public function messages()
     {
-        return $this->hasMany('App\Message')->latest();
+        return $this->hasMany('App\Message')->where('is_deleted', 0)->latest();
     }
 
     public function recipient()
