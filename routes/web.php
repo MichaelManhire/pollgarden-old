@@ -27,3 +27,5 @@ Route::resource('users', 'UserController')->except(['create', 'store']);
 Route::patch('/users/{user}/settings', 'UserController@updateSettings')->name('users.settings.update');
 Route::resource('votes', 'VoteController')->only(['store', 'update', 'destroy']);
 Route::get('/notifications', 'Notifications')->middleware('auth')->name('notifications');
+Route::resource('conversations', 'ConversationController');
+Route::resource('messages', 'MessageController');

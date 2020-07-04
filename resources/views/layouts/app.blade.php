@@ -232,7 +232,7 @@
                                 @endif
                             @endif
                             <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="">
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('conversations.index') }}">
                                     <div class="mr-2 text-gray-400 group-hover:text-gray-500">
                                         @include('icons.message', ['width' => '20', 'height' => '20'])
                                     </div>

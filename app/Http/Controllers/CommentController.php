@@ -75,15 +75,4 @@ class CommentController extends Controller
             'body' => 'required|string|max:3000',
         ]);
     }
-
-    // protected function sendNotification(Comment $comment)
-    // {
-    //     $comment->poll->author->notify(new CommentReceived([
-    //         Auth::user()->name,
-    //         Auth::user()->slug,
-    //         $comment->poll->title,
-    //         $comment->poll->slug,
-    //         $comment->body,
-    //     ]));
-    // }
 }
