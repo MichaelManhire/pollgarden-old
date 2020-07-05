@@ -107,6 +107,25 @@
                         <x-avatar :src="Auth::user()->getAvatar()" width="32" height="32" />
                         <span class="sr-only">Profile</span>
                     </a>
+
+                    <div class="relative" x-data="{ isShown: false }">
+                        <button class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" type="button" @click="isShown = ! isShown" @click.away="isShown = false">
+                            @include('icons.more', ['width' => '24', 'height' => '24'])
+                            <span class="sr-only">More Items</span>
+                        </button>
+                        <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg" x-show="isShown">
+                            <div class="rounded-md bg-white shadow-xs">
+                                <div class="py-1">
+                                    <a class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('users.edit', Auth::user()) }}">Settings</a>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+
+                                        <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900" type="submit">Log Out</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endguest
             </div>
         </div>
