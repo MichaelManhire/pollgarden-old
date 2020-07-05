@@ -6,6 +6,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#3f9142">
+    <meta name="theme-color" content="#ffffff">
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -137,13 +146,13 @@
             <x-panel class="p-4">
                 @if (Request::is('/'))
                     <h1 class="flex items-center text-xl font-medium leading-none">
-                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="42" height="42" loading="lazy">
-                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
+                        <span class="hidden sm:block sm:ml-2">Poll Garden</span>
                     </h1>
                 @else
                     <a class="flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
-                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="42" height="42" loading="lazy">
-                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
+                        <span class="hidden sm:block sm:ml-2">Poll Garden</span>
                     </a>
                 @endif
 
