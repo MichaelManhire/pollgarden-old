@@ -80,37 +80,37 @@
         </x-panel>
 
         <x-panel class="lg:flex-grow mt-4 lg:mt-0 lg:mr-2">
-            <div x-data="{ activeTab: 'polls' }">
+            <div x-data="{ activeTab: '#polls' }" x-init="function () { if (window.location.hash) { this.activeTab = window.location.hash } }">
                 <nav class="border-b border-gray-200" aria-label="Profile tabs">
                     <ul class="flex -mb-px">
                         <li class="flex w-1/3">
                             <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700"
                                href="#polls"
-                               :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === 'polls' }"
-                               @click.prevent="activeTab = 'polls'">
+                               :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#polls' }"
+                               @click="activeTab = '#polls'">
                                 Polls
                             </a>
                         </li>
                         <li class="flex w-1/3">
                             <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700"
                                href="#votes"
-                               :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === 'votes' }"
-                               @click.prevent="activeTab = 'votes'">
+                               :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#votes' }"
+                               @click="activeTab = '#votes'">
                                 Votes
                             </a>
                         </li>
                         <li class="flex w-1/3">
                             <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700"
                                href="#comments"
-                               :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === 'comments' }"
-                               @click.prevent="activeTab = 'comments'">
+                               :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#comments' }"
+                               @click="activeTab = '#comments'">
                                 Comments
                             </a>
                         </li>
                     </ul>
                 </nav>
 
-                <article class="mt-6" id="polls" x-show="activeTab === 'polls'">
+                <article id="polls" x-show="activeTab === '#polls'">
                     <h2 class="sr-only">Polls</h2>
                     <ol class="text-left">
                         @forelse ($polls as $poll)
@@ -120,12 +120,14 @@
                         @endforelse
                     </ol>
 
-                    <div class="px-4">
-                        {{ $polls->links() }}
-                    </div>
+                    @if ($polls->hasPages())
+                        <div class="px-4 border-t border-gray-100">
+                            {{ $polls->fragment('polls')->links() }}
+                        </div>
+                    @endif
                 </article>
 
-                <article class="mt-6" id="votes" x-show="activeTab === 'votes'">
+                <article id="votes" x-show="activeTab === '#votes'">
                     <h2 class="sr-only">Votes</h2>
                     <ol class="text-left">
                         @forelse ($votes as $vote)
@@ -135,12 +137,14 @@
                         @endforelse
                     </ol>
 
-                    <div class="px-4">
-                        {{ $votes->links() }}
-                    </div>
+                    @if ($votes->hasPages())
+                        <div class="px-4 border-t border-gray-100">
+                            {{ $votes->fragment('votes')->links() }}
+                        </div>
+                    @endif
                 </article>
 
-                <article class="mt-6" id="comments" x-show="activeTab === 'comments'">
+                <article id="comments" x-show="activeTab === '#comments'">
                     <h2 class="sr-only">Comments</h2>
                     <ol class="text-left">
                         @forelse ($comments as $comment)
@@ -150,9 +154,11 @@
                         @endforelse
                     </ol>
 
-                    <div class="px-4">
-                        {{ $comments->links() }}
-                    </div>
+                    @if ($comments->hasPages())
+                        <div class="px-4 border-t border-gray-100">
+                            {{ $comments->fragment('comments')->links() }}
+                        </div>
+                    @endif
                 </article>
             </div>
         </x-panel>

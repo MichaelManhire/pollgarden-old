@@ -1,4 +1,4 @@
-<li class="{{ ($loop->last) ? '' : 'border-t border-gray-100' }}">
+<li class="{{ ($loop->first) ? '' : 'border-t border-gray-100' }}">
     <x-listing :poll="$poll">
         <div class="flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
             <div>

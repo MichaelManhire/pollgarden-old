@@ -18,5 +18,7 @@
     </x-panel>
 </article>
 
-{{ $polls->links() }}
+@if ($polls->hasPages())
+    {{ $polls->links() }}
+@endif
 @endsection
