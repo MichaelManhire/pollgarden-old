@@ -84,6 +84,11 @@ class User extends Authenticatable
         return $polls->contains('id', $poll->id);
     }
 
+    public function isAdmin()
+    {
+        return $this->id === 1;
+    }
+
     public function polls()
     {
         return $this->hasMany('App\Poll')->where('is_deleted', 0);

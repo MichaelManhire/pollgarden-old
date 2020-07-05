@@ -10,6 +10,13 @@ class ConversationPolicy
 {
     use HandlesAuthorization;
 
+    public function before(?User $user)
+    {
+        if (optional($user)->isAdmin()) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      *

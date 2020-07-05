@@ -10,6 +10,29 @@ class PollPolicy
 {
     use HandlesAuthorization;
 
+    public function before(?User $user)
+    {
+        if (optional($user)->isAdmin()) {
+            return true;
+        }
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Poll  $poll
+     * @return mixed
+     */
+    public function view(?User $user, Poll $poll)
+    {
+        if ($poll->is_deleted) {
+            return $this->deny('This poll has been deleted.');
+        } else {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can create models.
      *

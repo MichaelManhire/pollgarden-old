@@ -9,6 +9,29 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function before(?User $user)
+    {
+        if (optional($user)->isAdmin()) {
+            return true;
+        }
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\User  $model
+     * @return mixed
+     */
+    public function view(?User $user, User $model)
+    {
+        if ($model->is_deleted) {
+            return $this->deny('This user\'s account has been deleted.');
+        } else {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can update the model.
      *

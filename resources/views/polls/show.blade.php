@@ -11,7 +11,12 @@
             </div>
 
             <div class="ml-4">
-                <h1 class="text-3xl leading-tight font-extrabold">{{ $poll->title }}</h1>
+                <h1 class="text-3xl leading-tight font-extrabold">
+                    {{ $poll->title }}
+                    @if ($poll->is_deleted)
+                        <span class="text-red-600">[DELETED]</span>
+                    @endif
+                </h1>
 
                 <div class="mt-2 text-sm leading-tight text-gray-500">
                     <p class="inline-block mb-2 mr-2">

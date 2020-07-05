@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        abort_if($user->is_deleted, 403, 'This user has deleted their account.');
+        $this->authorize('view', $user);
 
         $polls = $user->polls()->latest()->paginate(10, ['*'], 'polls_page');
         $votes = $user->votes()->latest()->paginate(10, ['*'], 'votes_page');

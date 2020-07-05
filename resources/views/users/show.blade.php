@@ -10,7 +10,12 @@
                 <x-avatar :src="$user->getAvatar()" width="96" height="96" />
             </div>
 
-            <h1 class="mt-2 text-3xl leading-tight font-extrabold sm:text-4xl">{{ $user->username }}</h1>
+            <h1 class="mt-2 text-3xl leading-tight font-extrabold sm:text-4xl">
+                {{ $user->username }}
+                @if ($user->is_deleted)
+                    <span class="block text-red-600">[DELETED]</span>
+                @endif
+            </h1>
 
             @if ($user->description)
                 <p class="max-w-3xl mt-4 mx-auto">{{ $user->description }}</p>
@@ -61,14 +66,14 @@
                 @auth
                     <article class="sm:px-2 lg:px-0 mt-6 sm:mt-0 lg:mt-6">
                         @can('update', $user)
-                        <a class="block lg:w-full py-2 px-4 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
+                        <a class="block lg:w-full py-2 px-4 mt-2 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
                            href="{{ route('users.edit', $user) }}">
                             Edit Profile
                         </a>
                         @endcan
                         @if (Auth::id() !== $user->id)
                             @can('create', App\Conversation::class)
-                                <a class="block lg:w-full py-2 px-4 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
+                                <a class="block lg:w-full py-2 px-4 mt-2 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
                                 href="{{ route('conversations.create', ['recipient_id' => $user->id, 'recipient_name' => $user->username, 'recipient_slug' => $user->slug]) }}">
                                     Send Message
                                 </a>
