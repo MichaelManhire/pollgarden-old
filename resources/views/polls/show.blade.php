@@ -56,8 +56,8 @@
                         <fieldset>
                             <legend class="sr-only">{{ $poll->title }}</legend>
                             @foreach ($poll->options as $option)
-                                <div class="flex items-center {{ ($loop->first) ? '' : 'mt-4' }}">
-                                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
+                                <div class="flex items-center {{ ($loop->first) ? '' : 'mt-2' }}">
+                                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 hover:bg-green-200 rounded-md cursor-pointer transition-colors duration-150 ease-in-out fancy-radio-button-wrapper" for="{{ $option->id }}">
                                         <input class="fancy-radio-button"
                                             id="{{ $option->id }}"
                                             name="option_id"
@@ -65,7 +65,7 @@
                                             value="{{ $option->id }}"
                                             required
                                             @change="vote()">
-                                        <span class="relative z-10">{{ $option->name }}</span>
+                                        <span class="relative z-10 font-medium">{{ $option->name }}</span>
                                         <span class="relative z-10 float-right font-bold" x-show="isShowingResults">{{ $option->percentage(count($poll->votes)) }}</span>
                                         <span class="result-bar js-result-bar" data-percentage="{{ $option->percentage($poll->votes->count()) }}"></span>
                                     </label>
@@ -87,8 +87,8 @@
                         <fieldset>
                             <legend class="sr-only">{{ $poll->title }}</legend>
                             @foreach ($poll->options as $option)
-                                <div class="flex items-center {{ ($loop->first) ? '' : 'mt-4' }}">
-                                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
+                                <div class="flex items-center {{ ($loop->first) ? '' : 'mt-2' }}">
+                                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 rounded-md cursor-pointer" for="{{ $option->id }}">
                                         <input class="fancy-radio-button"
                                             id="{{ $option->id }}"
                                             name="option_id"
@@ -97,7 +97,7 @@
                                             required
                                             {{ Auth::user()->vote($poll)->option_id === $option->id ? 'checked' : '' }}
                                             @change="vote()">
-                                        <span class="relative z-10">{{ $option->name }}</span>
+                                        <span class="relative z-10 font-medium">{{ $option->name }}</span>
                                         <span class="relative z-10 float-right font-bold" x-show="isShowingResults">{{ $option->percentage(count($poll->votes)) }}</span>
                                         <span class="result-bar js-result-bar" data-percentage="{{ $option->percentage($poll->votes->count()) }}"></span>
                                     </label>
@@ -149,10 +149,10 @@
             <article class="block mt-5">
                 <h2 class="sr-only">Poll Results</h2>
                 @foreach ($poll->options as $option)
-                    <div class="flex items-center px-6 {{ ($loop->first) ? '' : 'mt-4' }}">
-                        <p class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-300 rounded-full">
+                    <div class="flex items-center px-6 {{ ($loop->first) ? '' : 'mt-2' }}">
+                        <p class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 rounded-md">
                             <span class="fancy-radio-button-placeholder"></span>
-                            <span class="relative z-10">{{ $option->name }}</span>
+                            <span class="relative z-10 font-medium">{{ $option->name }}</span>
                             <span class="relative z-10 float-right font-bold">{{ $option->percentage(count($poll->votes)) }}</span>
                             <span class="result-bar js-result-bar" style="max-width: {{ $option->percentage($poll->votes->count()) }};"></span>
                         </p>

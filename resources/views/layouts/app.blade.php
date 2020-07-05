@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="text-gray-900 bg-gray-100">
+<body class="text-gray-900" style="background-color: #f9fafb;">
     {{-- Mobile Navigation --}}
     <div class="sticky top-0 z-10 lg:hidden bg-white shadow-sm">
         <div class="container flex justify-between h-16">
@@ -27,12 +27,12 @@
                 @if (Request::is('/'))
                     <span class="flex-shrink-0 flex items-center text-xl font-medium leading-none">
                         <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
-                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
+                        <span class="hidden sm:block sm:ml-2.5">Poll Garden</span>
                     </span>
                 @else
                     <a class="flex-shrink-0 flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
                         <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
-                        <span class="hidden sm:block sm:ml-1">Poll Garden</span>
+                        <span class="hidden sm:block sm:ml-2.5">Poll Garden</span>
                     </a>
                 @endif
 
@@ -117,8 +117,8 @@
                         <span class="sr-only">Profile</span>
                     </a>
 
-                    <div class="relative" x-data="{ isShown: false }">
-                        <button class="flex-shrink-0 ml-3 text-gray-400 hover:text-gray-500" type="button" @click="isShown = ! isShown" @click.away="isShown = false">
+                    <div class="relative flex-shrink-0 h-6 ml-3" x-data="{ isShown: false }">
+                        <button class="text-gray-400 hover:text-gray-500" type="button" @click="isShown = ! isShown" @click.away="isShown = false">
                             @include('icons.more', ['width' => '24', 'height' => '24'])
                             <span class="sr-only">More Items</span>
                         </button>
@@ -147,12 +147,12 @@
                 @if (Request::is('/'))
                     <h1 class="flex items-center text-xl font-medium leading-none">
                         <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
-                        <span class="hidden sm:block sm:ml-2">Poll Garden</span>
+                        <span class="hidden sm:block sm:ml-2.5">Poll Garden</span>
                     </h1>
                 @else
                     <a class="flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
                         <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
-                        <span class="hidden sm:block sm:ml-2">Poll Garden</span>
+                        <span class="hidden sm:block sm:ml-2.5">Poll Garden</span>
                     </a>
                 @endif
 
@@ -161,7 +161,7 @@
                         @can('create', App\Poll::class)
                             @if (url()->current() === route('polls.create'))
                                 <li class="block mt-1" aria-current="page">
-                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.create', ['width' => '20', 'height' => '20'])
                                         </div>
@@ -170,8 +170,8 @@
                                 </li>
                             @else
                                 <li class="block mt-1">
-                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.create') }}">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('polls.create') }}">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                             @include('icons.create', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Create New Poll
@@ -181,7 +181,7 @@
                         @endcan
                         @if (url()->current() === route('polls.index'))
                             <li class="block mt-1" aria-current="page">
-                                <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                     <div class="mr-2 text-green-400">
                                         @include('icons.poll', ['width' => '20', 'height' => '20'])
                                     </div>
@@ -190,8 +190,8 @@
                             </li>
                         @else
                             <li class="block mt-1">
-                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('polls.index') }}">
-                                    <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('polls.index') }}">
+                                    <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                         @include('icons.poll', ['width' => '20', 'height' => '20'])
                                     </div>
                                     View Polls
@@ -201,7 +201,7 @@
                         @guest
                             @if (url()->current() === route('login'))
                                 <li class="block mt-1" aria-current="page">
-                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.login', ['width' => '20', 'height' => '20'])
                                         </div>
@@ -210,8 +210,8 @@
                                 </li>
                             @else
                                 <li class="block mt-1">
-                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('login') }}">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('login') }}">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                             @include('icons.login', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Log In
@@ -220,7 +220,7 @@
                             @endif
                             @if (url()->current() === route('register'))
                                 <li class="block mt-1" aria-current="page">
-                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.signup', ['width' => '20', 'height' => '20'])
                                         </div>
@@ -229,8 +229,8 @@
                                 </li>
                             @else
                                 <li class="block mt-1">
-                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('register') }}">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('register') }}">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                             @include('icons.signup', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Create an Account
@@ -240,7 +240,7 @@
                         @else
                             @if (url()->current() === route('notifications'))
                                 <li class="block mt-1" aria-current="page">
-                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.notifications', ['width' => '20', 'height' => '20'])
                                         </div>
@@ -250,20 +250,20 @@
                             @else
                                 @if (Auth::user()->unreadNotifications->count())
                                     <li class="block mt-1">
-                                        <a class="group flex items-center p-2 text-sm font-medium leading-6 text-purple-600 hover:text-purple-900 rounded-md bg-purple-100 hover:bg-purple-50" href="{{ route('notifications') }}">
-                                            <div class="mr-2 text-purple-400 group-hover:text-purple-500">
+                                        <a class="group flex items-center p-2 text-sm font-medium leading-6 text-purple-500 hover:text-purple-600 rounded-md bg-purple-100 hover:bg-purple-50 transition-colors duration-150 ease-in-out" href="{{ route('notifications') }}">
+                                            <div class="mr-2 text-purple-400 group-hover:text-purple-500 transition-colors duration-150 ease-in-out">
                                                 @include('icons.notifications', ['width' => '20', 'height' => '20'])
                                             </div>
                                             Notifications
-                                            <span class="inline-block py-0.5 px-3 ml-auto text-xs leading-4 rounded-full bg-purple-200">
+                                            <span class="inline-block py-0.5 px-3 ml-auto text-xs leading-4 rounded-full bg-purple-100">
                                                 {{ Auth::user()->unreadNotifications->count() }}
                                             </span>
                                         </a>
                                     </li>
                                 @else
                                     <li class="block mt-1">
-                                        <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('notifications') }}">
-                                            <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                        <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('notifications') }}">
+                                            <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                                 @include('icons.notifications', ['width' => '20', 'height' => '20'])
                                             </div>
                                             Notifications
@@ -273,7 +273,7 @@
                             @endif
                             @if (url()->current() === route('conversations.index'))
                                 <li class="block mt-1" aria-current="page">
-                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.message', ['width' => '20', 'height' => '20'])
                                         </div>
@@ -282,8 +282,8 @@
                                 </li>
                             @else
                                 <li class="block mt-1">
-                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('conversations.index') }}">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('conversations.index') }}">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                             @include('icons.message', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Messages
@@ -292,7 +292,7 @@
                             @endif
                             @if (url()->current() === route('users.edit', Auth::user()))
                                 <li class="block mt-1" aria-current="page">
-                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-100">
+                                    <span class="flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
                                         <div class="mr-2 text-green-400">
                                             @include('icons.settings', ['width' => '20', 'height' => '20'])
                                         </div>
@@ -301,8 +301,8 @@
                                 </li>
                             @else
                                 <li class="block mt-1">
-                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" href="{{ route('users.edit', Auth::user()) }}">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('users.edit', Auth::user()) }}">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                             @include('icons.settings', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Settings
@@ -313,8 +313,8 @@
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
 
-                                    <button class="group flex items-center w-full p-2 text-sm font-medium leading-6 text-gray-600 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50" type="submit">
-                                        <div class="mr-2 text-gray-400 group-hover:text-gray-500">
+                                    <button class="group flex items-center w-full p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" type="submit">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
                                             @include('icons.logout', ['width' => '20', 'height' => '20'])
                                         </div>
                                         Log Out

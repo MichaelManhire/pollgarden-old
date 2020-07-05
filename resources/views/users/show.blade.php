@@ -66,14 +66,14 @@
                 @auth
                     <article class="sm:px-2 lg:px-0 mt-6 sm:mt-0 lg:mt-6">
                         @can('update', $user)
-                        <a class="block lg:w-full py-2 px-4 mt-2 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
+                        <a class="block lg:w-full py-2 px-4 mt-2 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500 transition-colors duration-150 ease-in-out"
                            href="{{ route('users.edit', $user) }}">
                             Edit Profile
                         </a>
                         @endcan
                         @if (Auth::id() !== $user->id)
                             @can('create', App\Conversation::class)
-                                <a class="block lg:w-full py-2 px-4 mt-2 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500"
+                                <a class="block lg:w-full py-2 px-4 mt-2 text-sm font-medium leading-5 text-white text-center border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500 transition-colors duration-150 ease-in-out"
                                 href="{{ route('conversations.create', ['recipient_id' => $user->id, 'recipient_name' => $user->username, 'recipient_slug' => $user->slug]) }}">
                                     Send Message
                                 </a>
@@ -89,7 +89,7 @@
                 <nav class="border-b border-gray-200" aria-label="Profile tabs">
                     <ul class="flex -mb-px">
                         <li class="flex w-1/3">
-                            <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700"
+                            <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700 transition-colors duration-150 ease-in-out"
                                href="#polls"
                                :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#polls' }"
                                @click="activeTab = '#polls'">
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class="flex w-1/3">
-                            <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700"
+                            <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700 transition-colors duration-150 ease-in-out"
                                href="#votes"
                                :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#votes' }"
                                @click="activeTab = '#votes'">
@@ -105,7 +105,7 @@
                             </a>
                         </li>
                         <li class="flex w-1/3">
-                            <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700"
+                            <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700 transition-colors duration-150 ease-in-out"
                                href="#comments"
                                :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#comments' }"
                                @click="activeTab = '#comments'">
@@ -121,7 +121,7 @@
                         @forelse ($polls as $poll)
                             @include('_poll-listing', ['poll' => $poll])
                         @empty
-                            <li class="px-4">{{ $user->username }} has not created any polls yet!</li>
+                            <li class="p-4">{{ $user->username }} has not created any polls yet!</li>
                         @endforelse
                     </ol>
 
@@ -138,7 +138,7 @@
                         @forelse ($votes as $vote)
                             @include('_vote-listing', ['poll' => $vote->recipient->poll, 'vote' => $vote])
                         @empty
-                            <li class="px-4">{{ $user->username }} has not voted in any polls yet!</li>
+                            <li class="p-4">{{ $user->username }} has not voted in any polls yet!</li>
                         @endforelse
                     </ol>
 
@@ -155,7 +155,7 @@
                         @forelse ($comments as $comment)
                             @include('_comment-listing', ['poll' => $comment->poll, 'comment' => $comment])
                         @empty
-                            <li class="px-4">{{ $user->username }} has not commented on any polls yet!</li>
+                            <li class="p-4">{{ $user->username }} has not commented on any polls yet!</li>
                         @endforelse
                     </ol>
 

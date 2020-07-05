@@ -10,8 +10,8 @@
         <ol>
             @foreach ($conversations as $conversation)
                 <li class="{{ ($loop->first) ? '' : 'mt-4' }}">
-                    <a href="{{ route('conversations.show', $conversation) }}">
-                        <x-panel class="p-3">
+                    <x-panel>
+                        <a class="block p-3 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('conversations.show', $conversation) }}">
                             <article>
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 text-white">
@@ -43,8 +43,8 @@
                                     </p>
                                 </footer>
                             </article>
-                        </x-panel>
-                    </a>
+                        </a>
+                    </x-panel>
                 </li>
             @endforeach
         </ol>

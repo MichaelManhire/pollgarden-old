@@ -262,7 +262,7 @@
             <h2 class="text-lg font-medium leading-6">Deleting Your Account</h2>
             <p class="mt-2">If you'd like to delete your account, please click the button below. After your account has been deleted, other users will no longer be able to access your profile page and you will no longer be able to log in.</p>
             <div class="flex justify-end mt-6">
-                <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-red-600 hover:bg-red-500" type="submit">Delete Your Account</button>
+                <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-red-600 hover:bg-red-500 transition-colors duration-150 ease-in-out" type="submit">Delete Your Account</button>
             </div>
         </x-panel>
     </form>
