@@ -36720,7 +36720,7 @@ video {
   max-width: 0;
   position: absolute;
   top: 0;
-  transition: max-width 0.8s ease;
+  transition: max-width 0.5s linear;
   width: 100%;
   z-index: 0;
 }
@@ -36765,6 +36765,17 @@ video {
 
 .fancy-radio-button:checked::before {
   background-color: #2f8332;
+}
+
+.fancy-radio-button-placeholder {
+  height: 1.5rem;
+  left: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  visibility: hidden;
+  width: 1.5rem;
+  z-index: 10;
 }
 
 @media (min-width: 640px) {

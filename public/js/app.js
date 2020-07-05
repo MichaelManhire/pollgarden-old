@@ -3877,6 +3877,8 @@ process.umask = function() { return 0; };
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./components/ballot-box */ "./resources/js/components/ballot-box.js");
+
 __webpack_require__(/*! ./components/comment */ "./resources/js/components/comment.js");
 
 /***/ }),
@@ -3892,6 +3894,39 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/***/ }),
+
+/***/ "./resources/js/components/ballot-box.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/ballot-box.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.ballotBox = function (myParameter) {
+  return {
+    isShowingResults: myParameter,
+    vote: function vote() {
+      this.$el.querySelectorAll('.js-ballot-box-form')[0].submit();
+    },
+    initResults: function initResults() {
+      var _this = this;
+
+      if (this.isShowingResults) {
+        setTimeout(function () {
+          _this.showResults();
+        }, 250);
+      }
+    },
+    showResults: function showResults() {
+      this.isShowingResults = true;
+      document.querySelectorAll('.js-result-bar').forEach(function (resultBar) {
+        resultBar.style.maxWidth = resultBar.dataset.percentage;
+      });
+    }
+  };
+};
 
 /***/ }),
 

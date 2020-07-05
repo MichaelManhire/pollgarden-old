@@ -104,6 +104,17 @@ class User extends Authenticatable
         return $this->belongsTo('App\State');
     }
 
+    public function vote($poll)
+    {
+        if (! $this->hasVoted($poll)) {
+            return null;
+        }
+
+        $vote = $poll->votes->where('user_id', $this->id)->first();
+
+        return $vote;
+    }
+
     public function votes()
     {
         return $this->hasMany('App\Vote');

@@ -62,15 +62,4 @@ class Poll extends Model
     {
         return $this->hasManyThrough('App\Vote', 'App\PollOption', 'poll_id', 'option_id');
     }
-
-    public function usersVote($userId)
-    {
-        $vote = $this->votes->where('user_id', $userId)->first();
-
-        if ($vote) {
-            return $vote;
-        }
-
-        return null;
-    }
 }
