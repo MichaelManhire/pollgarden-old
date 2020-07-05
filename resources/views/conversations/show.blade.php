@@ -17,6 +17,7 @@
                                   id="body"
                                   name="body"
                                   placeholder="Write your message here..."
+                                  rows="5"
                                   required
                                   autocomplete="off"
                                   autofocus
@@ -99,6 +100,7 @@
                                               id="body"
                                               name="body"
                                               placeholder="Write your message here..."
+                                              rows="5"
                                               required
                                               autocomplete="off"
                                               autofocus
