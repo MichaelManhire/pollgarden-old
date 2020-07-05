@@ -36,9 +36,9 @@ class UserController extends Controller
     {
         abort_if($user->is_deleted, 403, 'This user has deleted their account.');
 
-        $polls = $user->polls()->latest()->paginate(2, ['*'], 'polls_page');
+        $polls = $user->polls()->latest()->paginate(10, ['*'], 'polls_page');
         $votes = $user->votes()->latest()->paginate(10, ['*'], 'votes_page');
-        $comments = $user->comments()->latest()->paginate(2, ['*'], 'comments_page');
+        $comments = $user->comments()->latest()->paginate(10, ['*'], 'comments_page');
 
         return view('users.show', compact(['user', 'polls', 'votes', 'comments']));
     }
