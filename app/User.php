@@ -74,6 +74,16 @@ class User extends Authenticatable
         return $conversations;
     }
 
+    public function hasVoted($poll)
+    {
+        $votes = $this->votes;
+        $polls = $votes->map(function ($vote) {
+            return $vote->poll();
+        });
+
+        return $polls->contains('id', $poll->id);
+    }
+
     public function polls()
     {
         return $this->hasMany('App\Poll')->where('is_deleted', 0);

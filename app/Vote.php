@@ -17,4 +17,9 @@ class Vote extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function poll()
+    {
+        return $this->recipient->poll;
+    }
 }

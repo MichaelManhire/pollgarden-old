@@ -3,8 +3,8 @@
 @section('title', $poll->title)
 
 @section('content')
-<x-panel class="p-6">
-    <article>
+<article>
+    <x-panel class="p-6">
         <div class="flex-1 flex items-start">
             <div class="flex-shrink-0 text-white">
                 <x-avatar :src="$poll->getImage()" :width="64" :height="64" />
@@ -41,63 +41,68 @@
             </div>
         </div>
 
+        @auth
         <article class="block mt-5" id="ballot-box">
-            {{-- User has not voted: --}}
-            @if (is_null($poll->usersVote(Auth::id())))
+            @if (! Auth::user()->hasVoted($poll))
                 <h2 class="sr-only">Vote</h2>
-                <form action="{{ route('votes.store') }}" method="POST">
+                <form action="{{ route('votes.store') }}" method="POST" x-data>
                     @csrf
 
                     <fieldset>
                         <legend class="sr-only">{{ $poll->title }}</legend>
                         @foreach ($poll->options as $option)
-                            <label class="relative block py-4 pl-12 pr-4 mb-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
-                                <input class="appearance-none fancy-radio-button"
-                                       id="{{ $option->id }}"
-                                       name="option_id"
-                                       type="radio"
-                                       value="{{ $option->id }}"
-                                       required>
-                                <span>{{ $option->name }}</span>
-                            </label>
+                            <div class="flex items-center {{ ($loop->first) ? '' : 'mt-4' }}">
+                                <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
+                                    <input class="appearance-none fancy-radio-button"
+                                            id="{{ $option->id }}"
+                                            name="option_id"
+                                            type="radio"
+                                            value="{{ $option->id }}"
+                                            required
+                                            @change="$el.submit()">
+                                    <span>{{ $option->name }}</span>
+                                </label>
+                                <div class="flex-shrink-0 ml-3 text-green-600 invisible">
+                                    @include('icons.checkmark', ['height' => '24', 'width' => '24'])
+                                </div>
+                            </div>
                         @endforeach
                     </fieldset>
 
-                    <div class="flex justify-end mt-2">
-                        <x-button>Cast Your Vote</x-button>
-                    </div>
+                    <button class="sr-only" type="submit">Cast Your Vote</button>
                 </form>
-            {{-- User has voted: --}}
             @else
                 <h2 class="sr-only">Change Your Vote</h2>
-                <form action="{{ route('votes.update', $poll->usersVote(Auth::id())) }}" method="POST">
+                <form action="{{ route('votes.update', $poll->usersVote(Auth::id())) }}" method="POST" x-data>
                     @csrf
                     @method('PATCH')
 
                     <fieldset>
                         <legend class="sr-only">{{ $poll->title }}</legend>
                         @foreach ($poll->options as $option)
-                            <label class="relative block py-4 pl-12 pr-4 mb-4 bg-gray-300 rounded-full cursor-pointer"
-                                   for="{{ $option->id }}"
-                                   style="background: linear-gradient(to right, #bcf0da {{ $option->percentage(count($poll->votes)) }}, #d2d6dc {{ $option->percentage(count($poll->votes)) }}">
-                                <input class="appearance-none fancy-radio-button"
-                                       id="{{ $option->id }}"
-                                       name="option_id"
-                                       type="radio"
-                                       value="{{ $option->id }}"
-                                       required
-                                       {{ $poll->usersVote(Auth::id())->option_id === $option->id ? 'checked' : '' }}>
-                                <span>{{ $option->name }}</span>
-                                <span class="float-right font-bold">{{ $option->percentage(count($poll->votes)) }}</span>
-                            </label>
+                            <div class="flex items-center {{ ($loop->first) ? '' : 'mt-4' }}">
+                                <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-300 rounded-full cursor-pointer" for="{{ $option->id }}">
+                                    <input class="appearance-none fancy-radio-button"
+                                           id="{{ $option->id }}"
+                                           name="option_id"
+                                           type="radio"
+                                           value="{{ $option->id }}"
+                                           style="z-index: 1;"
+                                           required
+                                           {{ $poll->usersVote(Auth::id())->option_id === $option->id ? 'checked' : '' }}
+                                           @change="$el.submit()">
+                                    <span class="relative" style="z-index: 1;">{{ $option->name }}</span>
+                                    <span class="relative float-right font-bold" style="z-index: 1;">{{ $option->percentage(count($poll->votes)) }}</span>
+                                    <span class="absolute top-0 left-0 z-0 w-full h-full bg-green-300 rounded-full" style="transition: max-width .3s ease; max-width: {{ $option->percentage($poll->votes->count()) }};"></span>
+                                </label>
+                                <div class="flex-shrink-0 ml-3 text-green-600 @if ($poll->usersVote(Auth::id())->option_id !== $option->id) invisible @endif">
+                                    @include('icons.checkmark', ['height' => '24', 'width' => '24'])
+                                </div>
+                            </div>
                         @endforeach
                     </fieldset>
 
-                    <div class="flex justify-end mt-2">
-                        <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-green-600 hover:bg-green-500" type="submit">
-                            Change Your Vote
-                        </button>
-                    </div>
+                    <button class="sr-only" type="submit">Change Your Vote</button>
                 </form>
 
                 <form class="mt-3 text-right text-sm" action="{{ route('votes.destroy', $poll->usersVote(Auth::id())) }}" method="POST">
@@ -107,37 +112,42 @@
                     <button class="text-green-600 hover:underline" type="submit">Withdraw Your Vote</button>
                 </form>
             @endif
+
+            <div class="mt-2 ml-5">
+                <button class="text-sm text-green-600 hover:underline" type="button" @click="isShowingResults = true">Show Results</button>
+            </div>
         </article>
+        @endauth
+    </x-panel>
+
+    <article class="mt-6">
+        <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
+
+        @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
+
+        @if ($poll->parentComments->isNotEmpty())
+            <ol>
+                @foreach ($poll->parentComments as $comment)
+                    <li class="my-4" x-data="comment()">
+                        @include('_comment', ['comment' => $comment])
+                        @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
+                        @include('_comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
+                    </li>
+
+                    @if ($comment->replies->isNotEmpty())
+                        <ol class="ml-8">
+                            @foreach ($comment->replies as $reply)
+                                <li class="my-4" x-data="comment()">
+                                    @include('_comment', ['comment' => $reply])
+                                    @include('_comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
+                                    @include('_comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])
+                                </li>
+                            @endforeach
+                        </ol>
+                    @endif
+                @endforeach
+            </ol>
+        @endif
     </article>
-</x-panel>
-
-<article class="mt-6">
-    <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
-
-    @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
-
-    @if ($poll->parentComments->isNotEmpty())
-        <ol>
-            @foreach ($poll->parentComments as $comment)
-                <li class="my-4" x-data="comment()">
-                    @include('_comment', ['comment' => $comment])
-                    @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
-                    @include('_comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
-                </li>
-
-                @if ($comment->replies->isNotEmpty())
-                    <ol class="ml-8">
-                        @foreach ($comment->replies as $reply)
-                            <li class="my-4" x-data="comment()">
-                                @include('_comment', ['comment' => $reply])
-                                @include('_comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
-                                @include('_comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])
-                            </li>
-                        @endforeach
-                    </ol>
-                @endif
-            @endforeach
-        </ol>
-    @endif
 </article>
 @endsection
