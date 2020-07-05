@@ -67,7 +67,12 @@
                             </p>
 
                             @can('update', $message)
-                                <button class="inline-block ml-2 text-green-600 hover:underline" type="button" @click="isEditing = !isEditing">Edit</button>
+                                <button class="inline-block ml-2 text-green-600 hover:underline"
+                                        type="button"
+                                        @click="isEditing = !isEditing; if (isEditing) { setTimeout(function () { $refs.editField.focus() }, 1) }"
+                                        x-text="! isEditing ? 'Edit' : 'Cancel Edit'">
+                                    Edit
+                                </button>
                             @endcan
 
                             @can('delete', $message)
@@ -98,6 +103,7 @@
                                               autocomplete="off"
                                               autofocus
                                               maxlength="3000"
+                                              x-ref="editField"
                                               @error('body')
                                               aria-invalid="true"
                                               aria-describedby="body-error"
