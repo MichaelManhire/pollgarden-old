@@ -41,7 +41,7 @@
     </x-panel>
 
     <ol class="mt-4">
-        @foreach ($conversation->messages as $message)
+        @foreach ($messages as $message)
             <li class="{{ ($loop->first) ? '' : 'mt-4' }}" x-data="{ isEditing: false }">
                 <x-panel class="p-4">
                     <article>
@@ -126,7 +126,9 @@
             </li>
         @endforeach
     </ol>
-</article>
 
-{{-- {{ $messages->links() }} --}}
+    @if ($messages->hasPages())
+        {{ $messages->links() }}
+    @endif
+</article>
 @endsection

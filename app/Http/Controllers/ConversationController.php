@@ -85,7 +85,9 @@ class ConversationController extends Controller
     {
         $this->authorize('view', $conversation);
 
-        return view('conversations.show', compact('conversation'));
+        $messages = $conversation->messages()->paginate(10);
+
+        return view('conversations.show', compact(['conversation', 'messages']));
     }
 
     protected function validateConversation()
