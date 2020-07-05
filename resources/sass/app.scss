@@ -2,6 +2,19 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.result-bar {
+    background-color: #84e1bc;
+    border-radius: 9999px;
+    height: 100%;
+    left: 0;
+    max-width: 0;
+    position: absolute;
+    top: 0;
+    transition: max-width 0.8s ease;
+    width: 100%;
+    z-index: 0;
+}
+
 .comment::before {
     content: "";
     display: block;
@@ -18,12 +31,16 @@
 }
 
 .fancy-radio-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     height: 1.5rem;
     left: 1rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 1.5rem;
+    z-index: 10;
 }
 
 .fancy-radio-button::before {
