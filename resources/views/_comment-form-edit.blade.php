@@ -18,6 +18,7 @@
                               required
                               autocomplete="off"
                               maxlength="3000"
+                              x-ref="editField"
                               @error('body')
                               aria-invalid="true"
                               aria-describedby="{{ $id }}-error"

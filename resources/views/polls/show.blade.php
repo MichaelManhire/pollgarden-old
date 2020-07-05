@@ -119,7 +119,7 @@
     @if ($poll->parentComments->isNotEmpty())
         <ol>
             @foreach ($poll->parentComments as $comment)
-                <li class="my-4" x-data="{ isReplying: false, isEditing: false }">
+                <li class="my-4" x-data="comment()">
                     @include('_comment', ['comment' => $comment])
                     @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
                     @include('_comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
@@ -128,7 +128,7 @@
                 @if ($comment->replies->isNotEmpty())
                     <ol class="ml-8">
                         @foreach ($comment->replies as $reply)
-                            <li class="my-4" x-data="{ isReplying: false, isEditing: false }">
+                            <li class="my-4" x-data="comment()">
                                 @include('_comment', ['comment' => $reply])
                                 @include('_comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
                                 @include('_comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])

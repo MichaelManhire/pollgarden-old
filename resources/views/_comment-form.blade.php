@@ -17,6 +17,7 @@
                               required
                               autocomplete="off"
                               maxlength="3000"
+                              x-ref="replyField"
                               @error('body')
                               aria-invalid="true"
                               aria-describedby="{{ $id }}-error"

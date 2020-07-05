@@ -3877,6 +3877,8 @@ process.umask = function() { return 0; };
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./components/comment */ "./resources/js/components/comment.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -3890,6 +3892,44 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/***/ }),
+
+/***/ "./resources/js/components/comment.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/comment.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.comment = function () {
+  return {
+    isEditing: false,
+    isReplying: false,
+    toggleReplyForm: function toggleReplyForm() {
+      var _this = this;
+
+      this.isReplying = !this.isReplying;
+
+      if (this.isReplying) {
+        setTimeout(function () {
+          _this.$refs.replyField.focus();
+        }, 1);
+      }
+    },
+    toggleEditForm: function toggleEditForm() {
+      var _this2 = this;
+
+      this.isEditing = !this.isEditing;
+
+      if (this.isEditing) {
+        setTimeout(function () {
+          _this2.$refs.editField.focus();
+        }, 1);
+      }
+    }
+  };
+};
 
 /***/ }),
 

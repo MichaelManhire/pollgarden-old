@@ -24,11 +24,17 @@
             </p>
 
             @auth
-                <button class="inline-block ml-2 text-green-600 hover:underline" type="button" @click="isReplying = !isReplying">Reply</button>
+                <button class="inline-block ml-2 text-green-600 hover:underline"
+                        type="button"
+                        @click="toggleReplyForm()"
+                        x-text="! isReplying ? 'Reply' : 'Cancel Reply'">Reply</button>
             @endauth
 
             @can('update', $comment)
-                <button class="inline-block ml-2 text-green-600 hover:underline" type="button" @click="isEditing = !isEditing">Edit</button>
+                <button class="inline-block ml-2 text-green-600 hover:underline"
+                        type="button"
+                        @click="toggleEditForm()"
+                        x-text="! isEditing ? 'Edit' : 'Cancel Edit'">Edit</button>
             @endcan
 
             @can('delete', $comment)
