@@ -38,7 +38,7 @@
             @endcan
 
             @can('delete', $comment)
-                <form class="inline-block ml-2" action="{{ route('comments.destroy', $comment) }}" method="POST">
+                <form class="inline-block ml-2" action="{{ route('comments.destroy', $comment) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your comment?')) { $el.submit() }">
                     @csrf
                     @method('DELETE')
 

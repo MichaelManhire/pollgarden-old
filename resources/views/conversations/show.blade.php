@@ -77,7 +77,7 @@
                             @endcan
 
                             @can('delete', $message)
-                                <form class="inline-block ml-2" action="{{ route('messages.destroy', $message) }}" method="POST">
+                                <form class="inline-block ml-2" action="{{ route('messages.destroy', $message) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your message?')) { $el.submit() }">
                                     @csrf
                                     @method('DELETE')
 

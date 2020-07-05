@@ -29,7 +29,7 @@
                     @endcan
 
                     @can('delete', $poll)
-                        <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST">
+                        <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your poll?')) { $el.submit() }">
                             @csrf
                             @method('DELETE')
 
