@@ -55,5 +55,7 @@
     @endif
 </article>
 
-{{-- {{ $messages->links() }} --}}
+@if ($conversations->hasPages())
+    {{ $conversations->links() }}
+@endif
 @endsection

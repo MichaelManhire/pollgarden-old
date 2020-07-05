@@ -19,7 +19,7 @@ class ConversationController extends Controller
     {
         $this->authorize('viewAny', Conversation::class);
 
-        $conversations = Auth::user()->getConversations();
+        $conversations = Auth::user()->getConversations()->paginate(10);
 
         return view('conversations.index', compact('conversations'));
     }
