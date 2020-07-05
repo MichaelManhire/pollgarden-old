@@ -122,7 +122,7 @@
                         <p class="inline-block align-middle">{{ $poll->numberOfComments() }}</p>
                     </div>
 
-                    <button class="ml-4 text-sm text-green-600 hover:underline"
+                    <button class="ml-auto text-sm text-green-600 hover:underline"
                             type="button"
                             x-show="! isShowingResults"
                             :disabled="isShowingResults"
@@ -174,9 +174,9 @@
 
         @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
 
-        @if ($poll->parentComments->isNotEmpty())
-            <ol>
-                @foreach ($poll->parentComments as $comment)
+        @if ($comments->isNotEmpty())
+            <ol id="comments">
+                @foreach ($comments as $comment)
                     <li class="my-4" x-data="comment()">
                         @include('_comment', ['comment' => $comment])
                         @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
@@ -196,6 +196,10 @@
                     @endif
                 @endforeach
             </ol>
+        @endif
+
+        @if ($comments->hasPages())
+            {{ $comments->fragment('comments')->links() }}
         @endif
     </article>
 </article>

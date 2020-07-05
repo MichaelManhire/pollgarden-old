@@ -106,7 +106,9 @@ class PollController extends Controller
     {
         abort_if($poll->is_deleted, 403, 'This poll has been deleted.');
 
-        return view('polls.show', compact('poll'));
+        $comments = $poll->parentComments()->paginate(10);
+
+        return view('polls.show', compact(['poll', 'comments']));
     }
 
     /**
