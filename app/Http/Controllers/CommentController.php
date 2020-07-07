@@ -7,7 +7,6 @@ use App\Notifications\CommentReceived;
 use App\Notifications\CommentReplyReceived;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
@@ -28,10 +27,10 @@ class CommentController extends Controller
 
         $comment = Comment::create($comment);
 
-        if (Arr::exists($comment, 'parent_comment_id')) {
-            $comment->parentComment->author->notify(new CommentReplyReceived($comment));
+        if ($comment->isReply()) {
+            $this->sendReplyNotification($comment);
         } else {
-            $comment->poll->author->notify(new CommentReceived($comment));
+            $this->sendCommentNotification($comment);
         }
 
         return back();
@@ -78,5 +77,27 @@ class CommentController extends Controller
             'parent_comment_id' => 'integer|exists:comments,id',
             'body' => 'required|string|max:3000',
         ]);
+    }
+
+    protected function sendCommentNotification(Comment $comment)
+    {
+        $pollAuthor = $comment->poll->author;
+
+        if ($pollAuthor->id === Auth::id()) {
+            return;
+        }
+
+        $pollAuthor->notify(new CommentReceived($comment));
+    }
+
+    public function sendReplyNotification(Comment $comment)
+    {
+        $parentCommentAuthor = $comment->parentComment->author;
+
+        if ($parentCommentAuthor->id === Auth::id()) {
+            return;
+        }
+
+        $parentCommentAuthor->notify(new CommentReplyReceived($comment));
     }
 }

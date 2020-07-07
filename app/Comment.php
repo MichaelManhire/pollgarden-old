@@ -27,4 +27,9 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Poll');
     }
+
+    public function isReply()
+    {
+        return $this->parentComment;
+    }
 }
