@@ -67,7 +67,9 @@
                                             @change="vote()">
                                         <span class="relative z-10 font-medium">{{ $option->name }}</span>
                                         <span class="relative z-10 float-right font-bold" x-show="isShowingResults">{{ $option->percentage(count($poll->votes)) }}</span>
-                                        <span class="result-bar js-result-bar" data-percentage="{{ $option->percentage($poll->votes->count()) }}"></span>
+                                        <span class="result-bar js-result-bar"
+                                              data-percentage="{{ $option->percentage($poll->votes->count()) }}"
+                                              style="background-color: {{ $option->color($loop->index) }};"></span>
                                     </label>
                                     <div class="flex-shrink-0 ml-3 text-green-600 invisible">
                                         @include('icons.checkmark', ['height' => '24', 'width' => '24'])
@@ -99,7 +101,9 @@
                                             @change="vote()">
                                         <span class="relative z-10 font-medium">{{ $option->name }}</span>
                                         <span class="relative z-10 float-right font-bold" x-show="isShowingResults">{{ $option->percentage(count($poll->votes)) }}</span>
-                                        <span class="result-bar js-result-bar" data-percentage="{{ $option->percentage($poll->votes->count()) }}"></span>
+                                        <span class="result-bar js-result-bar"
+                                              data-percentage="{{ $option->percentage($poll->votes->count()) }}"
+                                              style="background-color: {{ $option->color($loop->index) }};"></span>
                                     </label>
                                     <div class="flex-shrink-0 ml-3 text-green-600 @if (Auth::user()->vote($poll)->option_id !== $option->id) invisible @endif">
                                         @include('icons.checkmark', ['height' => '24', 'width' => '24'])
@@ -154,7 +158,9 @@
                             <span class="fancy-radio-button-placeholder"></span>
                             <span class="relative z-10 font-medium">{{ $option->name }}</span>
                             <span class="relative z-10 float-right font-bold">{{ $option->percentage(count($poll->votes)) }}</span>
-                            <span class="result-bar js-result-bar" style="max-width: {{ $option->percentage($poll->votes->count()) }};"></span>
+                            <span class="result-bar js-result-bar"
+                                  data-percentage="{{ $option->percentage($poll->votes->count()) }}"
+                                  style="background-color: {{ $option->color($loop->index) }};"></span>
                         </p>
                         <div class="flex-shrink-0 ml-3 text-green-600 invisible">
                             @include('icons.checkmark', ['height' => '24', 'width' => '24'])
