@@ -92,7 +92,7 @@
                             <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700 transition-colors duration-150 ease-in-out"
                                href="#polls"
                                :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#polls' }"
-                               @click="activeTab = '#polls'">
+                               @click.prevent="activeTab = '#polls'; window.location.hash = '#polls';">
                                 Polls
                             </a>
                         </li>
@@ -100,7 +100,7 @@
                             <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700 transition-colors duration-150 ease-in-out"
                                href="#votes"
                                :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#votes' }"
-                               @click="activeTab = '#votes'">
+                               @click.prevent="activeTab = '#votes'; window.location.hash = '#votes';">
                                 Votes
                             </a>
                         </li>
@@ -108,7 +108,7 @@
                             <a class="w-full py-4 px-1 text-center border-b-2 border-transparent hover:border-gray-300 text-sm md:text-md font-medium leading-5 text-gray-500 hover:text-gray-700 transition-colors duration-150 ease-in-out"
                                href="#comments"
                                :class="{ 'border-green-500 hover:border-green-500 text-green-600 hover:text-green-600 cursor-default': activeTab === '#comments' }"
-                               @click="activeTab = '#comments'">
+                               @click.prevent="activeTab = '#comments'; window.location.hash = '#comments';">
                                 Comments
                             </a>
                         </li>
