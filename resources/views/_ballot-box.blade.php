@@ -1,7 +1,7 @@
-<article class="block mt-5" @auth x-data="ballotBox({{ $hasVoted }})" x-init="initResults() @endauth">
+<article class="block mt-5" @auth x-data="ballotBox({{ $hasVoted }}, {{ $totalVotes }})" @endauth">
 @auth
     <h2 class="sr-only">{{ $hasVoted ? 'Change Your Vote' : 'Cast Your Vote' }}</h2>
-    <form class="js-ballot-box-form px-6" action="{{ $hasVoted ? route('votes.update', Auth::user()->vote($poll)->id) : route('votes.store') }}" method="POST">
+    <form class="px-6 js-ballot-box-form" action="{{ $hasVoted ? route('votes.update', Auth::user()->vote($poll)->id) : route('votes.store') }}" method="POST">
         @csrf
         @if ($hasVoted)
             @method('PATCH')
@@ -10,10 +10,8 @@
         <fieldset>
             <legend class="sr-only">{{ $poll->title }}</legend>
             @foreach ($poll->options as $option)
-                <div class="flex items-center {{ ($loop->first) ? '' : 'mt-2' }}">
-                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 rounded-md
-                           {{ !$hasVoted || (Auth::user()->vote($poll)->option_id !== $option->id) ? 'cursor-pointer hover:bg-gray-200 transition-colors duration-150 ease-in-out      fancy-radio-button-wrapper' : '' }}"
-                           for="{{ $option->id }}">
+                <div class="flex items-center {{ ($loop->first) ? '' : 'mt-2' }} js-option" data-id="{{ $option->id }}" data-votes="{{ $option->votes->count() }}">
+                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 rounded-md js-label cursor-pointer hover:bg-gray-200 transition-colors duration-150 ease-in-out fancy-radio-button-wrapper" for="{{ $option->id }}">
                         <input class="fancy-radio-button"
                                id="{{ $option->id }}"
                                name="option_id"
@@ -25,12 +23,12 @@
                                @endif
                                @change="vote()">
                         <span class="relative z-10 font-medium">{{ $option->name }}</span>
-                        <span class="relative z-10 float-right font-bold" x-show="isShowingResults">{{ $option->percentage($poll->votes->count()) }}</span>
+                        <span class="relative z-10 float-right font-bold js-percentage" x-show="isShowingResults">{{ $option->percentage($poll->votes->count()) }}</span>
                         <span class="result-bar js-result-bar"
                               data-percentage="{{ $option->percentage($poll->votes->count()) }}"
-                              style="background-color: {{ $option->color($loop->index) }};"></span>
+                              style="background-color: {{ $option->color($loop->index) }}; max-width: {{ $hasVoted ? $option->percentage($poll->votes->count()) : 0 }};"></span>
                     </label>
-                    <div class="flex-shrink-0 ml-3 text-green-600 {{ !$hasVoted || (Auth::user()->vote($poll)->option_id !== $option->id) ? 'invisible' : '' }}">
+                    <div class="flex-shrink-0 ml-3 text-green-600 {{ !$hasVoted || (Auth::user()->vote($poll)->option_id !== $option->id) ? 'invisible' : '' }} js-vote-icon">
                         @include('icons.checkmark', ['height' => '24', 'width' => '24'])
                     </div>
                 </div>
@@ -65,7 +63,7 @@
         <div class="inline-block align-middle">
             @include('icons.poll', ['width' => '16', 'height' => '16'])
         </div>
-        <p class="inline-block align-middle">{{ $poll->numberOfVotes() }}</p>
+        <p class="inline-block align-middle js-total-votes">{{ $poll->numberOfVotes() }}</p>
     </div>
 
     <div class="ml-4 text-sm text-gray-600">

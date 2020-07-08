@@ -47,9 +47,9 @@
         </div>
 
         @auth
-            @include('_ballot-box', ['hasVoted' => Auth::user()->hasVoted($poll)])
+            @include('_ballot-box', ['hasVoted' => Auth::user()->hasVoted($poll) ? 1 : 0, 'totalVotes' => $poll->votes->count()])
         @else
-            @include('_ballot-box', ['hasVoted' => false])
+            @include('_ballot-box', ['hasVoted' => false, 'totalVotes' => $poll->votes->count()])
         @endauth
     </x-panel>
 
@@ -80,6 +80,10 @@
                     @endif
                 @endforeach
             </ol>
+        @else
+            <x-panel class="p-3 mt-4">
+                <p>No one has left a comment on this poll yet!</p>
+            </x-panel>
         @endif
 
         @if ($comments->hasPages())
