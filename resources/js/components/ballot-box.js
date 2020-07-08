@@ -1,7 +1,7 @@
 window.ballotBox = function (hasVoted, totalVotes) {
     return {
         hasVoted: !!hasVoted,
-        isShowingResults: this.hasVoted,
+        isShowingResults: !!hasVoted,
         totalVotes: totalVotes,
 
         vote() {
@@ -26,9 +26,11 @@ window.ballotBox = function (hasVoted, totalVotes) {
                     }
                 })
                 .catch(function (error) {
-                    if (error) {
-                        console.error(error)
+                    if (error.response.status === 403) {
+                        window.location.reload()
                     }
+
+                    console.error(error)
                 })
         },
 

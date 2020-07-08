@@ -3907,7 +3907,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.ballotBox = function (hasVoted, totalVotes) {
   return {
     hasVoted: !!hasVoted,
-    isShowingResults: this.hasVoted,
+    isShowingResults: !!hasVoted,
     totalVotes: totalVotes,
     vote: function vote() {
       var _this = this;
@@ -3933,9 +3933,11 @@ window.ballotBox = function (hasVoted, totalVotes) {
           form.submit();
         }
       })["catch"](function (error) {
-        if (error) {
-          console.error(error);
+        if (error.response.status === 403) {
+          window.location.reload();
         }
+
+        console.error(error);
       });
     },
     updateTotal: function updateTotal() {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\VotesReceived;
+use App\PollOption;
 use App\Vote;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,6 +22,9 @@ class VoteController extends Controller
         $this->authorize('create', Vote::class);
 
         $vote = $this->validateVote();
+
+        $poll = PollOption::find($vote['option_id'])->poll;
+        abort_if(Auth::user()->hasVoted($poll), 403);
 
         $vote['user_id'] = Auth::id();
 
