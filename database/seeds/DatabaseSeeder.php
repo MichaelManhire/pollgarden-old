@@ -14,10 +14,13 @@ class DatabaseSeeder extends Seeder
         $this->call(CountrySeeder::class);
         $this->call(GenderSeeder::class);
         $this->call(StateSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(PollCategorySeeder::class);
-        $this->call(PollSeeder::class);
-        $this->call(VoteSeeder::class);
-        $this->call(CommentSeeder::class);
+
+        if (App::environment('local')) {
+            $this->call(UserSeeder::class);
+            $this->call(PollSeeder::class);
+            $this->call(VoteSeeder::class);
+            $this->call(CommentSeeder::class);
+        }
     }
 }
