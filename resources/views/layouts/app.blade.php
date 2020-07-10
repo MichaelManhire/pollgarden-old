@@ -21,7 +21,7 @@
 </head>
 <body class="text-gray-900" style="background-color: #f9fafb;">
     {{-- Mobile Navigation --}}
-    <div class="sticky top-0 z-10 lg:hidden bg-white shadow-sm">
+    <div class="sticky top-0 z-20 lg:hidden bg-white shadow-sm">
         <div class="container flex justify-between h-16">
             <div class="flex items-center">
                 @if (Request::is('/'))
@@ -50,11 +50,11 @@
                     @endcan
                     @if (url()->current() === route('polls.index'))
                         <li aria-current="page">
-                            <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">View <span class="hidden sm:inline">Polls</span></span>
+                            <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">View <span class="@auth hidden sm:inline @endauth">Polls</span></span>
                         </li>
                     @else
                         <li>
-                            <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View <span class="hidden sm:inline">Polls</span></a>
+                            <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View <span class="@auth hidden sm:inline @endauth">Polls</span></a>
                         </li>
                     @endif
                 </ul>
@@ -64,20 +64,20 @@
                     <ul class="flex sm:ml-2">
                         @if (url()->current() === route('login'))
                             <li aria-current="page">
-                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Log In</span>
+                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Log In</span>
                             </li>
                         @else
                             <li>
-                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
+                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
                             </li>
                         @endif
                         @if (url()->current() === route('register'))
                             <li aria-current="page">
-                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Sign Up</span>
+                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Sign Up</span>
                             </li>
                         @else
                             <li>
-                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
+                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
                             </li>
                         @endif
                     </ul>

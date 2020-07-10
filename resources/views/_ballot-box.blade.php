@@ -11,7 +11,7 @@
             <legend class="sr-only">{{ $poll->title }}</legend>
             @foreach ($poll->options as $option)
                 <div class="flex items-center {{ ($loop->first) ? '' : 'mt-2' }} js-option" data-id="{{ $option->id }}" data-votes="{{ $option->votes->count() }}">
-                    <label class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 rounded-md js-label cursor-pointer hover:bg-gray-200 transition-colors duration-150 ease-in-out fancy-radio-button-wrapper" for="{{ $option->id }}">
+                    <label class="relative flex-grow block py-5 pl-12 pr-4 leading-tight bg-gray-100 rounded-md js-label cursor-pointer hover:bg-gray-200 transition-colors duration-150 ease-in-out fancy-radio-button-wrapper" for="{{ $option->id }}">
                         <input class="fancy-radio-button"
                                id="{{ $option->id }}"
                                name="option_id"
@@ -42,7 +42,7 @@
     <ul>
         @foreach ($poll->options as $option)
             <li class="flex items-center px-6 {{ ($loop->first) ? '' : 'mt-2' }}">
-                <p class="relative flex-grow block py-4 pl-12 pr-4 bg-gray-100 rounded-md">
+                <p class="relative flex-grow block py-5 pl-12 pr-4 leading-tight bg-gray-100 rounded-md">
                     <span class="fancy-radio-button-placeholder"></span>
                     <span class="relative z-10 font-medium">{{ $option->name }}</span>
                     <span class="relative z-10 float-right font-bold">{{ $option->percentage($poll->votes->count()) }}</span>
@@ -59,14 +59,14 @@
 @endauth
 
 <div class="flex mt-6 py-2 px-6 border-t border-gray-100">
-    <div class="text-sm text-gray-600">
+    <div class="text-xs sm:text-sm text-gray-600">
         <div class="inline-block align-middle">
             @include('icons.poll', ['width' => '16', 'height' => '16'])
         </div>
         <p class="inline-block align-middle js-total-votes">{{ $poll->numberOfVotes() }}</p>
     </div>
 
-    <div class="ml-4 text-sm text-gray-600">
+    <div class="ml-4 text-xs sm:text-sm text-gray-600">
         <div class="inline-block align-middle">
             @include('icons.comment', ['width' => '16', 'height' => '16'])
         </div>
@@ -74,7 +74,7 @@
     </div>
 
     @auth
-        <button class="ml-auto text-sm text-green-600 hover:underline"
+        <button class="ml-auto text-xs sm:text-sm text-green-600 hover:underline"
                 type="button"
                 x-show="! isShowingResults"
                 :disabled="isShowingResults"

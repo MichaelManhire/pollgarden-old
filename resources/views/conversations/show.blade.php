@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                        <footer class="mt-2 text-right text-sm">
+                        <footer class="mt-4 text-right text-sm">
                             <p class="inline-block">
                                 <span>Sent</span>
                                 <time datetime="{{ $message->created_at }}">{{ $message->created_at->diffForHumans() }}</time>

@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <footer class="mt-2 text-right text-sm">
+        <footer class="mt-4 text-right text-sm">
             <p class="inline-block">
                 <span>Posted</span>
                 <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time>
