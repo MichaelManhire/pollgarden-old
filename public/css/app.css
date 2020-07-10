@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -877,6 +879,8 @@ video {
 .form-radio:checked:focus {
   border-color: transparent;
 }
+
+/*! purgecss end ignore */
 
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
