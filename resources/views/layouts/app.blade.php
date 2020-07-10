@@ -15,9 +15,9 @@
     <meta name="msapplication-TileColor" content="#3f9142">
     <meta name="theme-color" content="#ffffff">
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('/js/app.js') }}" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="text-gray-900" style="background-color: #f9fafb;">
     {{-- Mobile Navigation --}}

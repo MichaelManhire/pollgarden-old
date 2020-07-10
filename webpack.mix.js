@@ -23,3 +23,7 @@ mix.sass('resources/sass/app.scss', 'public/css')
     .purgeCss({
         content: [path.join(__dirname, 'resources/views/**/*.php')],
     })
+
+if (mix.inProduction()) {
+    mix.version()
+}
