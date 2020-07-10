@@ -29,6 +29,7 @@
                                 name="avatar"
                                 type="file"
                                 accept="image/*"
+                                style="max-width: 250px;"
                                 @error('avatar')
                                 aria-invalid="true"
                                 aria-describedby="avatar-error"

@@ -37,7 +37,7 @@
                 @enderror
             </div>
 
-            <div class="mt-6">
+            <div class="mt-4">
                 <label class="block text-sm font-medium leading-tight" for="password">Password</label>
                 <div class="mt-1.5 rounded-md shadow-sm">
                     <input class="form-input block w-full @error('password') border-red-300 text-red-900 @enderror"
@@ -57,7 +57,7 @@
                 @enderror
             </div>
 
-            <div class="mt-6">
+            <div class="mt-4">
                 <label class="block text-sm font-medium leading-tight" for="password-confirm">Confirm Password</label>
                 <div class="mt-1.5 rounded-md shadow-sm">
                     <input class="form-input block w-full"

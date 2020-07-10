@@ -26,35 +26,35 @@
             <div class="flex items-center">
                 @if (Request::is('/'))
                     <span class="flex-shrink-0 flex items-center text-xl font-medium leading-none">
-                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="24" height="24" loading="lazy">
                         <span class="hidden sm:block sm:ml-2.5">Poll Garden</span>
                     </span>
                 @else
                     <a class="flex-shrink-0 flex items-center text-xl font-medium leading-none" href="{{ url('/') }}">
-                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="32" height="32" loading="lazy">
+                        <img src="{{ asset('images/logo.svg') }}" alt="Poll Garden" width="24" height="24" loading="lazy">
                         <span class="hidden sm:block sm:ml-2.5">Poll Garden</span>
                     </a>
                 @endif
 
-                <ul class="flex sm:ml-2">
+                <ul class="flex ml-2">
                     @can('create', App\Poll::class)
                         @if (url()->current() === route('polls.create'))
                             <li aria-current="page">
-                                <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Create Poll</span>
+                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Create <span class="hidden sm:inline">Poll</span></span>
                             </li>
                         @else
                             <li>
-                                <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.create') }}">Create Poll</a>
+                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.create') }}">Create <span class="hidden sm:inline">Poll</span></a>
                             </li>
                         @endif
                     @endcan
                     @if (url()->current() === route('polls.index'))
                         <li aria-current="page">
-                            <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">View Polls</span>
+                            <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">View <span class="hidden sm:inline">Polls</span></span>
                         </li>
                     @else
                         <li>
-                            <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View Polls</a>
+                            <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-xs sm:text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('polls.index') }}">View <span class="hidden sm:inline">Polls</span></a>
                         </li>
                     @endif
                 </ul>
@@ -64,60 +64,60 @@
                     <ul class="flex sm:ml-2">
                         @if (url()->current() === route('login'))
                             <li aria-current="page">
-                                <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Log In</span>
+                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Log In</span>
                             </li>
                         @else
                             <li>
-                                <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
+                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('login') }}">Log In</a>
                             </li>
                         @endif
                         @if (url()->current() === route('register'))
                             <li aria-current="page">
-                                <span class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Sign Up</span>
+                                <span class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-green-600 bg-green-50 rounded-md">Sign Up</span>
                             </li>
                         @else
                             <li>
-                                <a class="py-2 px-3 ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
+                                <a class="py-1 sm:py-2 px-2 sm:px-3 ml-1 sm:ml-2 text-sm font-medium leading-5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md" href="{{ route('register') }}">Sign Up</a>
                             </li>
                         @endif
                     </ul>
                 @else
                     @if (url()->current() === route('conversations.index'))
-                        <span class="flex-shrink-0 ml-4 text-green-400">
+                        <span class="flex-shrink-0 ml-3 sm:ml-4 text-green-400">
                             @include('icons.message', ['width' => '24', 'height' => '24'])
                             <span class="sr-only">Messages</span>
                         </span>
                     @else
-                        <a class="flex-shrink-0 ml-4 text-gray-400 hover:text-gray-500" href="{{ route('conversations.index') }}">
+                        <a class="flex-shrink-0 ml-3 sm:ml-4 text-gray-400 hover:text-gray-500" href="{{ route('conversations.index') }}">
                             @include('icons.message', ['width' => '24', 'height' => '24'])
                             <span class="sr-only">Messages</span>
                         </a>
                     @endif
 
                     @if (url()->current() === route('notifications'))
-                        <span class="flex-shrink-0 ml-4 text-green-400">
+                        <span class="flex-shrink-0 ml-3 sm:ml-4 text-green-400">
                             @include('icons.notifications', ['width' => '24', 'height' => '24'])
                             <span class="sr-only">Notifications</span>
                         </span>
                     @else
                         @if (Auth::user()->unreadNotifications->count())
-                            <a class="flex-shrink-0 ml-4 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
+                            <a class="flex-shrink-0 ml-3 sm:ml-4 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
                                 @include('icons.notifications', ['width' => '24', 'height' => '24'])
                                 <span class="sr-only">Notifications</span>
                             </a>
                         @else
-                            <a class="flex-shrink-0 ml-4 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
+                            <a class="flex-shrink-0 ml-3 sm:ml-4 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">
                                 @include('icons.notifications', ['width' => '24', 'height' => '24'])
                                 <span class="sr-only">Notifications</span>
                             </a>
                         @endif
                     @endif
-                    <a class="flex-shrink-0 ml-4 text-white" href="{{ route('users.show', Auth::user()) }}">
+                    <a class="flex-shrink-0 ml-3 sm:ml-4 text-white" href="{{ route('users.show', Auth::user()) }}">
                         <x-avatar :src="Auth::user()->getAvatar()" width="32" height="32" />
                         <span class="sr-only">Profile</span>
                     </a>
 
-                    <div class="relative flex-shrink-0 h-6 ml-3" x-data="{ isShown: false }">
+                    <div class="relative flex-shrink-0 h-6 ml-2 sm:ml-3" x-data="{ isShown: false }">
                         <button class="text-gray-400 hover:text-gray-500" type="button" @click="isShown = ! isShown" @click.away="isShown = false">
                             @include('icons.more', ['width' => '24', 'height' => '24'])
                             <span class="sr-only">More Items</span>
@@ -255,7 +255,7 @@
                                                 @include('icons.notifications', ['width' => '20', 'height' => '20'])
                                             </div>
                                             Notifications
-                                            <span class="inline-block py-0.5 px-3 ml-auto text-xs leading-4 rounded-full bg-purple-100">
+                                            <span class="inline-block py-0.5 px-3 ml-auto text-xs leading-4 rounded-full">
                                                 {{ Auth::user()->unreadNotifications->count() }}
                                             </span>
                                         </a>
