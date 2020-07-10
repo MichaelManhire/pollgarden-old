@@ -21,7 +21,7 @@ class PollCategorySeeder extends Seeder
             [
                 'name' => 'Entertainment',
                 'slug' => 'entertainment',
-                'color' => 'purple',
+                'color' => 'blue',
             ],
             [
                 'name' => 'Food',
@@ -29,14 +29,29 @@ class PollCategorySeeder extends Seeder
                 'color' => 'yellow',
             ],
             [
+                'name' => 'Life Experiences',
+                'slug' => 'life-experiences',
+                'color' => 'teal',
+            ],
+            [
                 'name' => 'Politics',
                 'slug' => 'politics',
                 'color' => 'red',
             ],
             [
-                'name' => 'Society',
-                'slug' => 'society',
-                'color' => 'blue',
+                'name' => 'Relationships',
+                'slug' => 'relationships',
+                'color' => 'pink',
+            ],
+            [
+                'name' => 'Religion',
+                'slug' => 'religion',
+                'color' => 'orange',
+            ],
+            [
+                'name' => 'Science & Tech',
+                'slug' => 'science-tech',
+                'color' => 'gray',
             ],
         ]);
     }
