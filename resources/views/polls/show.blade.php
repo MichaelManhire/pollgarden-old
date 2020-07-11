@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $poll->title)
+@section('description', 'Vote and engage with others on interesting questions' . ($poll->category->id !== 1 ? ' about ' . strtolower($poll->category->name) : '') . '.')
 
 @section('content')
 <article>

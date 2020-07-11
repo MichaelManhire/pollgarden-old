@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $user->username)
+@section('robots', 'noindex')
 
 @section('content')
 <article>
