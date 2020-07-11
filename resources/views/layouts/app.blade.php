@@ -144,7 +144,7 @@
     </div>
 
     {{-- Desktop Navigation --}}
-    <div class="flex container py-8 lg:py-12">
+    <div class="flex container py-8 lg:py-12 main-content">
         <header class="hidden lg:inline-block min-w-1/5 mr-6">
             <x-panel class="p-4">
                 @if (Request::is('/'))
@@ -346,5 +346,12 @@
             @yield('content')
         </main>
     </div>
+
+    <footer class="text-sm border-t border-gray-50 bg-white footer">
+        <div class="container flex justify-end py-2">
+            <a class="text-green-600 hover:underline" href="{{ url('terms') }}">Terms of Use</a>
+            <p class="ml-6 text-gray-600">Copyright &copy; {{ now()->year }} Poll Garden</p>
+        </div>
+    </footer>
 </body>
 </html>

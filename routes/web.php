@@ -29,3 +29,7 @@ Route::resource('votes', 'VoteController')->only(['store', 'update', 'destroy'])
 Route::get('/notifications', 'Notifications')->middleware('auth')->name('notifications');
 Route::resource('conversations', 'ConversationController')->except(['edit', 'update', 'destroy']);
 Route::resource('messages', 'MessageController')->except(['index', 'create', 'show', 'edit']);
+
+Route::get('/terms', function () {
+    return view('pages.terms');
+});
