@@ -58,7 +58,7 @@
     </ul>
 @endauth
 
-<div class="flex mt-6 py-2 px-2 sm:px-6 border-t border-gray-100">
+<div class="flex items-center mt-6 py-2 px-2 sm:px-6 border-t border-gray-100">
     <div class="text-xs sm:text-sm text-gray-600">
         <div class="inline-block align-middle">
             @include('icons.poll', ['width' => '16', 'height' => '16'])
@@ -87,7 +87,7 @@
                 @csrf
                 @method('DELETE')
 
-                <button class="text-sm text-green-600 hover:underline" type="submit">Withdraw Your Vote</button>
+                <button class="text-xs sm:text-sm text-green-600 hover:underline" type="submit">Withdraw Your Vote</button>
             </form>
         @endcan
     @endauth
