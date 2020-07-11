@@ -86,7 +86,7 @@
             <ol>
                 @foreach ($readNotifications as $readNotification)
                     @if ($readNotification['type'] === 'App\Notifications\CommentReceived')
-                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-75">
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
                                     @include('icons.checkmark', ['width' => '18', 'height' => '18'])
@@ -102,7 +102,7 @@
                     @endif
 
                     @if ($readNotification['type'] === 'App\Notifications\CommentReplyReceived')
-                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-75">
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
                                     @include('icons.checkmark', ['width' => '18', 'height' => '18'])
@@ -118,7 +118,7 @@
                     @endif
 
                     @if ($readNotification['type'] === 'App\Notifications\VotesReceived')
-                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-75">
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
                                     @include('icons.checkmark', ['width' => '18', 'height' => '18'])
@@ -133,7 +133,7 @@
                     @endif
 
                     @if ($readNotification['type'] === 'App\Notifications\MessageReceived')
-                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-75">
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
                                     @include('icons.checkmark', ['width' => '18', 'height' => '18'])

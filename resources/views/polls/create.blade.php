@@ -169,7 +169,6 @@
                         name="image"
                         type="file"
                         accept="image/*"
-                        style="max-width: 250px;"
                         @error('image')
                         aria-invalid="true"
                         aria-describedby="image-error"

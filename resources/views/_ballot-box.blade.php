@@ -1,7 +1,7 @@
 <article class="block mt-5" @auth x-data="ballotBox({{ $hasVoted }}, {{ $totalVotes }})" @endauth">
 @auth
     <h2 class="sr-only">{{ $hasVoted ? 'Change Your Vote' : 'Cast Your Vote' }}</h2>
-    <form class="px-6 js-ballot-box-form" action="{{ $hasVoted ? route('votes.update', Auth::user()->vote($poll)->id) : route('votes.store') }}" method="POST">
+    <form class="px-2 sm:px-6 js-ballot-box-form" action="{{ $hasVoted ? route('votes.update', Auth::user()->vote($poll)->id) : route('votes.store') }}" method="POST">
         @csrf
         @if ($hasVoted)
             @method('PATCH')
@@ -11,6 +11,9 @@
             <legend class="sr-only">{{ $poll->title }}</legend>
             @foreach ($poll->options as $option)
                 <div class="flex items-center {{ ($loop->first) ? '' : 'mt-2' }} js-option" data-id="{{ $option->id }}" data-votes="{{ $option->votes->count() }}">
+                    <div class="flex-shrink-0 mr-3 text-green-600 {{ !$hasVoted || (Auth::user()->vote($poll)->option_id !== $option->id) ? 'invisible' : '' }} js-vote-icon">
+                        @include('icons.checkmark', ['height' => '24', 'width' => '24'])
+                    </div>
                     <label class="relative flex-grow block py-5 pl-12 pr-4 leading-tight bg-gray-100 rounded-md js-label cursor-pointer hover:bg-gray-200 transition-colors duration-150 ease-in-out fancy-radio-button-wrapper" for="{{ $option->id }}">
                         <input class="fancy-radio-button"
                                id="{{ $option->id }}"
@@ -28,9 +31,6 @@
                               data-percentage="{{ $option->percentage($poll->votes->count()) }}"
                               style="background-color: {{ $option->color($loop->index) }}; max-width: {{ $hasVoted ? $option->percentage($poll->votes->count()) : 0 }};"></span>
                     </label>
-                    <div class="flex-shrink-0 ml-3 text-green-600 {{ !$hasVoted || (Auth::user()->vote($poll)->option_id !== $option->id) ? 'invisible' : '' }} js-vote-icon">
-                        @include('icons.checkmark', ['height' => '24', 'width' => '24'])
-                    </div>
                 </div>
             @endforeach
         </fieldset>
@@ -42,6 +42,9 @@
     <ul>
         @foreach ($poll->options as $option)
             <li class="flex items-center px-6 {{ ($loop->first) ? '' : 'mt-2' }}">
+                <div class="flex-shrink-0 mr-3 text-green-600 invisible">
+                    @include('icons.checkmark', ['height' => '24', 'width' => '24'])
+                </div>
                 <p class="relative flex-grow block py-5 pl-12 pr-4 leading-tight bg-gray-100 rounded-md">
                     <span class="fancy-radio-button-placeholder"></span>
                     <span class="relative z-10 font-medium">{{ $option->name }}</span>
@@ -50,15 +53,12 @@
                           data-percentage="{{ $option->percentage($poll->votes->count()) }}"
                           style="background-color: {{ $option->color($loop->index) }}; max-width: {{ $option->percentage($poll->votes->count()) }};"></span>
                 </p>
-                <div class="flex-shrink-0 ml-3 text-green-600 invisible">
-                    @include('icons.checkmark', ['height' => '24', 'width' => '24'])
-                </div>
             </li>
         @endforeach
     </ul>
 @endauth
 
-<div class="flex mt-6 py-2 px-6 border-t border-gray-100">
+<div class="flex mt-6 py-2 px-2 sm:px-6 border-t border-gray-100">
     <div class="text-xs sm:text-sm text-gray-600">
         <div class="inline-block align-middle">
             @include('icons.poll', ['width' => '16', 'height' => '16'])

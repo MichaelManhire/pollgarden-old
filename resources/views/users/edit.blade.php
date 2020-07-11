@@ -29,7 +29,6 @@
                                 name="avatar"
                                 type="file"
                                 accept="image/*"
-                                style="max-width: 250px;"
                                 @error('avatar')
                                 aria-invalid="true"
                                 aria-describedby="avatar-error"
@@ -165,7 +164,7 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <h2 class="text-lg font-medium leading-6">Account Info</h2>
-                    <p class="mt-1 text-sm leading-5 text-gray-500">In case you need it...</p>
+                    <p class="mt-1 text-sm leading-5 text-gray-500">In case you need to update it...</p>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div>
@@ -210,7 +209,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <label class="block text-sm font-medium leading-tight" for="password">Password</label>
+                        <label class="block text-sm font-medium leading-tight" for="password">New Password</label>
                         <div class="mt-1.5 rounded-md shadow-sm">
                             <input class="form-input block w-full @error('password') border-red-300 text-red-900 @enderror"
                                    id="password"
@@ -229,7 +228,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <label class="block text-sm font-medium leading-tight" for="password-confirm">Confirm Password</label>
+                        <label class="block text-sm font-medium leading-tight" for="password-confirm">Confirm New Password</label>
                         <div class="mt-1.5 rounded-md shadow-sm">
                             <input class="form-input block w-full @error('password-confirm') border-red-300 text-red-900 @enderror"
                                    id="password-confirm"
@@ -261,7 +260,7 @@
 
         <x-panel class="px-4 py-5 sm:p-6">
             <h2 class="text-lg font-medium leading-6">Deleting Your Account</h2>
-            <p class="mt-2">If you'd like to delete your account, please click the button below. After your account has been deleted, other users will no longer be able to access your profile page and you will no longer be able to log in.</p>
+            <p class="mt-2 text-sm">If you'd like to delete your account, please click the button below. After your account has been deleted, other users will no longer be able to access your profile page and you will no longer be able to log in.</p>
             <div class="flex justify-end mt-6">
                 <button class="py-2 px-4 text-sm font-medium leading-5 text-white border-1 border-transparent rounded-md bg-red-600 hover:bg-red-500 transition-colors duration-150 ease-in-out" type="submit">Delete Your Account</button>
             </div>

@@ -5,7 +5,7 @@
 @section('content')
 <article>
     <x-panel class="pt-6">
-        <div class="flex-1 flex items-start px-6">
+        <div class="flex-1 flex items-start px-2 sm:px-6">
             <div class="flex-shrink-0 text-white">
                 <x-avatar class="w-12 sm:w-16 h-12 sm:h-16" :src="$poll->getImage()" :width="64" :height="64" />
             </div>
@@ -18,7 +18,7 @@
                     @endif
                 </h1>
 
-                <div class="mt-2 text-sm leading-tight text-gray-500">
+                <div class="mt-2 text-sm text-gray-500">
                     <p class="inline-block mb-2 mr-2">
                         <span>Posted by</span>
                         <a class="text-green-600 hover:underline" href="{{ route('users.show', $poll->author) }}">{{ $poll->author->username }}</a>

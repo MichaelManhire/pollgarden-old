@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
-<body class="text-gray-900" style="background-color: #f9fafb;">
+<body class="text-gray-900 bg-offwhite">
     {{-- Mobile Navigation --}}
     <div class="sticky top-0 z-20 lg:hidden bg-white shadow-sm">
         <div class="container flex justify-between h-16">
@@ -101,9 +101,12 @@
                         </span>
                     @else
                         @if (Auth::user()->unreadNotifications->count())
-                            <a class="flex-shrink-0 ml-3 sm:ml-4 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
+                            <a class="relative flex-shrink-0 ml-3 sm:ml-4 text-purple-400 hover:text-purple-500" href="{{ route('notifications') }}">
                                 @include('icons.notifications', ['width' => '24', 'height' => '24'])
                                 <span class="sr-only">Notifications</span>
+                                <span class="absolute text-center text-xs font-medium text-purple-700 bg-purple-100 rounded-full notifications-counter">
+                                    {{ Auth::user()->unreadNotifications->count() }}
+                                </span>
                             </a>
                         @else
                             <a class="flex-shrink-0 ml-3 sm:ml-4 text-gray-400 hover:text-gray-500" href="{{ route('notifications') }}">

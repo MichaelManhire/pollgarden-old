@@ -68,6 +68,7 @@ module.exports = {
                     '800': '#3B3B3B',
                     '900': '#222222',
                 },
+                'offwhite': '#f9fafb',
             },
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
