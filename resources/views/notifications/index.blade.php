@@ -49,7 +49,7 @@
                                     @include('icons.poll', ['width' => '16', 'height' => '16'])
                                 </div>
                                 <span class="font-medium">New votes:</span>
-                                People have begun voting on your poll,
+                                People have been voting on your poll,
                                 <a class="text-green-600 underline" href="{{ route('polls.show', $unreadNotification->data['pollSlug']) }}">
                                     {{ $unreadNotification->data['poll'] }}
                                 </a>
@@ -89,7 +89,7 @@
                         <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
-                                    @include('icons.checkmark', ['width' => '18', 'height' => '18'])
+                                    @include('icons.check', ['width' => '18', 'height' => '18'])
                                 </div>
                                 <span class="font-medium">New comment:</span>
                                 <a class="text-green-600 underline" href="{{ route('users.show', $readNotification->data['authorSlug']) }}">{{ $readNotification->data['author'] }}</a>
@@ -105,7 +105,7 @@
                         <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
-                                    @include('icons.checkmark', ['width' => '18', 'height' => '18'])
+                                    @include('icons.check', ['width' => '18', 'height' => '18'])
                                 </div>
                                 <span class="font-medium">New reply:</span>
                                 <a class="text-green-600 underline" href="{{ route('users.show', $readNotification->data['authorSlug']) }}">{{ $readNotification->data['author'] }}</a>
@@ -121,7 +121,7 @@
                         <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
-                                    @include('icons.checkmark', ['width' => '18', 'height' => '18'])
+                                    @include('icons.check', ['width' => '18', 'height' => '18'])
                                 </div>
                                 <span class="font-medium">New votes:</span>
                                 People have begun voting on your poll,
@@ -136,7 +136,7 @@
                         <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
                             <x-panel class="p-3">
                                 <div class="relative inline-block" style="top: 3px;">
-                                    @include('icons.checkmark', ['width' => '18', 'height' => '18'])
+                                    @include('icons.check', ['width' => '18', 'height' => '18'])
                                 </div>
                                 <span class="font-medium">New message:</span>
                                 <a class="text-green-600 underline" href="{{ route('users.show', $readNotification->data['authorSlug']) }}">{{ $readNotification->data['author'] }}</a>

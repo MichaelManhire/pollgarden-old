@@ -33,7 +33,7 @@ class CommentController extends Controller
             $this->sendCommentNotification($comment);
         }
 
-        return back();
+        return back()->with('success', 'Your comment was successfully posted!');
     }
 
     /**
@@ -52,7 +52,7 @@ class CommentController extends Controller
 
         $comment->update($updatedComment);
 
-        return back();
+        return back()->with('success', 'Your comment was successfully updated!');
     }
 
     /**
@@ -67,7 +67,7 @@ class CommentController extends Controller
 
         $comment->update(['is_deleted' => true]);
 
-        return back();
+        return back()->with('success', 'Your comment was deleted!');
     }
 
     protected function validateComment()

@@ -4,19 +4,9 @@
 
 @section('content')
 @if (session('status'))
-    <aside class="p-4 mb-4 bg-blue-50 rounded-md" role="alert">
-        <div class="flex">
-            <div class="flex-shrink-0 text-blue-400">
-                @include('icons.checkmark', ['width' => '20', 'height' => '20'])
-            </div>
-            <div class="ml-3">
-                <h2 class="text-sm font-medium leading-5 text-blue-800">Success</h2>
-                <div class="mt-2 text-sm leading-5 text-blue-700">
-                    <p>{{ session('status') }}</p>
-                </div>
-            </div>
-        </div>
-    </aside>
+    <x-alert>
+        {{ session('status') }}
+    </x-alert>
 @endif
 
 <article class="max-w-md mx-auto">

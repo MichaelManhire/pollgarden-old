@@ -93,7 +93,7 @@ class PollController extends Controller
         $poll->options()->createMany($options);
 
         // Redirect.
-        return redirect(route('polls.show', $poll));
+        return redirect(route('polls.show', $poll))->with('success', 'Your poll was successfully created!');
     }
 
     /**
@@ -156,7 +156,7 @@ class PollController extends Controller
 
         $poll->update($updatedPoll);
 
-        return redirect(route('polls.show', $poll));
+        return redirect(route('polls.show', $poll))->with('success', 'Your poll was successfully updated!');
     }
 
     /**
@@ -171,7 +171,7 @@ class PollController extends Controller
 
         $poll->update(['is_deleted' => true]);
 
-        return redirect(route('polls.index'));
+        return redirect(route('polls.index'))->with('success', 'Your poll was deleted!');
     }
 
     protected function validatePoll()

@@ -72,7 +72,7 @@ class ConversationController extends Controller
 
         $conversation->recipient->notify(new MessageReceived($message));
 
-        return redirect(route('conversations.show', $conversation));
+        return redirect(route('conversations.show', $conversation))->with('success', 'Your message was successfully sent!');
     }
 
     /**

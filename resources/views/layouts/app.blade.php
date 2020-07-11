@@ -343,6 +343,12 @@
         </header>
 
         <main class="flex-grow">
+            @if (session('success'))
+                <x-alert>
+                    {{ session('success') }}
+                </x-alert>
+            @endif
+
             @yield('content')
         </main>
     </div>

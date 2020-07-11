@@ -35,7 +35,7 @@ class MessageController extends Controller
 
         $recipient->notify(new MessageReceived($message));
 
-        return back();
+        return back()->with('success', 'Your message was successfully sent!');
     }
 
     /**
@@ -54,7 +54,7 @@ class MessageController extends Controller
 
         $message->update($updatedMessage);
 
-        return back();
+        return back()->with('success', 'Your message was successfully updated!');
     }
 
     /**
@@ -69,7 +69,7 @@ class MessageController extends Controller
 
         $message->update(['is_deleted' => true]);
 
-        return back();
+        return back()->with('success', 'Your message was deleted!');
     }
 
     protected function validateMessage()
