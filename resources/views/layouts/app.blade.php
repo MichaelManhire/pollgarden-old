@@ -132,6 +132,7 @@
                         <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg" x-show="isShown">
                             <div class="rounded-md bg-white shadow-xs">
                                 <div class="py-1">
+                                    <a class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('users.index') }}">View Users</a>
                                     <a class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('users.edit', Auth::user()) }}">Settings</a>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -245,6 +246,25 @@
                                 </li>
                             @endif
                         @else
+                            @if (url()->current() === route('users.index'))
+                                <li class="block mt-1" aria-current="page">
+                                    <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">
+                                        <div class="mr-2 text-green-400">
+                                            @include('icons.users', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        View Users
+                                    </span>
+                                </li>
+                            @else
+                                <li class="block mt-1">
+                                    <a class="group flex items-center p-2 text-sm font-medium leading-6 text-gray-700 hover:text-gray-900 rounded-md bg-gray-100 hover:bg-gray-50 transition-colors duration-150 ease-in-out" href="{{ route('users.index') }}">
+                                        <div class="mr-2 text-gray-500 group-hover:text-gray-600 transition-colors duration-150 ease-in-out">
+                                            @include('icons.users', ['width' => '20', 'height' => '20'])
+                                        </div>
+                                        View Users
+                                    </a>
+                                </li>
+                            @endif
                             @if (url()->current() === route('notifications'))
                                 <li class="block mt-1" aria-current="page">
                                     <span class="group flex items-center p-2 text-sm font-medium leading-6 text-green-600 rounded-md bg-green-50">

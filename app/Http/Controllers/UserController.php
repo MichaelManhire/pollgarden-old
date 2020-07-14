@@ -23,7 +23,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::where('is_deleted', 0)->latest()->paginate(60);
+
+        return view('users.index', compact('users'));
     }
 
     /**

@@ -82,6 +82,9 @@ module.exports = {
                 '1/3': '33.33%',
                 '1/2': '50%',
             },
+            maxWidth: {
+                '12': '12rem',
+            },
         },
     },
     variants: {},
