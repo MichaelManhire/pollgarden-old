@@ -30,40 +30,43 @@
                         x-text="! isReplying ? 'Reply' : 'Cancel Reply'">Reply</button>
             @endauth
 
-            <div class="inline-flex ml-2">
-                @if ($comment->hasBeenLiked(Auth::user()))
-                    <form action="{{ route('likes.destroy', Auth::user()->like($comment)->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-
-                        <button class="flex items-center" type="submit">
-                            <span class="font-medium">Liked</span>
-                            <span class="inline-block ml-1.5">
-                                @include('icons.like', ['width' => '14', 'height' => '14'])
-                            </span>
-                        </button>
-                    </form>
-                @else
-                    @can('create', App\Like::class)
-                        <form action="{{ route('likes.store') }}" method="POST">
-                            @csrf
-
-                            <input name="comment_id" type="hidden" value="{{ $comment->id }}">
-
-                            <button class="flex items-center" type="submit">
-                                <span class="text-green-600 hover:underline">Like</span>
-                                <span class="inline-block ml-1.5">
-                                    @include('icons.like', ['width' => '14', 'height' => '14'])
-                                </span>
-                            </button>
-                        </form>
-                    @endcan
-                @endif
-
-                <dl class="ml-1.5">
+            <div class="inline-flex items-center ml-2">
+                <dl>
                     <dt class="sr-only">Number of likes</dt>
                     <dd>{{ $comment->numberOfLikes() }}</dd>
                 </dl>
+                <span class="inline-block ml-1.5">
+                    @include('icons.like', ['width' => '14', 'height' => '14'])
+                </span>
+
+                @auth
+                    <div class="ml-1.5">
+                        @if ($comment->hasBeenLiked(Auth::user()))
+                            @can('delete', Auth::user()->like($comment))
+                                <form action="{{ route('likes.destroy', Auth::user()->like($comment)->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button class="font-medium" type="submit">
+                                        Liked <span class="sr-only">- Unlike</span>
+                                    </button>
+                                </form>
+                            @endcan
+                        @else
+                            @can('create', App\Like::class)
+                                <form action="{{ route('likes.store') }}" method="POST">
+                                    @csrf
+
+                                    <input name="comment_id" type="hidden" value="{{ $comment->id }}">
+
+                                    <button class="flex items-center text-green-600 hover:underline" type="submit">
+                                        Like
+                                    </button>
+                                </form>
+                            @endcan
+                        @endif
+                    </div>
+                @endauth
             </div>
 
             <div class="mt-2">
