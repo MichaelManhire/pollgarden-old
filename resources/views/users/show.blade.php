@@ -55,11 +55,13 @@
                     <h2 class="text-xl font-medium leading-tight">Activity</h2>
                     <dl class="mt-0.5 text-sm clearfix">
                         <dt class="float-left clear-left mt-1 text-gray-600">Polls Created:</dt>
-                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->polls->count() }}</dd>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->numberOfPolls() }}</dd>
                         <dt class="float-left clear-left mt-1 text-gray-600">Votes Cast:</dt>
-                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->votes->count() }}</dd>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->numberOfVotes() }}</dd>
                         <dt class="float-left clear-left mt-1 text-gray-600">Comments Posted:</dt>
-                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->comments->count() }}</dd>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->numberOfComments() }}</dd>
+                        <dt class="float-left clear-left mt-1 text-gray-600">Likes Received:</dt>
+                        <dd class="float-left mt-1 ml-1 font-medium">{{ $user->numberOfLikes() }}</dd>
                         <dt class="float-left clear-left mt-1 text-gray-600">Join Date:</dt>
                         <dd class="float-left mt-1 ml-1 font-medium"><time datetime="{{ $user->created_at }}">{{ $user->created_at->diffForHumans() }}</time></dd>
                     </dl>

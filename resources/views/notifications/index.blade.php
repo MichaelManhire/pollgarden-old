@@ -72,6 +72,22 @@
                             </x-panel>
                         </li>
                     @endif
+
+                    @if ($unreadNotification['type'] === 'App\Notifications\CommentLiked')
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }}">
+                            <x-panel class="p-3">
+                                <div class="relative inline-block" style="top: 2px;">
+                                    @include('icons.like', ['width' => '16', 'height' => '16'])
+                                </div>
+                                <span class="font-medium">Comment liked:</span>
+                                <a class="text-green-600 underline" href="{{ route('users.show', $unreadNotification->data['likerSlug']) }}">{{ $unreadNotification->data['liker'] }}</a>
+                                has liked your comment on
+                                <a class="text-green-600 underline" href="{{ route('polls.show', $unreadNotification->data['pollSlug']) }}#comment{{ $unreadNotification->data['commentId'] }}">
+                                    {{ $unreadNotification->data['poll'] }}
+                                </a>
+                            </x-panel>
+                        </li>
+                    @endif
                 @endforeach
             </ol>
         </article>
@@ -143,6 +159,22 @@
                                 has sent you a
                                 <a class="text-green-600 underline" href="{{ route('conversations.show', $readNotification->data['conversationId']) }}">
                                     new message
+                                </a>
+                            </x-panel>
+                        </li>
+                    @endif
+
+                    @if ($readNotification['type'] === 'App\Notifications\CommentLiked')
+                        <li class="{{ ($loop->first) ? '' : 'mt-4' }} opacity-50">
+                            <x-panel class="p-3">
+                                <div class="relative inline-block" style="top: 3px;">
+                                    @include('icons.check', ['width' => '18', 'height' => '18'])
+                                </div>
+                                <span class="font-medium">Comment liked:</span>
+                                <a class="text-green-600 underline" href="{{ route('users.show', $readNotification->data['likerSlug']) }}">{{ $readNotification->data['liker'] }}</a>
+                                has liked your comment on
+                                <a class="text-green-600 underline" href="{{ route('polls.show', $readNotification->data['pollSlug']) }}#comment{{ $readNotification->data['commentId'] }}">
+                                    {{ $readNotification->data['poll'] }}
                                 </a>
                             </x-panel>
                         </li>

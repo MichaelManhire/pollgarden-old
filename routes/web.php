@@ -22,6 +22,7 @@ Route::redirect('/', '/polls');
 Auth::routes();
 
 Route::resource('comments', 'CommentController')->only(['store', 'update', 'destroy']);
+Route::resource('likes', 'LikeController')->only(['store', 'destroy']);
 Route::resource('polls', 'PollController');
 Route::resource('users', 'UserController')->except(['create', 'store']);
 Route::patch('/users/{user}/settings', 'UserController@updateSettings')->name('users.settings.update');

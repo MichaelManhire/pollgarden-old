@@ -89,6 +89,38 @@ class User extends Authenticatable
         return $this->id === 1;
     }
 
+    public function like($comment)
+    {
+        $like = $comment->likes->where('user_id', $this->id)->first();
+
+        return $like;
+    }
+
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+
+    public function numberOfComments()
+    {
+        return $this->comments->count();
+    }
+
+    public function numberOfLikes()
+    {
+        return $this->likes->count();
+    }
+
+    public function numberOfPolls()
+    {
+        return $this->polls->count();
+    }
+
+    public function numberOfVotes()
+    {
+        return $this->votes->count();
+    }
+
     public function polls()
     {
         return $this->hasMany('App\Poll')->where('is_deleted', 0);
