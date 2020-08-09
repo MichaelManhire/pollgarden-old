@@ -35,7 +35,7 @@
                     @endcan
 
                     @can('delete', $poll)
-                        <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your poll?')) { $el.submit() }">
+                        <form class="inline-block mb-2" action="{{ route('polls.destroy', $poll) }}" method="POST" x-data x-on:submit.prevent="if (confirm('Are you sure you want to delete your poll?')) { $el.submit() }">
                             @csrf
                             @method('DELETE')
 
@@ -47,11 +47,12 @@
             </div>
         </div>
 
-        @auth
-            @include('_ballot-box', ['hasVoted' => Auth::user()->hasVoted($poll) ? 1 : 0, 'totalVotes' => $poll->votes->count()])
-        @else
-            @include('_ballot-box', ['hasVoted' => false, 'totalVotes' => $poll->votes->count()])
-        @endauth
+        <article class="block mt-5">
+            <h2 class="sr-only">Poll</h2>
+            <ballot-box has-voted="{{ Auth::user()->hasVoted($poll) }}"
+                        :options="{{ $poll->options }}"
+                        title="{{ $poll->title }}" />
+        </article>
     </x-panel>
 
     <article class="mt-6">

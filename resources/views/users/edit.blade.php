@@ -254,7 +254,7 @@
         </div>
     </form>
 
-    <form class="mt-8" action="{{ route('users.destroy', $user) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your account?')) { $el.submit() }">
+    <form class="mt-8" action="{{ route('users.destroy', $user) }}" method="POST" x-data x-on:submit.prevent="if (confirm('Are you sure you want to delete your account?')) { $el.submit() }">
         @csrf
         @method('DELETE')
 

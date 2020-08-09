@@ -70,14 +70,14 @@
                             @can('update', $message)
                                 <button class="inline-block ml-2 text-green-600 hover:underline"
                                         type="button"
-                                        @click="isEditing = !isEditing; if (isEditing) { setTimeout(function () { $refs.editField.focus() }, 1) }"
+                                        x-on:click="isEditing = !isEditing; if (isEditing) { setTimeout(function () { $refs.editField.focus() }, 1) }"
                                         x-text="! isEditing ? 'Edit' : 'Cancel Edit'">
                                     Edit
                                 </button>
                             @endcan
 
                             @can('delete', $message)
-                                <form class="inline-block ml-2" action="{{ route('messages.destroy', $message) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your message?')) { $el.submit() }">
+                                <form class="inline-block ml-2" action="{{ route('messages.destroy', $message) }}" method="POST" x-data x-on:submit.prevent="if (confirm('Are you sure you want to delete your message?')) { $el.submit() }">
                                     @csrf
                                     @method('DELETE')
 

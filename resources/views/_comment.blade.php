@@ -26,7 +26,7 @@
             @auth
                 <button class="inline-block ml-2 text-green-600 hover:underline"
                         type="button"
-                        @click="toggleReplyForm()"
+                        x-on:click="toggleReplyForm()"
                         x-text="! isReplying ? 'Reply' : 'Cancel Reply'">Reply</button>
             @endauth
 
@@ -73,12 +73,12 @@
                 @can('update', $comment)
                     <button class="inline-block ml-2 text-green-600 hover:underline"
                             type="button"
-                            @click="toggleEditForm()"
+                            x-on:click="toggleEditForm()"
                             x-text="! isEditing ? 'Edit' : 'Cancel Edit'">Edit</button>
                 @endcan
 
                 @can('delete', $comment)
-                    <form class="inline-block ml-2" action="{{ route('comments.destroy', $comment) }}" method="POST" x-data @submit.prevent="if (confirm('Are you sure you want to delete your comment?')) { $el.submit() }">
+                    <form class="inline-block ml-2" action="{{ route('comments.destroy', $comment) }}" method="POST" x-data x-on:submit.prevent="if (confirm('Are you sure you want to delete your comment?')) { $el.submit() }">
                         @csrf
                         @method('DELETE')
 

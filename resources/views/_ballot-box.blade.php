@@ -24,7 +24,7 @@
                                @if ($hasVoted)
                                     {{ Auth::user()->vote($poll)->option_id === $option->id ? 'checked' : '' }}
                                @endif
-                               @change="vote()">
+                               x-on:change="vote()">
                         <span class="relative z-10 font-medium">{{ $option->name }}</span>
                         <span class="relative z-10 float-right font-bold js-percentage" x-show="isShowingResults">{{ $option->percentage($poll->votes->count()) }}</span>
                         <span class="result-bar js-result-bar"
@@ -77,8 +77,8 @@
         <button class="ml-auto text-xs sm:text-sm text-green-600 hover:underline"
                 type="button"
                 x-show="! isShowingResults"
-                :disabled="isShowingResults"
-                @click="showResults()">
+                x-bind:disabled="isShowingResults"
+                x-on:click="showResults()">
             Show Results
         </button>
 
