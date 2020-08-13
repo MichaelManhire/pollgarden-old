@@ -22,6 +22,7 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <livewire:styles />
 </head>
 <body class="text-gray-900 bg-offwhite">
     {{-- Mobile Navigation --}}
@@ -383,5 +384,7 @@
             <p class="ml-6 text-gray-600">Copyright &copy; {{ now()->year }} Poll Garden</p>
         </div>
     </footer>
+
+<livewire:scripts />
 </body>
 </html>

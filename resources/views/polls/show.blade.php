@@ -47,11 +47,7 @@
             </div>
         </div>
 
-        @auth
-            @include('_ballot-box', ['hasVoted' => Auth::user()->hasVoted($poll) ? 1 : 0, 'totalVotes' => $poll->votes->count()])
-        @else
-            @include('_ballot-box', ['hasVoted' => false, 'totalVotes' => $poll->votes->count()])
-        @endauth
+        <livewire:ballot-box :poll="$poll" />
     </x-panel>
 
     <article class="mt-6">
