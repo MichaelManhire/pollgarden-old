@@ -63,6 +63,14 @@ input[type="file"] {
     top: -3rem;
 }
 
+.fancy-radio-button-wrapper {
+    @apply relative flex-grow block py-5 pl-12 pr-4 leading-tight bg-gray-100 rounded-md cursor-pointer transition-colors duration-150 ease-in-out;
+
+    &:hover {
+        @apply bg-gray-200;
+    }
+}
+
 .fancy-radio-button {
     -webkit-appearance: none;
     -moz-appearance: none;

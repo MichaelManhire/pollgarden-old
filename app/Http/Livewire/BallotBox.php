@@ -13,10 +13,8 @@ class BallotBox extends Component
 {
     use AuthorizesRequests;
 
-    public $hasVoted;
     public $option_id;
     public $poll;
-    public $totalVotes;
     public $vote;
 
     protected $listeners = ['optionSelected' => 'vote'];
@@ -24,10 +22,10 @@ class BallotBox extends Component
     public function mount()
     {
         $this->poll = request()->poll;
-        $this->hasVoted = Auth::user()->hasVoted($this->poll) ? true : false;
-        $this->totalVotes = $this->poll->votes->count();
-        $this->vote = $this->hasVoted ? Auth::user()->vote($this->poll) : null;
-        $this->option_id = $this->vote ? $this->vote->option_id : null;
+        // $this->hasVoted = Auth::user()->hasVoted($this->poll) ? true : false;
+        // $this->totalVotes = $this->poll->votes->count();
+        $this->vote = Auth::check() ? Auth::user()->vote($this->poll) : null;
+        // $this->option_id = $this->vote ? $this->vote->option_id : null;
     }
 
     public function vote()
