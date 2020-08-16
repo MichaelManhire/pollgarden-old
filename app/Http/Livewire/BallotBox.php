@@ -3,8 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Notifications\VotesReceived;
+use App\Poll;
 use App\PollOption;
 use App\Vote;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,15 +19,16 @@ class BallotBox extends Component
     public $poll;
     public $vote;
 
-    protected $listeners = ['optionSelected' => 'vote'];
+    protected $listeners = [
+        'optionSelected' => 'vote',
+        'optionUpdated' => 'updateVote',
+    ];
 
     public function mount()
     {
         $this->poll = request()->poll;
-        // $this->hasVoted = Auth::user()->hasVoted($this->poll) ? true : false;
-        // $this->totalVotes = $this->poll->votes->count();
         $this->vote = Auth::check() ? Auth::user()->vote($this->poll) : null;
-        // $this->option_id = $this->vote ? $this->vote->option_id : null;
+        $this->option_id = $this->vote ? $this->vote->option_id : null;
     }
 
     public function vote()
@@ -49,9 +52,24 @@ class BallotBox extends Component
         }
 
         $this->poll = $poll;
-        $this->hasVoted = true;
         $this->vote = $vote;
-        $this->totalVotes = $this->poll->votes->count();
+        $this->dispatchBrowserEvent('vote');
+    }
+
+    public function updateVote()
+    {
+        $this->authorize('update', $this->vote);
+
+        $updatedVote = $this->validate([
+            'option_id' => 'required|integer|exists:poll_options,id',
+        ]);
+        $updatedVote['updated_at'] = Carbon::now();
+
+        $this->vote->update($updatedVote);
+
+        $this->poll = Poll::find($this->poll->id);
+        $this->vote = Vote::find($this->vote->id);
+
         $this->dispatchBrowserEvent('vote');
     }
 

@@ -1,7 +1,11 @@
-<article class="block mt-5">
+<article class="block mt-5"
+         x-data="ballotBox({{ Auth::guest() || $vote }})"
+         x-init="isShowingResults ? showResults() : ''"
+         @vote="showResults(true)">
     @auth
         <h2 class="sr-only">Ballot Box</h2>
         @if (!$vote)
+            {{-- Logged In Users, Have Not Voted --}}
             <form class="px-2 sm:px-6 js-ballot-box-form" action="{{ route('votes.store') }}" method="POST">
                 @csrf
 
@@ -36,6 +40,7 @@
                 <button class="sr-only" type="submit">Cast Your Vote</button>
             </form>
         @else
+            {{-- Logged In Users, Have Voted --}}
             <form class="px-2 sm:px-6 js-ballot-box-form" action="{{ route('votes.update', $vote) }}" method="POST">
                 @csrf
                 @method('PATCH')
@@ -51,16 +56,19 @@
                                 <input class="fancy-radio-button"
                                        id="{{ $option->id }}"
                                        name="option_id"
+                                       wire:model="option_id"
                                        type="radio"
                                        value="{{ $option->id }}"
-                                       required>
+                                       required
+                                       {{ $this->vote->option_id === $option->id ? 'checked' : '' }}
+                                       wire:change="$emit('optionUpdated')">
                                 <span class="relative z-10 font-medium">{{ $option->name }}</span>
                                 <span class="relative z-10 float-right font-bold" x-show="isShowingResults">
                                     {{ $option->percentage($this->poll->votes->count()) }}
                                 </span>
                                 <span class="result-bar js-result-bar"
                                       data-percentage="{{ $option->percentage($this->poll->votes->count()) }}"
-                                      style="background-color: {{ $option->color($loop->index) }}; max-width: {{ $option->percentage($this->poll->votes->count()) }};"></span>
+                                      style="background-color: {{ $option->color($loop->index) }};"></span>
                             </label>
                         </div>
                     @endforeach
@@ -70,6 +78,7 @@
             </form>
         @endif
     @else
+        {{-- Logged Out Users --}}
         <h2 class="sr-only">Poll Results</h2>
         <ul>
             @foreach ($poll->options as $option)
@@ -108,27 +117,26 @@
             <p class="inline-block align-middle">{{ $poll->numberOfComments() }}</p>
         </div>
 
-        @auth
+        {{-- @if (!$vote) --}}
             <button class="ml-auto text-xs sm:text-sm text-green-600 hover:underline"
                     type="button"
-                    x-show="! isShowingResults"
-                    :disabled="isShowingResults"
-                    @click="showResults()">
+                    x-show="!isShowingResults"
+                    @click="showResults(true)">
                 Show Results
             </button>
+        {{-- @endif --}}
 
-            @can('delete', $vote)
-                <form class="ml-auto"
-                      action="{{ route('votes.destroy', $vote->id) }}"
-                      method="POST">
-                    @csrf
-                    @method('DELETE')
+        @can('delete', $vote)
+            <form class="ml-auto"
+                  action="{{ route('votes.destroy', $vote->id) }}"
+                  method="POST">
+                @csrf
+                @method('DELETE')
 
-                    <button class="text-xs sm:text-sm text-green-600 hover:underline" type="submit">
-                        Withdraw Your Vote
-                    </button>
-                </form>
-            @endcan
-        @endauth
+                <button class="text-xs sm:text-sm text-green-600 hover:underline" type="submit">
+                    Withdraw Your Vote
+                </button>
+            </form>
+        @endcan
     </div>
 </article>

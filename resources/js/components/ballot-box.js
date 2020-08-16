@@ -1,19 +1,23 @@
-window.ballotBox = function (hasVoted) {
+window.ballotBox = function (isShowingResults) {
     return {
-        isShowingResults: !!hasVoted,
+        isShowingResults: isShowingResults,
 
         vote() {
-            const form = this.$el.querySelector('.js-ballot-box-form')
+            const form = this.$el.querySelector('.js-ballot-box-form');
 
             form.submit();
         },
 
-        showResults() {
-            this.isShowingResults = true
+        showResults(hasTransitionEffect) {
+            this.isShowingResults = true;
 
             document.querySelectorAll('.js-result-bar').forEach(function (resultBar) {
-                resultBar.style.maxWidth = resultBar.dataset.percentage
-            })
+                if (hasTransitionEffect) {
+                    resultBar.style.transition = 'max-width 0.5s linear';
+                }
+
+                resultBar.style.maxWidth = resultBar.dataset.percentage;
+            });
         },
-    }
-}
+    };
+};
