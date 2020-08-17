@@ -52,40 +52,8 @@
 
     <article class="mt-6">
         <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
-
-        @include('_comment-form', ['id' => 'comment-for-poll-' . $poll->id, 'isReply' => false])
-
-        @if ($comments->isNotEmpty())
-            <ol id="comments">
-                @foreach ($comments as $comment)
-                    <li class="my-4" x-data="comment()">
-                        @include('_comment', ['comment' => $comment])
-                        @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
-                        @include('_comment-form', ['id' => 'reply-for-comment-' . $comment->id, 'isReply' => true])
-                    </li>
-
-                    @if ($comment->replies->isNotEmpty())
-                        <ol class="ml-8">
-                            @foreach ($comment->replies as $reply)
-                                <li class="my-4" x-data="comment()">
-                                    @include('_comment', ['comment' => $reply])
-                                    @include('_comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
-                                    @include('_comment-form', ['id' => 'reply-for-comment-' . $reply->id, 'isReply' => true])
-                                </li>
-                            @endforeach
-                        </ol>
-                    @endif
-                @endforeach
-            </ol>
-        @else
-            <x-panel class="p-3 mt-4">
-                <p>No one has left a comment on this poll yet!</p>
-            </x-panel>
-        @endif
-
-        @if ($comments->hasPages())
-            {{ $comments->fragment('comments')->links() }}
-        @endif
+        <livewire:comment-form :htmlId="'comment-for-poll-' . $poll->id" :isReply="false" :parentCommentId="null" :poll="$poll" />
+        <livewire:comment-list />
     </article>
 </article>
 @endsection
