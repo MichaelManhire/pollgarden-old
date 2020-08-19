@@ -34,7 +34,7 @@ class CommentForm extends Component
 
         $comment = $this->validate([
             'poll_id' => 'required|integer|exists:polls,id',
-            'parent_comment_id' => 'integer|exists:comments,id',
+            // 'parent_comment_id' => 'integer|exists:comments,id',
             'body' => 'required|string|max:3000',
         ]);
 

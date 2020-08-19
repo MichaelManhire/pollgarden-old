@@ -14,14 +14,15 @@ class CommentList extends Component
 
     protected $listeners = ['commentAdded' => 'refreshComments'];
 
-    public function mount()
+    public function mount($poll)
     {
-        $this->poll = request()->poll;
+        $this->poll = $poll;
         $this->comments = $this->poll->parentComments;
     }
 
     public function refreshComments()
     {
+        $this->comments = [];
         $this->comments = $this->poll->parentComments;
     }
 

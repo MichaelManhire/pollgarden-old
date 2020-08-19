@@ -4,10 +4,12 @@
             <li class="my-4" x-data="comment()">
                 @include('_comment', ['comment' => $comment])
                 @include('_comment-form-edit', ['comment' => $comment, 'id' => 'edit-for-comment-' . $comment->id, 'isReply' => false])
-                <livewire:comment-form :htmlId="'reply-for-comment-' . $comment->id"
-                                       :isReply="true"
-                                       :parentCommentId="$comment->id"
-                                       :poll="$poll" />
+                @can('create', App\Comment::class)
+                    <livewire:comment-form :htmlId="'reply-for-comment-' . $comment->id"
+                                           :isReply="true"
+                                           :parentCommentId="$comment->id"
+                                           :poll="$poll" />
+                @endcan
             </li>
 
             @if ($comment->replies->isNotEmpty())
@@ -16,10 +18,12 @@
                         <li class="my-4" x-data="comment()">
                             @include('_comment', ['comment' => $reply])
                             @include('_comment-form-edit', ['comment' => $reply, 'id' => 'edit-for-comment-' . $reply->id, 'isReply' => true])
-                            <livewire:comment-form :htmlId="'reply-for-comment-' . $reply->id"
-                                                   :isReply="true"
-                                                   :parentCommentId="$comment->id"
-                                                   :poll="$poll" />
+                            @can('create', App\Comment::class)
+                                <livewire:comment-form :htmlId="'reply-for-comment-' . $reply->id"
+                                                       :isReply="true"
+                                                       :parentCommentId="$comment->id"
+                                                       :poll="$poll" />
+                            @endcan
                         </li>
                     @endforeach
                 </ol>

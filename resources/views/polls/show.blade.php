@@ -52,8 +52,10 @@
 
     <article class="mt-6">
         <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
-        <livewire:comment-form :htmlId="'comment-for-poll-' . $poll->id" :isReply="false" :parentCommentId="null" :poll="$poll" />
-        <livewire:comment-list />
+        @can('create', App\Comment::class)
+            <livewire:comment-form :htmlId="'comment-for-poll-' . $poll->id" :isReply="false" :parentCommentId="null" :poll="$poll" />
+        @endcan
+        <livewire:comment-list :poll="$poll" />
     </article>
 </article>
 @endsection
