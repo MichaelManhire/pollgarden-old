@@ -30,10 +30,10 @@
                         x-text="! isReplying ? 'Reply' : 'Cancel Reply'">Reply</button>
             @endauth
 
-            <div class="inline-flex items-center ml-2">
+            <div class="inline-flex items-center ml-2" @auth x-data="likes({{ $comment->numberOfLikes() }})" @endauth>
                 <dl>
                     <dt class="sr-only">Number of likes</dt>
-                    <dd>{{ $comment->numberOfLikes() }}</dd>
+                    <dd class="js-total-likes">{{ $comment->numberOfLikes() }}</dd>
                 </dl>
                 <span class="inline-block ml-1.5">
                     @include('icons.like', ['width' => '14', 'height' => '14'])
@@ -43,7 +43,7 @@
                     <div class="ml-1.5">
                         @if ($comment->hasBeenLiked(Auth::user()))
                             @can('delete', Auth::user()->like($comment))
-                                <form action="{{ route('likes.destroy', Auth::user()->like($comment)->id) }}" method="POST">
+                                <form class="js-like-form" action="{{ route('likes.destroy', Auth::user()->like($comment)->id) }}" method="POST" @submit.prevent="unlike()">
                                     @csrf
                                     @method('DELETE')
 
@@ -54,7 +54,7 @@
                             @endcan
                         @else
                             @can('create', App\Like::class)
-                                <form action="{{ route('likes.store') }}" method="POST">
+                                <form class="js-like-form" action="{{ route('likes.store') }}" method="POST" @submit.prevent="like()">
                                     @csrf
 
                                     <input name="comment_id" type="hidden" value="{{ $comment->id }}">
