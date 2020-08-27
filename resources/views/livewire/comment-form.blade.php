@@ -29,7 +29,7 @@
             @enderror
         </div>
 
-        <input name="poll_id" type="hidden" value="{{ $poll->id }}">
+        <input name="poll_id" type="hidden" value="{{ $poll_id }}">
         @if ($isReply)
             <input name="parent_comment_id" type="hidden" value="{{ $parent_comment_id }}">
         @endif

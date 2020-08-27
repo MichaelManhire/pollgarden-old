@@ -6,13 +6,13 @@
 @section('content')
 <article>
     <x-panel class="pt-6">
-        <div class="flex-1 flex items-start px-2 sm:px-6">
+        <div class="flex items-start flex-1 px-2 sm:px-6">
             <div class="flex-shrink-0 text-white">
-                <x-avatar class="w-12 sm:w-16 h-12 sm:h-16" :src="$poll->getImage()" :width="64" :height="64" />
+                <x-avatar class="w-12 h-12 sm:w-16 sm:h-16" :src="$poll->getImage()" :width="64" :height="64" />
             </div>
 
             <div class="ml-4">
-                <h1 class="text-2xl sm:text-3xl leading-tight font-extrabold">
+                <h1 class="text-2xl font-extrabold leading-tight sm:text-3xl">
                     {{ $poll->title }}
                     @if ($poll->is_deleted)
                         <span class="text-red-600">[DELETED]</span>
@@ -51,9 +51,9 @@
     </x-panel>
 
     <article class="mt-6">
-        <h2 class="text-2xl leading-tight font-extrabold">Comments</h2>
+        <h2 class="text-2xl font-extrabold leading-tight">Comments</h2>
         @can('create', App\Comment::class)
-            <livewire:comment-form :htmlId="'comment-for-poll-' . $poll->id" :isReply="false" :parentCommentId="null" :poll="$poll" />
+            <livewire:comment-form :htmlId="'comment-for-poll-' . $poll->id" :isReply="false" :parentCommentId="null" :pollId="$poll->id" />
         @endcan
         <livewire:comment-list :poll="$poll" />
     </article>

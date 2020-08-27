@@ -7,29 +7,28 @@ use Livewire\WithPagination;
 
 class CommentList extends Component
 {
-    use WithPagination;
+    // use WithPagination;
 
     public $comments;
     public $poll;
 
     protected $listeners = ['commentAdded' => 'refreshComments'];
 
-    public function mount($poll)
+    public function mount()
     {
-        $this->poll = $poll;
+        $this->poll = request()->poll;
         $this->comments = $this->poll->parentComments;
     }
 
     public function refreshComments()
     {
-        $this->comments = [];
         $this->comments = $this->poll->parentComments;
     }
 
     public function render()
     {
         return view('livewire.comment-list', [
-            'comments' => $this->comments->paginate(10),
+            'comments' => $this->comments,
         ]);
     }
 }
